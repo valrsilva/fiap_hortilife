@@ -11,7 +11,7 @@ import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "br.com.netflix")
+@EnableElasticsearchRepositories(basePackages = "br.com.fiap")
 public class EsConfig {
 
     @Value("${elasticsearch.host}")

@@ -10,13 +10,12 @@ public class Item {
     private String id;
     private String name;
     private String description;
-    
-    private long codMidia;
+    private long codProduto;
     
     public Item() {
     	
     }
-	public Item(String name, String description, long idMidia) {
+	public Item(String name, String description, long codProduto) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -40,11 +39,12 @@ public class Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getCodMidia() {
-		return codMidia;
+	public long getCodProduto() {
+		return codProduto;
 	}
-	public void setCodMidia(long codMidia) {
-		this.codMidia = codMidia;
+	public void setCodProduto(long codProduto) {
+		this.codProduto = codProduto;
 	}
+	
 	
 }

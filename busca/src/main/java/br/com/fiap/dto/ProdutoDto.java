@@ -1,6 +1,6 @@
 package br.com.fiap.dto;
 
-public class MidiaDto {
+public class ProdutoDto {
 
     private long id;
     private String tipo;

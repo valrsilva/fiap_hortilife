@@ -9,32 +9,36 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.stereotype.Component;
 
-import br.com.fiap.repository.ItemRepository;
-import br.com.fiap.service.ItemServiceImpl;
+import br.com.fiap.model.Produto;
+import br.com.fiap.repository.ProdutoRepository;
+import br.com.fiap.service.ProdutoService;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-public class BuscaApp {
+public class ProdutoApp {
 
-    @Autowired
-    private ItemServiceImpl itemService;
-    
 	public static void main(String[] args) {
-		SpringApplication.run(BuscaApp.class, args);
+		SpringApplication.run(ProdutoApp.class, args);
 	}
-	
+
 	@Component
 	public class ApplicationRunnerBean implements ApplicationRunner {
 
 		@Autowired
-		ItemRepository itemRepository;
+		ProdutoRepository produtoRepository;
 
+		@Autowired
+		ProdutoService compraService;
+		
 		@Override
 		public void run(ApplicationArguments arg0) throws Exception {
-	        itemService.loadSearch();
+
+			produtoRepository.save(new Produto("Sabão em pó OMO", "1kg", 20.10));
+			produtoRepository.findAll().forEach(System.out::println);
+
 		}
-	    
+
 	}
 
 }

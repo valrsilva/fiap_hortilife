@@ -14,6 +14,6 @@ public interface ItemRepository extends ElasticsearchRepository<Item, String> {
 
     Page<Item> findByDescriptionContains(String description, Pageable pageable);
     
-    Item findByCodMidia(long codMidia);
+    Item findByCodProduto(long codProduto);
 
 }

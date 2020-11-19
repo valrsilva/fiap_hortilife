@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import br.com.fiap.dto.MidiaDto;
+import br.com.fiap.dto.ProdutoDto;
 import br.com.fiap.model.Item;
 import br.com.fiap.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,36 +18,36 @@ public class TopicListener {
 	@Autowired
 	ItemRepository itemRepository;
 	
-    @KafkaListener(topics = "${catalogo.topic}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${produto.topic}", groupId = "${spring.kafka.consumer.group-id}")
     public void consume(String payload){
     	
         System.out.println("Payload consumido: " + payload);
         
         if(payload.startsWith("DELETE:")) {
         	
-        	String idMidia = payload.split(":")[1];
-        	Item findByCodMidia = itemRepository.findByCodMidia(Long.parseLong(idMidia));
+        	String idProduto = payload.split(":")[1];
+        	Item findByCod = itemRepository.findByCodProduto(Long.parseLong(idProduto));
         	
-            if(findByCodMidia != null) {
-            	itemRepository.deleteById(findByCodMidia.getId());
+            if(findByCod != null) {
+            	itemRepository.deleteById(findByCod.getId());
             }
             
         }else {
         	
         	Gson gson = new Gson();
-            MidiaDto midiaDto = gson.fromJson(payload, MidiaDto.class);
+            ProdutoDto produtoDto = gson.fromJson(payload, ProdutoDto.class);
             
-            Item ItemByCodMidia = itemRepository.findByCodMidia(midiaDto.getId());
+            Item itemByCod = itemRepository.findByCodProduto(produtoDto.getId());
             
             Item item = new Item();
             
-            if(ItemByCodMidia != null) {
-            	item.setId(ItemByCodMidia.getId());
+            if(itemByCod != null) {
+            	item.setId(itemByCod.getId());
             }
             
-            item.setName(midiaDto.getTitulo());
-            item.setDescription(midiaDto.getDescricao());
-            item.setCodMidia(midiaDto.getId());
+            item.setName(produtoDto.getTitulo());
+            item.setDescription(produtoDto.getDescricao());
+            item.setCodProduto(produtoDto.getId());
             
             itemRepository.save(item);
             

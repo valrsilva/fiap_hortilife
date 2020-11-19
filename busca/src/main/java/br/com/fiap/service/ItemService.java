@@ -18,5 +18,7 @@ public interface ItemService {
     Page<Item> findByName(String name, PageRequest pageRequest);
 
     Page<Item> findByDescription(String description, PageRequest pageRequest);
+    
+    void loadSearch();
 	
 }

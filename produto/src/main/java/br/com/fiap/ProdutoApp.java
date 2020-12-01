@@ -8,8 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import br.com.fiap.model.Categoria;
 import br.com.fiap.model.Produto;
+import br.com.fiap.repository.CategoriaRepository;
 import br.com.fiap.repository.ProdutoRepository;
 import br.com.fiap.service.ProdutoService;
 
@@ -27,6 +30,9 @@ public class ProdutoApp {
 
 		@Autowired
 		ProdutoRepository produtoRepository;
+		
+		@Autowired
+		CategoriaRepository categoriaRepository;
 
 		@Autowired
 		ProdutoService compraService;
@@ -34,7 +40,10 @@ public class ProdutoApp {
 		@Override
 		public void run(ApplicationArguments arg0) throws Exception {
 
-			produtoRepository.save(new Produto("Sabão em pó OMO", "1kg", 20.10));
+			Categoria produtosDeLimpeza = categoriaRepository.save(new Categoria("Produtos de Limpeza"));
+			categoriaRepository.findAll().forEach(System.out::println);
+			
+			produtoRepository.save(new Produto("Sabão em pó OMO", "1kg", 20.10, produtosDeLimpeza));
 			produtoRepository.findAll().forEach(System.out::println);
 
 		}

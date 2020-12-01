@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Produto {
@@ -15,15 +16,19 @@ public class Produto {
     private String detalhes;
     private double valor;
     
+    @OneToOne
+    private Categoria categoria;
+    
     public Produto() {
     	
     }
     
-	public Produto(String nome, String detalhes, double valor) {
+	public Produto(String nome, String detalhes, double valor, Categoria categoria) {
 		super();
 		this.nome = nome;
 		this.detalhes = detalhes;
 		this.valor = valor;
+		this.categoria = categoria;
 	}
 
 	public long getId() {
@@ -57,6 +62,13 @@ public class Produto {
 	public void setDetalhes(String detalhes) {
 		this.detalhes = detalhes;
 	}
-	
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 }

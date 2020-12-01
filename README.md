@@ -18,6 +18,7 @@ docker exec -it docker_postgres_1 bash
 
 psql -U postgres
 
+create DATABASE produtodb;
 create DATABASE compradb;
 
 Após criar os banco de dados, iniciar os projetos pelo Eclipse na ordem:

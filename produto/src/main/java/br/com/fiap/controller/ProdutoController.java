@@ -1,5 +1,6 @@
 package br.com.fiap.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.model.Produto;
@@ -42,9 +44,17 @@ public class ProdutoController {
 	
 	@GetMapping("/produtos")
 	public Iterable<Produto> listAll() {
-		
 		return produtoRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0])));
-		
+	}
+	
+	@GetMapping("/produtos/busca")
+	public List<Produto> buscaProdutos(@RequestParam(required = true )String valor) {
+		return produtoRepository.findAllProdutosByNomeContainsOrDetalhesContains(valor, valor);
+	}
+	
+	@GetMapping("/produtos/categoria/{categoriaId}")
+	public List<Produto> buscaProdutos(@PathVariable(name = "categoriaId") long idCategoria) {
+		return produtoRepository.findAllProdutosByCategoriaId(idCategoria);
 	}
 
 	@GetMapping("/produtos/{id}")
@@ -62,6 +72,7 @@ public class ProdutoController {
 	
 	@PostMapping("/produtos")
 	public ResponseEntity<?> saveOne(@RequestBody Produto produto) {
+		
 		Produto savedProduto = produtoService.gravarNovaMidia(produto);
 		return new ResponseEntity<Produto>(savedProduto, HttpStatus.OK);
 		

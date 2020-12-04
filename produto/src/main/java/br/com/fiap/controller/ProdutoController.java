@@ -43,13 +43,13 @@ public class ProdutoController {
     private int maxResults;
 	
 	@GetMapping("/produtos")
-	public Iterable<Produto> listAll() {
-		return produtoRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0])));
+	public List<Produto> listAll() {
+		return produtoRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0]))).getContent();
 	}
 	
 	@GetMapping("/produtos/busca")
 	public List<Produto> buscaProdutos(@RequestParam(required = true )String valor) {
-		return produtoRepository.findAllProdutosByNomeContainsOrDetalhesContains(valor, valor);
+		return produtoRepository.findAllProdutosByNomeContainsOrDetalhesContains(valor, valor, PageRequest.of(0, maxResults, Sort.by(new Order[0])));
 	}
 	
 	@GetMapping("/produtos/categoria/{categoriaId}")

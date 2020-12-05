@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class TopicProducer {
 	
-    @Value("${compra.topic}")
+    @Value("${notification.topic}")
     private String topicName;
 
 

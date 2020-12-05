@@ -70,5 +70,24 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
+	
+	
+	public Produto comNome(String nome) {
+		this.nome = nome;
+		return this;
+	}
+	public Produto comValor(double valor) {
+		this.valor = valor;
+		return this;
+	}
+	public Produto comCategoria(Categoria categoria) {
+		this.categoria = categoria;
+		return this;
+	}
+	public Produto comDetalhes(String detalhes) {
+		this.detalhes = detalhes;
+		return this;
+	}
+	
+	
 }

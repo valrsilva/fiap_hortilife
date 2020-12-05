@@ -148,20 +148,20 @@
             methods: {
                 loadProdutos: function () {
                     let contexto = this;
-                    $.get("http://localhost:8081/produtos", function (datax) {
+                    $.get("http://localhost:8184/api/produtosvc/produtos", function (datax) {
                         contexto.produtos = datax;
                     });
                 },
                 filtrarProdutos: function () {
                     let contexto = this;
-                    $.get("http://localhost:8081/produtos/busca?valor=" + this.filtro, function (datax) {
+                    $.get("http://localhost:8184/api/produtosvc/produtos/busca?valor=" + this.filtro, function (datax) {
                         contexto.produtos = datax;
                     });
                 },
                 excluirProduto: function () {
                     let contexto = this;
                     $.ajax({
-                        url: "http://localhost:8081/produtos/" + this.selectedId,
+                        url: "http://localhost:8184/api/produtosvc/produtos/" + this.selectedId,
                         type: 'DELETE',
                         success: function (result) {
                             $("#delete-modal").modal('hide');

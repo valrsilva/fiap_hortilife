@@ -1,0 +1,138 @@
+body {
+	padding-top: 1.5rem;
+    background: rgba(189, 166, 166, 0.76);
+    color: #FFF;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+.myform {
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	background-color: #fff;
+	background-clip: padding-box;
+	border-radius: 1.1rem;
+}
+
+.tx-tfm{
+    text-transform: uppercase;
+}
+
+.mybtn{
+    border-radius: 50px;
+    height: 3.5rem;
+}
+
+.login-or {
+	position: relative;
+    color: #FFF;
+    font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.span-or {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -2px;
+	margin-left: -25px;
+	width: 50px;
+	text-align: center;
+}
+
+.hr-or-left {
+    height: 1px;
+    border: 0;
+    background-color: white;
+    width: 45%;
+    float: left;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.hr-or-right {
+    height: 1px;
+    border: 0;
+    background-color: white;
+    width: 45%;
+    float: right;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.google {
+	background-color: rgb(253, 61, 61);
+	height: 40px;
+	text-align: center;
+    outline: none;
+    border-radius:10px;
+    font-size: 0.7rem;
+}
+
+.facebook {
+	background-color: rgb(60, 46, 255);
+	height: 40px;
+	text-align: center;
+    outline: none;
+    border-radius:10px;
+    font-size: 0.7rem;
+}
+
+.logo h1{
+    color: #FFF;
+}
+
+.esqueciSenha{
+    padding-top:20px;
+    color: #FFF;
+}
+
+.text-center{
+    text-align: center;
+}
+
+#signup{
+    color: white;
+    font-weight: bold;
+}
+
+/* label color */
+
+.input-field input{
+    color: white;
+}
+
+.input-field label {
+    color: white;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: white;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: white;
+}

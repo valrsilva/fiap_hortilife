@@ -116,14 +116,14 @@
                 viewProduto: function () {
                     let id = new URL(location.href).searchParams.get('id');
                     let contexto = this;
-                    $.get("http://localhost:8081/produtos/" + id, function (datax) {
+                    $.get("http://localhost:8184/api/produtosvc/produtos/" + id, function (datax) {
                         contexto.produto = datax;
                     });
                 },
                 excluirProduto: function () {
                     let contexto = this;
                     $.ajax({
-                        url: "http://localhost:8081/produtos/" + this.produto.id,
+                        url: "http://localhost:8184/api/produtosvc/produtos/" + this.produto.id,
                         type: 'DELETE',
                         success: function (result) {
                             $("#delete-modal").modal('hide');

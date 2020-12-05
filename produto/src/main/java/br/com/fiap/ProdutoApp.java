@@ -39,10 +39,22 @@ public class ProdutoApp {
 		@Override
 		public void run(ApplicationArguments arg0) throws Exception {
 
-			Categoria produtosDeLimpeza = categoriaRepository.save(new Categoria("Produtos de Limpeza"));
+			Categoria verdurasETemperos = categoriaRepository.save(new Categoria("Verduras e Temperos"));
+			Categoria legumes = categoriaRepository.save(new Categoria("Legumes"));
+			Categoria frutas = categoriaRepository.save(new Categoria("Frutas"));
+			
 			categoriaRepository.findAll().forEach(System.out::println);
 			
-			produtoRepository.save(new Produto("Sabão em pó OMO", "1kg", 20.10, produtosDeLimpeza));
+			produtoRepository.save(new Produto().comNome("Espinafre Orgânico").comValor(5.80).comDetalhes("Maço").comCategoria(verdurasETemperos));
+			produtoRepository.save(new Produto().comNome("Couve Manteiga").comValor(5.80).comDetalhes("Maço").comCategoria(verdurasETemperos));
+			produtoRepository.save(new Produto().comNome("Alho Poró Orgânico").comValor(11.90).comDetalhes("(250g - 350g)").comCategoria(verdurasETemperos));
+			
+			produtoRepository.save(new Produto().comNome("Tomate Italiano Orgânico").comValor(8.90).comDetalhes("(500g - 600g)").comCategoria(legumes));
+			produtoRepository.save(new Produto().comNome("Cenoura Orgânica").comValor(6.90).comDetalhes("(500g - 600g)").comCategoria(legumes));
+			
+			produtoRepository.save(new Produto().comNome("Banana Prata Orgânica").comValor(8.80).comDetalhes("(600g - 800g)").comCategoria(frutas));
+			produtoRepository.save(new Produto().comNome("Maçã Gala Orgânica").comValor(10).comDetalhes("(500g - 600g)").comCategoria(frutas));
+			
 			produtoRepository.findAll().forEach(System.out::println);
 
 		}

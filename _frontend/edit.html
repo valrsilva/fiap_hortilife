@@ -109,7 +109,7 @@
                     let id = new URL(location.href).searchParams.get('id');
 
                     let contexto = this;
-                    $.get("http://localhost:8081/produtos/" + id, function (datax) {
+                    $.get("http://localhost:8184/api/produtosvc/produtos/" + id, function (datax) {
                         contexto.produto = datax;
                     });
                 },
@@ -118,7 +118,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "http://localhost:8081/produtos",
+                        url: "http://localhost:8184/api/produtosvc/produtos",
                         data: JSON.stringify(this.produto),
                         contentType: "application/json",
                         success: function (datax) {
@@ -131,7 +131,7 @@
                 },
                 loadCategorias: function () {
                     let contexto = this;
-                    $.get("http://localhost:8081/categorias", function (datax) {
+                    $.get("http://localhost:8184/api/produtosvc/categorias", function (datax) {
                         contexto.categorias = datax;
                     });
                 }

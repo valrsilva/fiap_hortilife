@@ -1,7 +1,6 @@
 package br.com.fiap.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
@@ -17,27 +16,17 @@ public class ProdutoService {
 	TopicProducer producer;	
 	
 	@Autowired
-    DiscoveryClient discoveryClient;
+	ProdutoRepository produtoRepository;
 	
-	@Autowired
-	ProdutoRepository midiaRepository;
-	
-	public Produto gravarNovaMidia(Produto midia) {
+	public Produto save(Produto produto) {
 		
-		Produto savedMidia = midiaRepository.save(midia);
+		Produto savedOne = produtoRepository.save(produto);
 		
 		Gson gson = new Gson();
-		String jsonMidia = gson.toJson(savedMidia);
+		String jsonMidia = gson.toJson(savedOne);
 		producer.send(jsonMidia);
 		
-		return savedMidia;
-		
-	}
-	
-	public void removerMidia(long idMidia) {
-		
-		midiaRepository.deleteById(idMidia);
-		producer.send("DELETE:" + idMidia);
+		return savedOne;
 		
 	}
 

@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TopicProducer {
 	
-    @Value("${compra.topic}")
+    @Value("${notificacao.topic}")
     private String topicName;
 
 
@@ -22,7 +22,7 @@ public class TopicProducer {
     
     public void send(String message){
         System.out.println("Payload enviado: " + message);
-        kafkatemplate.send(topicName, message);
+        kafkatemplate.send(topicName, "Produto Inserido/Alterado :: " + message);
     }
 
 }

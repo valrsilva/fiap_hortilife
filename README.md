@@ -19,15 +19,15 @@ docker exec -it docker_postgres_1 bash
 psql -U postgres
 
 create DATABASE produtodb;
-create DATABASE compradb;
+create DATABASE notificacaodb;
 
 Após criar os banco de dados, iniciar os projetos pelo Eclipse na ordem:
 
 1-server-config
 2-eureka-server
 3-zull-server
-4-busca
-5-compra
+4-produto
+5-notificacao
 
 # Links
 

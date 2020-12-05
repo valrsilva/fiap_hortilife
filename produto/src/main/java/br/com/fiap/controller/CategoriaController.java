@@ -45,12 +45,12 @@ public class CategoriaController {
 	}
 	
 	@DeleteMapping("/categorias/{id}")
-	public ResponseEntity<String> deleteOne(@PathVariable("id") long idMidia) {
+	public ResponseEntity<String> deleteOne(@PathVariable("id") long id) {
 		
-		Optional<Categoria> findOpt = categoriaRepository.findById(idMidia);
+		Optional<Categoria> findOpt = categoriaRepository.findById(id);
 		
 		if(findOpt.isPresent()) {
-			categoriaRepository.deleteById(idMidia);
+			categoriaRepository.deleteById(id);
 			return new ResponseEntity<String>(HttpStatus.OK);
 		}else {
 			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);

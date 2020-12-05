@@ -88,6 +88,13 @@ public class Produto {
 		this.detalhes = detalhes;
 		return this;
 	}
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", detalhes=" + detalhes + ", valor=" + valor + ", categoria="
+				+ categoria + "]";
+	}
+	
 	
 	
 }

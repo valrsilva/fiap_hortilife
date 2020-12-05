@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -35,9 +34,6 @@ public class ProdutoController {
 	
 	@Autowired
 	ProdutoService produtoService;
-
-	@Autowired
-	DiscoveryClient discoveryClient;
 
 	@Value("${max-results:10}")
     private int maxResults;
@@ -73,18 +69,18 @@ public class ProdutoController {
 	@PostMapping("/produtos")
 	public ResponseEntity<?> saveOne(@RequestBody Produto produto) {
 		
-		Produto savedProduto = produtoService.gravarNovaMidia(produto);
+		Produto savedProduto = produtoService.save(produto);
 		return new ResponseEntity<Produto>(savedProduto, HttpStatus.OK);
 		
 	}
 	
 	@DeleteMapping("/produtos/{id}")
-	public ResponseEntity<String> deleteOne(@PathVariable("id") long idMidia) {
+	public ResponseEntity<String> deleteOne(@PathVariable("id") long id) {
 		
-		Optional<Produto> findOpt = produtoRepository.findById(idMidia);
+		Optional<Produto> findOpt = produtoRepository.findById(id);
 		
 		if(findOpt.isPresent()) {
-			produtoService.removerMidia(idMidia);
+			produtoRepository.deleteById(id);
 			return new ResponseEntity<String>(HttpStatus.OK);
 		}else {
 			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);

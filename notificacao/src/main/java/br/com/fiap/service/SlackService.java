@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @Service
 public class SlackService {
+	
     private static final Logger LOGGER = LoggerFactory.getLogger(SlackService.class);
     private static final String NEW_LINE = "\n";
 
@@ -25,6 +26,7 @@ public class SlackService {
     }
 
     private void process(String message){
+    	
         Payload payload = Payload.builder()
                 .channel("#lab-produtor")
                 .username("Hortlife")
@@ -33,6 +35,7 @@ public class SlackService {
                 .build();
 
         try {
+        	
             WebhookResponse webhookResponse = Slack.getInstance().send(
                     urlSlackWebHook, payload);
             LOGGER.info("Code -> " + webhookResponse.getCode());
@@ -41,5 +44,6 @@ public class SlackService {
         }catch (IOException e){
             LOGGER.error("Error WebhHook: " + urlSlackWebHook);
         }
+        
     }
 }

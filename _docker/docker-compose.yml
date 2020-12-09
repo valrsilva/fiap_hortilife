@@ -29,7 +29,7 @@ services:
 
   config-server:
     container_name: config-server
-    image: config-server:latest
+    image: valrsilva/config-server:latest
     expose:
         - 8888
     ports:
@@ -41,7 +41,7 @@ services:
 
   eureka-server:
     container_name: eureka-server
-    image: eureka-server:latest
+    image: valrsilva/eureka-server:latest
     expose:
         - 8761
     ports:
@@ -51,7 +51,7 @@ services:
 
   zuul-server:
     container_name: zuul-server
-    image: zuul-server:latest
+    image: valrsilva/zuul-server:latest
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
     expose:
@@ -65,9 +65,7 @@ services:
         - emp-network
 
   produto:
-    build:
-      context: .
-      dockerfile: Dockerfile-produto
+    image: valrsilva/produto:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_produto:5432/produtodb
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
@@ -86,9 +84,7 @@ services:
       - emp-network
 
   notificacao:
-    build:
-      context: .
-      dockerfile: Dockerfile-notificacao
+    image: valrsilva/notificacao:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_notificacao:5432/notificacaodb
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka

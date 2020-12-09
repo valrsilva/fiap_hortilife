@@ -129,7 +129,7 @@ services:
       - emp-network
 
   frontend:
-    image: webserver:latest
+    image: valrsilva/webserver:latest
     ports:
       - "8080:80"
     networks:

@@ -1,2 +1,5 @@
 docker build --tag=webserver:latest --rm=true .
 docker build -t webserver .
+
+docker tag webserver:latest valrsilva/webserver
+docker push valrsilva/webserver:latest

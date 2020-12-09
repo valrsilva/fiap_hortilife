@@ -54,6 +54,7 @@ services:
     image: valrsilva/zuul-server:latest
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
     expose:
         - 8184
     ports:
@@ -142,4 +143,4 @@ networks:
         driver: bridge
 volumes:
     config-repo:
-        external: true
+        external: false

@@ -1,5 +1,4 @@
-FROM alpine-jdk:base
-MAINTAINER javaonfly
+FROM openjdk:8-jdk-alpine
 COPY target/server-config-0.0.1-SNAPSHOT.jar /opt/lib/
 RUN mkdir /var/lib/config-repo
 COPY src/main/resources/config-repo /var/lib/config-repo

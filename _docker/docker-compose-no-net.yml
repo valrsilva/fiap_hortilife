@@ -10,8 +10,8 @@ services:
          - POSTGRES_PASSWORD=123456
          - POSTGRES_USER=postgres
          - POSTGRES_DB=produtodb
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   postgres_notificacao:
     restart: always
@@ -24,8 +24,8 @@ services:
          - POSTGRES_PASSWORD=123456
          - POSTGRES_USER=postgres
          - POSTGRES_DB=notificacaodb     
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   config-server:
     container_name: config-server
@@ -36,8 +36,8 @@ services:
         - 8888:8888
     volumes:
         - config-repo:/var/lib/config-repo
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   eureka-server:
     container_name: eureka-server
@@ -46,8 +46,8 @@ services:
         - 8761
     ports:
         - 8761:8761
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   zuul-server:
     container_name: zuul-server
@@ -62,8 +62,8 @@ services:
     depends_on:
       - config-server
       - eureka-server
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   produto:
     image: valrsilva/produto:latest
@@ -81,8 +81,8 @@ services:
       - postgres_produto
       - config-server
       - eureka-server
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   notificacao:
     image: valrsilva/notificacao:latest
@@ -100,8 +100,8 @@ services:
       - postgres_notificacao
       - config-server
       - eureka-server
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.2.1
@@ -111,8 +111,8 @@ services:
       ZOOKEEPER_SYNC_LIMIT: 2
     ports:
       - "2181:2181"
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   kafka:
     image: confluentinc/cp-kafka:5.2.1
@@ -126,8 +126,8 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     depends_on:
       - zookeeper
-    networks:
-        - emp-network
+    #networks:
+    #    - emp-network
 
   frontend:
     image: valrsilva/webserver:latest
@@ -135,12 +135,12 @@ services:
       - "8080:80"
     depends_on:
       - produto
-    networks:
-        - emp-network  
+    #networks:
+    #    - emp-network  
 
-networks:
-    emp-network:
-        driver: bridge
+#networks:
+#    emp-network:
+#        driver: bridge
 
 volumes:
     config-repo:

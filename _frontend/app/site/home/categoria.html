@@ -133,7 +133,6 @@
             </ul>
         </div>
 
-
     </div>
 
     <!-- Js Plugins -->
@@ -158,9 +157,9 @@
                     window.location.href = "search.html?valor=" + this.filtro;
                 },
                 loadProdutos: function () {
-                    let valor = new URL(location.href).searchParams.get('valor');
+                    let id = new URL(location.href).searchParams.get('id');
                     let contexto = this;
-                    $.get("/api/produtosvc/produtos/busca?valor=" + valor, function (datax) {
+                    $.get("/api/produtosvc/produtos/categoria/" + id, function (datax) {
                         contexto.produtos = datax;
                     });
                 }

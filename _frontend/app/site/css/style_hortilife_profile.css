@@ -9,6 +9,8 @@ body {
 
 #profile {
     background-image: url('../image/bg-profile.png');
+    background-repeat:no-repeat;
+    background-position:0px -80px;
     overflow: hidden;
 }
 
@@ -50,7 +52,7 @@ body {
         overflow: hidden;
         outline: none;
         border-width: 0px;
-        margin-top: 208px;
+        margin-top: 128px;
         margin-left: 80px;
     }
 

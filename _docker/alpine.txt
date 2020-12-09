@@ -1,0 +1,4 @@
+docker build --file=Dockerfile-alpine  --tag=alpine-jdk:base --rm=true .
+
+docker tag alpine-jdk:base valrsilva/alpine-jdk:base
+docker push valrsilva/alpine-jdk:base

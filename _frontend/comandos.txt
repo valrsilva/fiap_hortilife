@@ -1,0 +1,2 @@
+docker build --tag=webserver:latest --rm=true .
+docker build -t webserver .

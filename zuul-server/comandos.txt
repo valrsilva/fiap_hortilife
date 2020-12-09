@@ -1,0 +1,6 @@
+docker build --tag=zuul-server:latest --rm=true .
+docker run --name=zuul-server --publish=8184:8184 zuul-server:latest
+
+docker tag zuul-server:latest valrsilva/zuul-server
+docker push valrsilva/zuul-server:latest
+

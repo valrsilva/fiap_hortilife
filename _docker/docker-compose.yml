@@ -1,19 +1,110 @@
 version: "3.8"
 services:
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
-    environment:
-      - discovery.type=single-node
+  postgres_produto:
+    restart: always
+    image: postgres:10.4
     ports:
-        - "9200:9200"
+      - '5432:5432'
+    environment:
+         - POSTGRES_PASSWORD=123456
+         - POSTGRES_USER=postgres
+         - POSTGRES_DB=produtodb
+    networks:
+        - emp-network
 
-  postgres:
-    image: postgres:latest
-    environment:
-      POSTGRES_PASSWORD: 123456
+  postgres_notificacao:
+    restart: always
+    image: postgres:10.4
+    expose:
+        - 6432
     ports:
-        - "5432:5432"
+      - '6432:5432'
+    environment:
+         - POSTGRES_PASSWORD=123456
+         - POSTGRES_USER=postgres
+         - POSTGRES_DB=notificacaodb
+    networks:
+        - emp-network
+
+  config-server:
+    container_name: config-server
+    image: config-server:latest
+    expose:
+        - 8888
+    ports:
+        - 8888:8888
+    networks:
+        - emp-network
+    volumes:
+        - config-repo:/var/lib/config-repo
+
+  eureka-server:
+    container_name: eureka-server
+    image: eureka-server:latest
+    expose:
+        - 8761
+    ports:
+        - 8761:8761
+    networks:
+        - emp-network
+
+  zuul-server:
+    container_name: zuul-server
+    image: zuul-server:latest
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+    expose:
+        - 8184
+    ports:
+        - 8184:8184
+    depends_on:
+      - config-server
+      - eureka-server
+    networks:
+        - emp-network
+
+  produto:
+    build:
+      context: .
+      dockerfile: Dockerfile-produto
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_produto:5432/produtodb
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      EUREKA_INSTANCE_HOSTNAME: produto
+      SPRING_KAFKA_PRODUCER_BOOTSTRAP-SERVERS: kafka:9092
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+    expose:
+      - '8081'
+    ports:
+      - '8081:8081'
+    depends_on:
+      - postgres_produto
+      - config-server
+      - eureka-server
+    networks:
+      - emp-network
+
+  notificacao:
+    build:
+      context: .
+      dockerfile: Dockerfile-notificacao
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_notificacao:5432/notificacaodb
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
+      EUREKA_INSTANCE_HOSTNAME: notificacao
+      SPRING_KAFKA_PRODUCER_BOOTSTRAP-SERVERS: kafka:9092
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+    expose:
+      - '8082'
+    ports:
+      - '8082:8082'
+    depends_on:
+      - postgres_notificacao
+      - config-server
+      - eureka-server
+    networks:
+      - emp-network
 
   zookeeper:
     image: confluentinc/cp-zookeeper:5.2.1
@@ -23,6 +114,8 @@ services:
       ZOOKEEPER_SYNC_LIMIT: 2
     ports:
       - "2181:2181"
+    networks:
+      - emp-network
 
   kafka:
     image: confluentinc/cp-kafka:5.2.1
@@ -36,3 +129,21 @@ services:
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
     depends_on:
       - zookeeper
+    networks:
+      - emp-network
+
+  frontend:
+    image: webserver:latest
+    ports:
+      - "8080:80"
+    networks:
+      - emp-network
+    depends_on:
+      - produto
+
+networks:
+    emp-network:
+        driver: bridge
+volumes:
+    config-repo:
+        external: true

@@ -1,0 +1,5 @@
+docker build --tag=notificacao:latest --rm=true .
+docker run --name=notificacao --publish=8082:8082 notificacao:latest
+
+docker tag notificacao:latest valrsilva/notificacao
+docker push valrsilva/notificacao:latest

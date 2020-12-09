@@ -1,0 +1,5 @@
+docker build --tag=eureka-server:latest --rm=true .
+docker run --name=eureka-server --publish=8761:8761 eureka-server:latest
+
+docker tag eureka-server:latest valrsilva/eureka-server
+docker push valrsilva/eureka-server:latest

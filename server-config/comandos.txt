@@ -1,0 +1,7 @@
+docker build --tag=config-server:latest --rm=true .
+docker volume create --name=config-repo
+docker run --name=config-server --publish=8888:8888 --volume=config-repo:/var/lib/config-repo config-server:latest
+
+docker tag config-server:latest valrsilva/config-server
+docker push valrsilva/config-server:latest
+

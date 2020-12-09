@@ -13,20 +13,7 @@ services:
     networks:
         - emp-network
 
-  postgres_notificacao:
-    restart: always
-    image: postgres:10.4
-    expose:
-        - 6432
-    ports:
-      - '6432:5432'
-    environment:
-         - POSTGRES_PASSWORD=123456
-         - POSTGRES_USER=postgres
-         - POSTGRES_DB=notificacaodb
-    networks:
-        - emp-network
-
+  
   config-server:
     container_name: config-server
     image: valrsilva/config-server:latest

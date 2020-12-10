@@ -1,4 +1,4 @@
-# Executar com docker
+# Executar no Play With Docker
 
 git clone https://github.com/valrsilva/fiap_hortilife.git
 cd fiap_hortilife/_docker

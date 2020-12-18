@@ -70,6 +70,13 @@ public class ProdutoController {
 	public ResponseEntity<?> saveOne(@RequestBody Produto produto) {
 		
 		Produto savedProduto = produtoService.save(produto);
+		
+		try {
+			produtoService.sendNotificacao(savedProduto);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		return new ResponseEntity<Produto>(savedProduto, HttpStatus.OK);
 		
 	}

@@ -130,14 +130,14 @@ services:
     networks:
         - emp-network
 
-  #frontend:
-  #  image: valrsilva/webserver:latest
-  #  ports:
-  #    - "8080:80"
-  #  depends_on:
-  #    - produto
-  #  networks:
-  #      - emp-network  
+  frontend:
+    image: valrsilva/webserver:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - produto
+    networks:
+        - emp-network  
 
 networks:
     emp-network:

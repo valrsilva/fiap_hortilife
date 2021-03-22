@@ -1,11 +1,9 @@
-package br.com.fiap.model;
+package br.com.fiap.database;
 
-import br.com.fiap.database.Cartao;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "consumidor")
 @Getter
@@ -16,7 +14,8 @@ import javax.persistence.Table;
 @Entity
 public class Consumidor{
 
-    @NonNull
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     @NonNull
@@ -25,8 +24,7 @@ public class Consumidor{
     @NonNull
     @Column(name = "endereco_entrega")
     private String enderecoEntrega;
-    // TO-DO Many to One com a tabela de cartoes
-//    @NonNull
-//    @Column
-//    private List<Cartao> cartoes;
+    @OneToMany
+    @JoinColumn(name = "id_cartao")
+    private List<Cartao> cartoes;
 }

@@ -3,9 +3,7 @@ package br.com.fiap.model;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "produtor")
 @Getter
@@ -15,7 +13,9 @@ import javax.persistence.Table;
 @Builder
 @Entity
 public class Produtor {
-    @NonNull
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     @NonNull

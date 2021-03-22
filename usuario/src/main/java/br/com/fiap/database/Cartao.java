@@ -2,9 +2,7 @@ package br.com.fiap.database;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Table(name = "cartao")
@@ -15,8 +13,9 @@ import java.util.Date;
 @Builder
 @Entity
 public class Cartao {
-    @NonNull
-    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cartao")
     private long id;
     @NonNull
     @Column(name = "nome")
@@ -33,4 +32,7 @@ public class Cartao {
     @NonNull
     @Column(name = "tipo")
     private String tipo;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Consumidor consumidor;
 }

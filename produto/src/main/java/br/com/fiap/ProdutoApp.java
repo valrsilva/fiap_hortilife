@@ -1,5 +1,7 @@
 package br.com.fiap;
 
+import java.util.Calendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -45,15 +47,17 @@ public class ProdutoApp {
 			
 			categoriaRepository.findAll().forEach(System.out::println);
 			
-			produtoRepository.save(new Produto().comNome("Espinafre Orgânico").comValor(5.80).comDetalhes("Maço").comCategoria(verdurasETemperos));
-			produtoRepository.save(new Produto().comNome("Couve Manteiga").comValor(5.80).comDetalhes("Maço").comCategoria(verdurasETemperos));
-			produtoRepository.save(new Produto().comNome("Alho Poró Orgânico").comValor(11.90).comDetalhes("(250g - 350g)").comCategoria(verdurasETemperos));
-			
-			produtoRepository.save(new Produto().comNome("Tomate Italiano Orgânico").comValor(8.90).comDetalhes("(500g - 600g)").comCategoria(legumes));
-			produtoRepository.save(new Produto().comNome("Cenoura Orgânica").comValor(6.90).comDetalhes("(500g - 600g)").comCategoria(legumes));
-			
-			produtoRepository.save(new Produto().comNome("Banana Prata Orgânica").comValor(8.80).comDetalhes("(600g - 800g)").comCategoria(frutas));
-			produtoRepository.save(new Produto().comNome("Maçã Gala Orgânica").comValor(10).comDetalhes("(500g - 600g)").comCategoria(frutas));
+			Produto prod1 = new Produto();
+			prod1.setNome("Espinafre Orgânico");
+			prod1.setValor(5.80);
+			prod1.setDetalhes("Esse espinafre é muito bom!");
+			prod1.setCategoria(verdurasETemperos);
+			prod1.setVolume("100-200 gramas");
+			prod1.setAtivo(true);
+			prod1.setEstoque(20);
+			prod1.setDataInclusao(Calendar.getInstance().getTime());
+
+			produtoRepository.save(prod1);
 			
 			produtoRepository.findAll().forEach(System.out::println);
 

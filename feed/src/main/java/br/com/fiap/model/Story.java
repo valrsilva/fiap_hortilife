@@ -14,9 +14,10 @@ public class Story {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	private String urlVideo;
+	private String urlImagem;
 	private String descricao;
 	private int idUsuario;
+	private int idProduto;
 	private Date dataCriacao;
 	private Date dataExpiracao;
 	
@@ -25,12 +26,6 @@ public class Story {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public String getUrlVideo() {
-		return urlVideo;
-	}
-	public void setUrlVideo(String urlVideo) {
-		this.urlVideo = urlVideo;
 	}
 	public String getDescricao() {
 		return descricao;
@@ -56,7 +51,17 @@ public class Story {
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
-	
-	
+	public int getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(int idProduto) {
+		this.idProduto = idProduto;
+	}
+	public String getUrlImagem() {
+		return urlImagem;
+	}
+	public void setUrlImagem(String urlImagem) {
+		this.urlImagem = urlImagem;
+	}
 	
 }

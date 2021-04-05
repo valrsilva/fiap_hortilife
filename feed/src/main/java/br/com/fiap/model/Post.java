@@ -17,6 +17,7 @@ public class Post {
 	private String urlImagem;
 	private String descricao;
 	private int idUsuario;
+	private int idProduto;
 	private Date dataCriacao;
 	
 	public long getId() {
@@ -49,6 +50,11 @@ public class Post {
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	
+	public int getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(int idProduto) {
+		this.idProduto = idProduto;
+	}
 	
 }

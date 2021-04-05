@@ -44,8 +44,8 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/produtos/busca")
-	public List<Produto> buscaProdutos(@RequestParam(required = true )String valor) {
-		return produtoRepository.findAllProdutosByNomeContainsOrDetalhesContains(valor, valor, PageRequest.of(0, maxResults, Sort.by(new Order[0])));
+	public List<Produto> buscaProdutos(@RequestParam("desc") String desc) {
+		return produtoRepository.findAllProdutosByNomeContainsOrDetalhesContains(desc, desc, PageRequest.of(0, maxResults, Sort.by(new Order[0])));
 	}
 	
 	@GetMapping("/produtos/categoria/{categoriaId}")

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRUD com Bootstrap 3</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -38,13 +38,21 @@
 
     <div id="app" class="container-fluid" style="margin-top:30px">
 
-        <h3 class="page-header">Adicionar Item</h3>
+        <h3 class="page-header">Editar Item</h3>
 
         <form action="index.html">
             <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="exampleInputEmail1">ID</label>
+                    <input type="number" v-model="produto.id" class="form-control" id="exampleInputEmail1"
+                        placeholder="Digite o valor" readonly="true">
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Nome</label>
-                    <input type="email" v-model="produto.nome" class="form-control" id="exampleInputEmail1"
+                    <input type="text" v-model="produto.nome" class="form-control" id="exampleInputEmail1"
                         placeholder="Digite o valor">
                 </div>
                 <div class="form-group col-md-4">
@@ -57,7 +65,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Valor</label>
-                    <input type="email" v-model="produto.valor" class="form-control" id="exampleInputEmail1"
+                    <input type="text" v-model="produto.valor" class="form-control" id="exampleInputEmail1"
                         placeholder="Digite o valor">
                 </div>
             </div>
@@ -65,7 +73,7 @@
             <div class="row">
                 <div class="form-group col-md-12">
                     <label for="exampleInputEmail1">Detalhes</label>
-                    <textarea class="form-control" v-model="produto.detalhes" id="exampleInputEmail1"
+                    <textarea class="form-control" id="exampleInputEmail1" v-model="produto.detalhes"
                         placeholder="Digite o valor"></textarea>
                 </div>
             </div>
@@ -74,7 +82,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" v-on:click="saveProduto()" class="btn btn-primary">Salvar</button>
+                    <button type="button" v-on:click="saveProduto()" class="btn btn-primary">Atualizar</button>
                     <a id="btnCancelar" href="index.html" class="btn btn-default">Cancelar</a>
                 </div>
             </div>
@@ -83,30 +91,38 @@
     </div>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
 
     <script>
 
         var app = new Vue({
             el: '#app',
             data: {
+                produto: '',
                 categorias: [],
-                produto: { id: 0, nome: '', categoria: { id: '' }, valor: '' }
             },
             methods: {
+                editProduto: function () {
+
+                    let id = new URL(location.href).searchParams.get('id');
+
+                    let contexto = this;
+                    $.get("http://localhost:8184/api/produtosvc/produtos/" + id, function (datax) {
+                        contexto.produto = datax;
+                    });
+                },
                 saveProduto: function () {
                     let contexto = this;
 
                     $.ajax({
                         type: "POST",
-                        url: "/api/produtosvc/produtos",
+                        url: "http://localhost:8184/api/produtosvc/produtos",
                         data: JSON.stringify(this.produto),
                         contentType: "application/json",
                         success: function (datax) {
-                            alert("Produto gravado com sucesso!");
+                            alert("Produto alterado com sucesso!");
                             window.location.href = $('#btnCancelar').attr('href');
                         },
                         dataType: "json"
@@ -115,7 +131,7 @@
                 },
                 loadCategorias: function () {
                     let contexto = this;
-                    $.get("/api/produtosvc/categorias", function (datax) {
+                    $.get("http://localhost:8184/api/produtosvc/categorias", function (datax) {
                         contexto.categorias = datax;
                     });
                 }
@@ -123,8 +139,10 @@
         });
 
         app.loadCategorias();
+        app.editProduto();
 
     </script>
+
 
 </body>
 

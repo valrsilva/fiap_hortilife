@@ -1,6 +1,9 @@
-package br.com.fiap.model;
+package br.com.fiap.dto;
 
 import java.util.List;
+
+import br.com.fiap.model.Agrupamento;
+import br.com.fiap.model.Story;
 
 public class Feed {
 

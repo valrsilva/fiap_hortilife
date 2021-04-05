@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.dto.Feed;
 import br.com.fiap.model.Agrupamento;
-import br.com.fiap.model.Feed;
 import br.com.fiap.model.Story;
 import br.com.fiap.repository.AgrupamentoRepository;
 import br.com.fiap.repository.PostRepository;

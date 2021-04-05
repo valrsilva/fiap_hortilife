@@ -53,7 +53,7 @@ public class FeedApp {
 			Story story = new Story();
 			story.setIdUsuario(1);
 			story.setDescricao("Deliciosa melancia, muito soborosa!");
-			story.setUrlVideo("https://media3.giphy.com/media/WNP97pSLrjM4g/giphy.webp?cid=ecf05e47jbovc8adv3j1270t60mgq43nsa7pq0f8f3jpt3m2&rid=giphy.webp");
+			story.setUrlImagem("https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp");
 			story.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire = Calendar.getInstance();
 			dtExpire.add(Calendar.HOUR_OF_DAY, 24);

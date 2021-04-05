@@ -1,0 +1,5 @@
+docker build --tag=produto:latest --rm=true .
+docker run --name=produto --publish=8081:8081 produto:latest
+
+docker tag produto:latest valrsilva/produto
+docker push valrsilva/produto:latest

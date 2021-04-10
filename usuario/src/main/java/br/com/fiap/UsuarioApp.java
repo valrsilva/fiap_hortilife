@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-public class NotificacaoApp {
+public class UsuarioApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NotificacaoApp.class, args);
+		SpringApplication.run(UsuarioApp.class, args);
 	}
 
 	@Component

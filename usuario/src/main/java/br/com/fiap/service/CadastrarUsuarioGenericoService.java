@@ -3,40 +3,46 @@ package br.com.fiap.service;
 import br.com.fiap.handler.BancoDadosException;
 import br.com.fiap.database.UsuarioGenerico;
 import br.com.fiap.model.UsuarioGenericoModel;
-import br.com.fiap.repository.UsuarioRepository;
+import br.com.fiap.repository.UsuarioGenericoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 @Service
-public class CadastrarUsuarioService {
+public class CadastrarUsuarioGenericoService {
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    UsuarioGenericoRepository usuarioGenericoRepository;
 
     public boolean execute(UsuarioGenericoModel dadosUsuarioGenerico){
-        cadastraUsuario(dadosUsuarioGenerico);
+        cadastraUsuarioGenerico(dadosUsuarioGenerico);
         return true;
     }
 
-    private UsuarioGenericoModel cadastraUsuario(UsuarioGenericoModel dadosUsuarioGenerico){
+    private UsuarioGenericoModel cadastraUsuarioGenerico(UsuarioGenericoModel dadosUsuarioGenerico){
         try {
-            usuarioRepository.save(converterParaEntity(dadosUsuarioGenerico));
+            usuarioGenericoRepository.save(converterParaEntity(dadosUsuarioGenerico));
         }catch (Exception ex){
             throw new BancoDadosException("Erro ao salvar usuário genérico no banco de dados.", ex);
         }
         return dadosUsuarioGenerico;
     }
 
-    private UsuarioGenerico converterParaEntity(UsuarioGenericoModel dadosUsuarioGenerico){
+    private UsuarioGenerico converterParaEntity(UsuarioGenericoModel dadosUsuarioGenerico) {
+        Date now = new Date();
         return UsuarioGenerico.builder()
                 .id(dadosUsuarioGenerico.getId())
                 .nome(dadosUsuarioGenerico.getNome())
                 .email(dadosUsuarioGenerico.getEmail())
                 .login(dadosUsuarioGenerico.getLogin())
                 .senha(dadosUsuarioGenerico.getSenha())
-                .perfil(dadosUsuarioGenerico.getPerfil())
                 .ativo(dadosUsuarioGenerico.isAtivo())
-                .dataInclusao(dadosUsuarioGenerico.getDataInclusao())
                 .build();
     }
 }

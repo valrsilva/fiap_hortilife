@@ -24,7 +24,4 @@ public class Consumidor{
     @NonNull
     @Column(name = "endereco_entrega")
     private String enderecoEntrega;
-    @OneToMany
-    @JoinColumn(name = "id_cartao")
-    private List<Cartao> cartoes;
 }

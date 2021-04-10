@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import br.com.fiap.repository.UsuarioRepository;
+import br.com.fiap.repository.UsuarioGenericoRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class TopicListener {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioGenericoRepository usuarioGenericoRepository;
     
     @Value("${usuario.topic}")
     private String topicName;

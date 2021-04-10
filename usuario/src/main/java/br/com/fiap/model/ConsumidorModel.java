@@ -14,5 +14,4 @@ public class ConsumidorModel extends UsuarioGenericoModel{
 
     private float classificacaoConsumidor;
     private String enderecoEntrega;
-    private List<CartaoModel> cartoes;
 }

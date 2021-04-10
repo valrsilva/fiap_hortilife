@@ -3,9 +3,6 @@ package br.com.fiap.model;
 
 import lombok.*;
 
-import javax.persistence.*;
-import java.util.Date;
-
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Data
@@ -17,8 +14,5 @@ public class UsuarioGenericoModel {
     private String email;
     private String login;
     private String senha;
-    private char perfil;
     private boolean ativo;
-    private Date dataInclusao;
-    private Date dataAlteracao;
 }

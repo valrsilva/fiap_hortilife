@@ -33,14 +33,6 @@ public class UsuarioGenerico {
     @Column(name = "senha")
     private String senha;
     @NonNull
-    @Column(name = "perfil")
-    private char perfil;
-    @NonNull
     @Column(name = "ativo")
     private boolean ativo;
-    @NonNull
-    @Column(name = "data_inclusao")
-    private Date dataInclusao;
-    @Column(name = "data_alteracao")
-    private Date dataAlteracao;
 }

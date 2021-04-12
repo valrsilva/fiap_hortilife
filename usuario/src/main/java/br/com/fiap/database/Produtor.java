@@ -1,8 +1,6 @@
-package br.com.fiap.model;
+package br.com.fiap.database;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
-
 import javax.persistence.*;
 
 @Table(name = "produtor")

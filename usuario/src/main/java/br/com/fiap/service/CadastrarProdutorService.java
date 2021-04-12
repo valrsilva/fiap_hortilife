@@ -1,7 +1,7 @@
 package br.com.fiap.service;
 
 import br.com.fiap.handler.BancoDadosException;
-import br.com.fiap.model.Produtor;
+import br.com.fiap.database.Produtor;
 import br.com.fiap.model.ProdutorModel;
 import br.com.fiap.repository.ProdutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;

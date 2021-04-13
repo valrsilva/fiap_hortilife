@@ -1,13 +1,7 @@
 package br.com.fiap.controller;
 
-import br.com.fiap.model.ConsumidorModel;
-import br.com.fiap.model.ProdutorModel;
-import br.com.fiap.model.RedefinicaoSenhaModel;
-import br.com.fiap.model.UsuarioGenericoModel;
-import br.com.fiap.service.AlterarSenhaService;
-import br.com.fiap.service.CadastrarConsumidorService;
-import br.com.fiap.service.CadastrarProdutorService;
-import br.com.fiap.service.CadastrarUsuarioGenericoService;
+import br.com.fiap.model.*;
+import br.com.fiap.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -42,6 +36,9 @@ public class UsuarioController {
 	@Autowired
 	AlterarSenhaService alterarSenhaService;
 
+	@Autowired
+	LoginService loginService;
+
 	@PostMapping(path = "/cadastrarUsuarioGenerico")
 	public String cadastraUsuario(@RequestBody UsuarioGenericoModel dadosUsuarioGenerico) {
 		if (cadastrarUsuarioGenericoService.execute(dadosUsuarioGenerico)) {
@@ -69,6 +66,14 @@ public class UsuarioController {
 	@PostMapping(path = "/redefinirSenha")
 	public String redefiniSenhaUsuario(@RequestBody RedefinicaoSenhaModel dadosRedefinirSenhaModel) {
 		if (alterarSenhaService.execute(dadosRedefinirSenhaModel)) {
+			return "ok";
+		}
+		return "nok";
+	}
+
+	@PostMapping(path = "/login")
+	public String login(@RequestBody LoginModel dadosLogin) {
+		if (loginService.execute(dadosLogin)) {
 			return "ok";
 		}
 		return "nok";

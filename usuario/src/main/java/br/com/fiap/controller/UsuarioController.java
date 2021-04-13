@@ -1,14 +1,20 @@
 package br.com.fiap.controller;
 
+import br.com.fiap.database.UsuarioGenerico;
 import br.com.fiap.model.*;
 import br.com.fiap.service.*;
+import com.github.seratch.jslack.api.model.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.fiap.repository.UsuarioGenericoRepository;
+
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -38,6 +44,7 @@ public class UsuarioController {
 
 	@Autowired
 	LoginService loginService;
+
 
 	@PostMapping(path = "/cadastrarUsuarioGenerico")
 	public String cadastraUsuario(@RequestBody UsuarioGenericoModel dadosUsuarioGenerico) {
@@ -70,12 +77,25 @@ public class UsuarioController {
 		}
 		return "nok";
 	}
-
 	@PostMapping(path = "/login")
-	public String login(@RequestBody LoginModel dadosLogin) {
+	public ResponseEntity<?> login(@RequestBody LoginModel dadosLogin){
 		if (loginService.execute(dadosLogin)) {
-			return "ok";
+			LoginResponseModel loginResponseModel = new LoginResponseModel();
+			loginResponseModel.setMensagem("Login feito com sucesso");
+			return new ResponseEntity<LoginResponseModel>(loginResponseModel, HttpStatus.OK);
 		}
-		return "nok";
+		return new ResponseEntity<LoginModel>(HttpStatus.NOT_FOUND);
+	}
+
+	@GetMapping(path = "/buscaUsuario/{id}")
+	public ResponseEntity<UsuarioGenerico> buscarUsuarioPorId(@PathVariable("id") long idLogin) {
+
+		Optional<UsuarioGenerico> findOpt = usuarioGenericoRepository.findById(idLogin);
+
+		if(findOpt.isPresent()) {
+			return new ResponseEntity<UsuarioGenerico>(findOpt.get(), HttpStatus.OK);
+		}else {
+			return new ResponseEntity<UsuarioGenerico>(HttpStatus.NOT_FOUND);
+		}
 	}
 }

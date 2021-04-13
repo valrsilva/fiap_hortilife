@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import br.com.fiap.dto.Usuario;
 
 @Entity
 public class Story {
@@ -20,6 +23,9 @@ public class Story {
 	private int idProduto;
 	private Date dataCriacao;
 	private Date dataExpiracao;
+	
+	@Transient
+	private Usuario usuario;
 	
 	public long getId() {
 		return id;
@@ -63,5 +69,12 @@ public class Story {
 	public void setUrlImagem(String urlImagem) {
 		this.urlImagem = urlImagem;
 	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 }

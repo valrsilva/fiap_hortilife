@@ -14,11 +14,10 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-public class UsuarioGenerico {
+public class UsuarioGenerico  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private long id;
     @NonNull
     @Column(name = "nome")

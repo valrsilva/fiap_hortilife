@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.dto.Usuario;
 import br.com.fiap.model.Story;
 import br.com.fiap.repository.StoryRepository;
+import br.com.fiap.service.FeedService;
 
 @RestController
 @CrossOrigin
@@ -30,12 +32,27 @@ public class StoryController {
 	@Autowired
 	StoryRepository storyRepository;
 	
+	@Autowired
+	FeedService feedService;
+	
 	@Value("${max-results:10}")
     private int maxResults;
 	
 	@GetMapping("/story")
 	public List<Story> listAll() {
-		return storyRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0]))).getContent();
+		
+		List<Story> content = storyRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0]))).getContent();
+		for(Story s : content) {
+			try {
+				Usuario usuario = feedService.getUsuario(s.getIdUsuario());
+				s.setUsuario(usuario);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return content;
+		
 	}
 	
 	@GetMapping("/story/{id}")

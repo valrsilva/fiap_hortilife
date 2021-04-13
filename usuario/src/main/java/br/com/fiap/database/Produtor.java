@@ -14,7 +14,6 @@ public class Produtor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private long id;
     @NonNull
     @Column(name = "classificacao_produtor")

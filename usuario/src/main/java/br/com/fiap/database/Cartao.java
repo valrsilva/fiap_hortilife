@@ -15,7 +15,6 @@ import java.util.Date;
 public class Cartao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cartao")
     private long id;
     @NonNull
     @Column(name = "nome")
@@ -33,6 +32,6 @@ public class Cartao {
     @Column(name = "tipo")
     private String tipo;
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_consumidor")
     private Consumidor consumidor;
 }

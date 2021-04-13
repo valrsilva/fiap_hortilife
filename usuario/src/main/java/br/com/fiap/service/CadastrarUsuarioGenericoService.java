@@ -40,9 +40,14 @@ public class CadastrarUsuarioGenericoService {
                 .id(dadosUsuarioGenerico.getId())
                 .nome(dadosUsuarioGenerico.getNome())
                 .email(dadosUsuarioGenerico.getEmail())
-                .login(dadosUsuarioGenerico.getLogin())
+                .login(dadosUsuarioGenerico.getEmail())
                 .senha(dadosUsuarioGenerico.getSenha())
                 .ativo(dadosUsuarioGenerico.isAtivo())
+                .sobrenome(dadosUsuarioGenerico.getSobrenome())
+                .genero(dadosUsuarioGenerico.getGenero())
+                .dataNascimento(dadosUsuarioGenerico.getDataNascimento())
+                .confirmarSenha(dadosUsuarioGenerico.getConfirmarSenha())
+                .cpf(dadosUsuarioGenerico.getCpf())
                 .build();
     }
 }

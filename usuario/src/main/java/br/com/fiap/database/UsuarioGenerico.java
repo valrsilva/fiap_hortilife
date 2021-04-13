@@ -35,4 +35,19 @@ public class UsuarioGenerico {
     @NonNull
     @Column(name = "ativo")
     private boolean ativo;
+    @NonNull
+    @Column(name = "sobrenome")
+    private String sobrenome;
+    @NonNull
+    @Column(name = "confirmarSenha")
+    private String confirmarSenha;
+    @NonNull
+    @Column(name = "dataNascimento")
+    private String dataNascimento;
+    @NonNull
+    @Column(name = "genero")
+    private String genero;
+    @NonNull
+    @Column(name = "cpf")
+    private String cpf;
 }

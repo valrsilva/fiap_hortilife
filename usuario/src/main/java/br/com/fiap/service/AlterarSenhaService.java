@@ -21,7 +21,7 @@ public class AlterarSenhaService {
         try {
             usuarioGenericoRepository.save(converterParaEntity(dadosUsuario, dadadosRedefinirSenha));
         }catch (BancoDadosException ex){
-            throw new BancoDadosException("", ex);
+            throw new BancoDadosException("Problema ao redefinir a senha", ex);
         }
     }
 

@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import br.com.fiap.dto.Produto;
 
 @Entity
 public class Post {
@@ -19,6 +22,9 @@ public class Post {
 	private int idUsuario;
 	private int idProduto;
 	private Date dataCriacao;
+	
+	@Transient		
+	private Produto produto;
 	
 	public long getId() {
 		return id;
@@ -56,5 +62,12 @@ public class Post {
 	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
 	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	
 	
 }

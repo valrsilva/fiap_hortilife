@@ -19,8 +19,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.dto.Produto;
 import br.com.fiap.model.Agrupamento;
+import br.com.fiap.model.AgrupamentoPost;
 import br.com.fiap.repository.AgrupamentoRepository;
+import br.com.fiap.service.FeedService;
 
 @RestController
 @CrossOrigin
@@ -30,12 +33,27 @@ public class AgrupamentoController {
 	@Autowired
 	AgrupamentoRepository agrupamentoRepository;
 	
+	@Autowired
+	FeedService feedService;
+	
 	@Value("${max-results:10}")
     private int maxResults;
 	
 	@GetMapping("/agrupamento")
 	public List<Agrupamento> listAll() {
-		return agrupamentoRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0]))).getContent();
+		
+		List<Agrupamento> content = agrupamentoRepository.findAll(PageRequest.of(0, maxResults, Sort.by(new Order[0]))).getContent();
+		for(Agrupamento s : content) {
+			for(AgrupamentoPost ap : s.getPosts()) {
+				try {
+					Produto produto = feedService.getProduto(ap.getPost().getIdProduto());
+					ap.getPost().setProduto(produto);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return content;
 	}
 	
 	@GetMapping("/agrupamento/{id}")

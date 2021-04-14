@@ -81,7 +81,7 @@
     <link href="../assets/c/08abfb8ac2e3dd415deee40206de1335.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="lang-en country-gb currency-gbp layout-one-column page-authentication tax-display-enabled page-customer-account
+<body id="authentication" class="lang-en country-gb currency-gbp layout-one-column page-authentication tax-display-enabled page-customer-account
    displayhomenovfour">
 
 
@@ -89,7 +89,7 @@
     <main id="main-site">
 
 
-
+        <!---->
 
         <header id="header" class="header-4 sticky-menu">
 
@@ -105,6 +105,9 @@
                         <div class="col-xs-8 col-md-2 col-lg-5 text-center position-static">
                             <div id="_desktop_advancsearch">
                                 <!-- block seach mobile -->
+
+
+
                                 <!-- Block search module TOP -->
                                 <div id="_desktop_search_content" data-id_lang="1" data-ajaxsearch="1"
                                     data-novadvancedsearch_type="top" data-instantsearch="" data-search_ssl=""
@@ -513,19 +516,17 @@
 
                 </ul>
             </div>
-
-            <div class="header-mobile hidden-md-up">
-                <div class="hidden-md-up text-xs-center mobile d-flex align-items-center justify-content-end">
-                    <div id="_mobile_logo" class="mobile_logo item-mobile-top"></div>
-                    <div id="_mobile_search">
-                        <div id="_mobile_search_content"></div>
-                    </div>
-                    <div id="_mobile_menutop"
-                        class="item-mobile-top nov-toggle-page d-flex align-items-center justify-content-center"
-                        data-target="#mobile-pagemenu"><i class="zmdi zmdi-view-headline"></i></div>
+            <!--
+        <div class="header-mobile hidden-md-up">
+            <div class="hidden-md-up text-xs-center mobile d-flex align-items-center justify-content-end">
+                                    <div id="_mobile_logo" class="mobile_logo item-mobile-top"></div>
+                                <div id="_mobile_search">
+                    <div id="_mobile_search_content"></div>
                 </div>
+                <div id="_mobile_menutop" class="item-mobile-top nov-toggle-page d-flex align-items-center justify-content-center" data-target="#mobile-pagemenu"><i class="zmdi zmdi-view-headline"></i></div>
             </div>
-
+        </div>
+    -->
         </header>
 
         <div id="header-sticky" class="sticky-header-4">
@@ -543,22 +544,15 @@
 
             <nav data-depth="2">
                 <div class="breadcrumb">
+                    <div>
+
+                        <img style="align-items: center; margin-left: 130px; margin-top: 20px;"
+                            src="../modules/novthemeconfig/images/logos/login_brand.png" height="89" width="50">
+
+                    </div>
                     <div class="container">
 
-                        <ol itemscope itemtype="http://schema.org/BreadcrumbList">
-                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                <a itemprop="item" href="http://demo.bestprestashoptheme.com/greenbee/en/">
-                                    <span itemprop="name">Home</span>
-                                </a>
-                                <meta itemprop="position" content="1">
-                            </li>
-                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                <a itemprop="item" href="http://demo.bestprestashoptheme.com/greenbee/en/login">
-                                    <span itemprop="name">Log in to your account</span>
-                                </a>
-                                <meta itemprop="position" content="2">
-                            </li>
-                        </ol>
+
 
                     </div>
                 </div>
@@ -588,37 +582,38 @@
                                 <div class="block-form-login">
 
                                     <section class="login-form">
-                                        <div class="page_title_account text-center">Login</div>
-                                        <div class="block-sociallogin text-center">
-                                            <div class="title_sociallogin">Login using social network:</div>
-                                            <div class="content_sociallogin row spacing-10">
-                                                <div class="col">
-                                                    <a onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=facebook&page=authentication')"
-                                                        class="btn btn-sociallogin-facebook col">
-                                                        <i class="zmdi zmdi-facebook"></i>
-                                                        Facebook
-                                                    </a>
-                                                </div>
-
-                                                <div class="col">
-                                                    <a onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=twitter&page=authentication')"
-                                                        class="btn btn-sociallogin-twitter col">
-                                                        <i class="zmdi zmdi-twitter"></i>
-                                                        Twitter
-                                                    </a>
-                                                </div>
-
-                                                <div class="col">
-                                                    <a onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=google&page=authentication')"
-                                                        class="btn btn-sociallogin-google col">
-                                                        <i class="zmdi zmdi-google-old"></i>
-                                                        Google
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <p class="text-center mb-15">Or Insert your account information:</p>
+                                        <div class="page_title_account text-center">Fazer Login</div>
+                                        <!--
+      <div class="block-sociallogin text-center">
+    <div class="title_sociallogin">Login using social network:</div>
+    <div class="content_sociallogin row spacing-10">
+                    <div class="col">
+                <a                         onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=facebook&page=authentication')"
+                                       class="btn btn-sociallogin-facebook col">
+                    <i class="zmdi zmdi-facebook"></i>
+                    Facebook
+                </a>
+            </div>
+        
+                    <div class="col">
+                <a                         onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=twitter&page=authentication')"
+                                       class="btn btn-sociallogin-twitter col">
+                    <i class="zmdi zmdi-twitter"></i>
+                    Twitter
+                </a>
+            </div>
+        
+                    <div class="col">
+                <a                         onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=google&page=authentication')"
+                                       class="btn btn-sociallogin-google col">
+                    <i class="zmdi zmdi-google-old"></i>
+                    Google
+                </a>
+            </div>
+            </div>
+</div>
+-->
+                                        <p class="text-center mb-15">Insira seus dados de Login:</p>
 
 
 
@@ -643,7 +638,7 @@
 
                                                 <div class="form-group row no-gutters novform-email">
                                                     <label class="col-md-2 form-control-label required">
-                                                        E-mail
+                                                        Email
                                                     </label>
                                                     <div class="col-md-8">
 
@@ -663,7 +658,7 @@
 
                                                 <div class="form-group row no-gutters novform-password">
                                                     <label class="col-md-2 form-control-label required">
-                                                        Senha
+                                                        Password
                                                     </label>
                                                     <div class="col-md-8">
 
@@ -671,7 +666,7 @@
                                                             <input v-model="dados_login.senha"
                                                                 class="form-control js-child-focus js-visible-password"
                                                                 name="password" type="password" value=""
-                                                                placeholder="Password" pattern=".{5,}" required>
+                                                                placeholder="Senha" pattern=".{5,}" required>
                                                             <span class="input-group-btn">
                                                                 <button class="btn" type="button"
                                                                     data-action="show-password"
@@ -688,14 +683,18 @@
                                                     </div>
                                                 </div>
 
-
+                                                <div v-if="mensagem_erro">
+                                                    <span style="color:red; text-align:center">
+                                                        Usuário ou senha inválido!
+                                                    </span>
+                                                </div>
 
 
                                                 <div class="forgot-password text-center mt-25 mb-25">
                                                     <i class="zmdi zmdi-email"></i>&nbsp;
-                                                    Forgot your&nbsp;
+                                                    Esqueceu sua senha?&nbsp;
                                                     <a href="password.html" rel="nofollow">
-                                                        <span>Password</span>&nbsp;?
+                                                        <span>Clique Aqui</span>&nbsp;
                                                     </a>
                                                 </div>
                                             </section>
@@ -709,7 +708,7 @@
                                                         <button v-on:click="logar()" class="btn btn-primary"
                                                             data-link-action="sign-in" type="button"
                                                             class="form-control-submit">
-                                                            Fazer Login
+                                                            Login
                                                         </button>
 
                                                     </div>
@@ -725,10 +724,9 @@
 
 
                                     <div class="no-account">
-                                        <a class="font-weight-bold"
-                                            href="http://demo.bestprestashoptheme.com/greenbee/en/login?create_account=1"
+                                        <a class="font-weight-bold" href="create_account.html"
                                             data-link-action="display-register-form">
-                                            No account? Create one here
+                                            Registrar-me
                                         </a>
                                     </div>
 
@@ -760,183 +758,153 @@
             <div class="inner-footer">
                 <div class="container">
                     <div class="row">
-                        <div class="nov-row row_newsletter col-xl-12 col-xs-12">
-                            <div class="nov-row-wrap row">
-                                <div class="nov-modules col-lg-12 col-md-12 col-xs-12 nov-subscription">
-                                    <div class="block nov-wrap">
-                                        <div class="title_block">
-                                            <div class="icon"><img class="img-fluid"
-                                                    src="../modules/novpagemanage/img/3df9571afa7c789bf169d0235378b552.png"
-                                                    alt="icon title"></div>Sign Up For Newsletters
-                                        </div>
-                                        <div class="block_newsletter">
-                                            <form action="http://demo.bestprestashoptheme.com/greenbee/en/#footer"
-                                                method="post">
-                                                <input type="text" class="form-control" name="email" value=""
-                                                    placeholder="Enter Your Email...">
-                                                <span class="input-group-btn mt-10">
-                                                    <button class="btn btn-secondary" name="submitNewsletter"
-                                                        type="submit">subscribe</button>
-                                                </span>
-                                                <input type="hidden" name="action" value="0">
-                                            </form>
-                                        </div>
-                                        <!-- Popup newsletter -->
-                                        <div id="popup-subscribe" class="modal fade" tabindex="-1" role="dialog"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close"><i
-                                                                class="zmdi zmdi-hc-fw zmdi-close"></i></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="http://demo.bestprestashoptheme.com/greenbee/en/"
-                                                            method="post">
-                                                            <div class="subscribe_form ">
-                                                                <div class="inner">
-                                                                    <div class="title_block">Newsletter</div>
-                                                                    <p>Sign up for newsletter to receive special offers
-                                                                        and
-                                                                        exclusive news about Ecomart products</p>
-                                                                    <div class="input-subscribe-wrap">
-                                                                        <input
-                                                                            class="inputNew form-control grey newsletter-input"
-                                                                            placeholder="Enter your email address"
-                                                                            type="text" name="email" size="18"
-                                                                            value="" />
-                                                                        <span class="input-group-btn">
-                                                                            <button type="submit"
-                                                                                name="submitNewsletter"
-                                                                                class="btn btn-primary">subscribe</button>
-                                                                        </span>
-                                                                        <input type="hidden" name="action" value="0" />
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <span class="custom-checkbox">
-                                                                            <input name="no-view" class="no-view"
-                                                                                type="checkbox">
-                                                                            <span class="ps-shown-by-js"><i
-                                                                                    class="material-icons checkbox-checked">check</i></span>
-                                                                        </span>
-                                                                        <span>Don't show this popup again</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                        </div>
-                                    </div>
+                        <!---  <div class="nov-row row_newsletter col-xl-12 col-xs-12" ><div class="nov-row-wrap row"><div class="nov-modules col-lg-12 col-md-12 col-xs-12 nov-subscription"><div class="block nov-wrap"><div class="title_block"><div class="icon"><img class="img-fluid" src="../modules/novpagemanage/img/3df9571afa7c789bf169d0235378b552.png" alt="icon title"></div>Sign Up For Newsletters</div><div class="block_newsletter">
+    <form action="http://demo.bestprestashoptheme.com/greenbee/en/#footer" method="post">
+                        <input type="text" class="form-control" name="email" value="" placeholder="Enter Your Email...">
+        <span class="input-group-btn mt-10">
+            <button class="btn btn-secondary" name="submitNewsletter" type="submit">subscribe</button>
+        </span>
+        <input type="hidden" name="action" value="0">
+    </form>
+</div>
+
+    <div id="popup-subscribe" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="zmdi zmdi-hc-fw zmdi-close"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form action="http://demo.bestprestashoptheme.com/greenbee/en/" method="post">
+                        <div class="subscribe_form ">
+                            <div class="inner">
+                                <div class="title_block">Newsletter</div>
+                                <p>Sign up for newsletter to receive special offers and 
+exclusive news about Ecomart products</p>
+                                <div class="input-subscribe-wrap">
+                                    <input class="inputNew form-control grey newsletter-input" placeholder="Enter your email address" type="text" name="email" size="18" value="" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" name="submitNewsletter" class="btn btn-primary">subscribe</button>
+                                    </span>
+                                    <input type="hidden" name="action" value="0" />
+                                </div>
+                                <div class="checkbox">
+                                    <span class="custom-checkbox">
+                                        <input name="no-view" class="no-view" type="checkbox">
+                                        <span class="ps-shown-by-js"><i class="material-icons checkbox-checked">check</i></span>
+                                    </span>
+                                    <span>Don't show this popup again</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="nov-row  col-xl-12 col-xs-12">
-                            <div class="nov-row-wrap row">
-                                <div class="nov-html col-lg-3 col-md-6 col-xs-12  link-list pt-55 pb-45 pb-md-0">
-                                    <div class="block">
-                                        <div class="title_block">
-                                            CUSTOMER SERVICE
-                                        </div>
-                                        <div class="block_content">
-                                            <ul>
-                                                <li><a href="#">Contact us</a></li>
-                                                <li><a href="#">Help and advice</a></li>
-                                                <li><a href="#">Shipping & Returns</a></li>
-                                                <li><a href="#">Terms and conditions</a></li>
-                                                <li><a href="#">Refund Policy</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="nov-html col-lg-3 col-md-6 col-xs-12  link-list pt-55 pt-xs-30 pb-45 pb-md-0 information">
-                                    <div class="block">
-                                        <div class="title_block">
-                                            INFORMATION
-                                        </div>
-                                        <div class="block_content">
-                                            <ul>
-                                                <li><a href="#">About Us</a></li>
-                                                <li><a href="#">Testimonials</a></li>
-                                                <li><a href="#">My Account</a></li>
-                                                <li><a href="#">Payments & Returns</a></li>
-                                                <li><a href="#">View Catalogues Online</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="nov-html col-lg-3 col-md-6 col-xs-12  link-list pt-55 pb-45 pt-md-30 pb-md-30">
-                                    <div class="block">
-                                        <div class="title_block">
-                                            About Us
-                                        </div>
-                                        <div class="block_content">
-                                            <ul>
-                                                <li><a href="#">Who We Are ?</a></li>
-                                                <li><a href="#">Corporate Responsibility</a></li>
-                                                <li><a href="#">California Laws</a></li>
-                                                <li><a href="#">Careers</a></li>
-                                                <li><a href="#">Privacy Policy</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="nov-html col-lg-3 col-md-6 col-xs-12  content-text link-list pt-55  pt-xs-0  pb-45 pt-md-30 pb-md-30">
-                                    <div class="block">
-                                        <div class="title_block">
-                                            Contact us
-                                        </div>
-                                        <div class="block_content">
-                                            <div class="content phone"><i class="icon-phone"></i>(+612) 2531 5600</div>
-                                            <div class="content email"><i class="icon-email"></i>sonata@domain.com</div>
-                                            <div class="content address"><i class="icon-address"></i>PBox 1622
-                                                Vissaosang Street West</div>
-                                            <div class="content open"><i class="icon-open"></i>Opening Hours : 8.00AM -
-                                                21.00AM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
+    </div>
+</div></div></div></div>
+
+
+<div class="nov-row  col-xl-12 col-xs-12" ><div class="nov-row-wrap row"><div class="nov-html col-lg-3 col-md-6 col-xs-12  link-list pt-55 pb-45 pb-md-0">
+ <div class="block">
+     <div class="title_block">
+        CUSTOMER SERVICE
+   </div>
+    <div class="block_content" >
+   <ul>
+<li><a href="#">Contact us</a></li>
+<li><a href="#">Help and advice</a></li>
+<li><a href="#">Shipping & Returns</a></li>
+<li><a href="#">Terms and conditions</a></li>
+<li><a href="#">Refund Policy</a></li>
+</ul>
+  </div>
+ </div>
+</div>
+<div class="nov-html col-lg-3 col-md-6 col-xs-12  link-list pt-55 pt-xs-30 pb-45 pb-md-0 information">
+ <div class="block">
+     <div class="title_block">
+        INFORMATION
+   </div>
+    <div class="block_content" >
+   <ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">Testimonials</a></li>
+<li><a href="#">My Account</a></li>
+<li><a href="#">Payments & Returns</a></li>
+<li><a href="#">View Catalogues Online</a></li>
+</ul>
+  </div>
+ </div>
+</div>
+<div class="nov-html col-lg-3 col-md-6 col-xs-12  link-list pt-55 pb-45 pt-md-30 pb-md-30">
+ <div class="block">
+     <div class="title_block">
+        About Us
+   </div>
+    <div class="block_content" >
+   <ul>
+<li><a href="#">Who We Are ?</a></li>
+<li><a href="#">Corporate Responsibility</a></li>
+<li><a href="#">California Laws</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Privacy Policy</a></li>
+</ul>
+  </div>
+ </div>
+</div>
+<div class="nov-html col-lg-3 col-md-6 col-xs-12  content-text link-list pt-55  pt-xs-0  pb-45 pt-md-30 pb-md-30">
+ <div class="block">
+     <div class="title_block">
+        Contact us
+   </div>
+    <div class="block_content" >
+   <div class="content phone"><i class="icon-phone"></i>(+612) 2531 5600</div>
+<div class="content email"><i class="icon-email"></i>sonata@domain.com</div>
+<div class="content address"><i class="icon-address"></i>PBox 1622 Vissaosang Street West</div>
+<div class="content open"><i class="icon-open"></i>Opening Hours : 8.00AM - 21.00AM</div>
+  </div>
+ </div>
+</div>
+</div></div>
+ -->
 
 
                     </div>
                 </div>
             </div>
-            <div id="nov-copyright">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-sm-12 col-md-7 col-lg-6 mb-xs-20 text-copyright text-md-left text-center">
-                            <span>
-                                <span>Copyright</span> © 2019 <span>Vinovathemes. </span> All Rights Reserved.
-                            </span>
-                        </div>
-                        <div class="col-sm-12 col-md-5 col-lg-6 image-payment text-md-right text-center">
-                            <img class="img-fluid" src="../modules/novthemeconfig/images/payment-1.png" alt="payment"
-                                title="Payment" />
-                        </div>
-                    </div>
-                </div>
+            <!--
+    <div id="nov-copyright">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-md-7 col-lg-6 mb-xs-20 text-copyright text-md-left text-center">
+                                                                <span>
+                             <span>Copyright</span> © 2019 <span>Vinovathemes. </span> All Rights Reserved.
+                        </span>
+                                    </div>
+                <div class="col-sm-12 col-md-5 col-lg-6 image-payment text-md-right text-center">
+                                            <img class="img-fluid" src="../modules/novthemeconfig/images/payment-1.png" alt="payment" title="Payment" />
+                                    </div>
             </div>
+        </div>
+    </div>
+-->
+
         </footer>
 
 
         <div class="canvas-overlay"></div>
 
         <div id="_desktop_back_top">
-            <div id="back-top">
-                <span>
-                    <i class="fa fa-long-arrow-up"></i>
-                </span>
-                <span class="text">On Top</span>
-            </div>
+            <!--<div id="back-top">
+      
+        <span>
+            <i class="fa fa-long-arrow-up"></i>
+        </span>
+        <span class="text">On Top</span>
+    </div>-->
         </div>
 
     </main>
@@ -1030,29 +998,25 @@
         </div>
     </div>
 
-
+    <!--
     <div id="stickymenu_bottom_mobile">
-        <div class="row align-items-center justify-content-center hidden-md-up text-center no-gutters">
-            <div class="stickymenu-item col">
-                <a href="http://demo.bestprestashoptheme.com/greenbee/"><i class="icon-house"></i><span>Home</span></a>
-            </div>
-            <div class="stickymenu-item col">
-                <a href="http://demo.bestprestashoptheme.com/greenbee/en/module/novblockwishlist/mywishlist"><i
-                        class="zmdi zmdi-favorite-outline"></i><span>Wishlist</span></a>
-            </div>
-            <div class="stickymenu-item col">
-                <div id="_mobile_cart_bottom" class="nov-toggle-page" data-target="#mobile-blockcart"></div>
-            </div>
-            <div class="stickymenu-item col">
-                <a href="#" class="nov-toggle-page" data-target="#mobile-pageaccount"><i
-                        class="icon-settings"></i><span>Setting</span></a>
-            </div>
-            <div class="stickymenu-item col">
-                <div id="_mobile_back_top"></div>
-            </div>
+      <div class="row align-items-center justify-content-center hidden-md-up text-center no-gutters">
+        <div class="stickymenu-item col">
+          <a href="http://demo.bestprestashoptheme.com/greenbee/"><i class="icon-house"></i><span>Home</span></a>
         </div>
+        <div class="stickymenu-item col">
+          <a href="http://demo.bestprestashoptheme.com/greenbee/en/module/novblockwishlist/mywishlist"><i class="zmdi zmdi-favorite-outline"></i><span>Wishlist</span></a>
+        </div>
+        <div class="stickymenu-item col">
+          <div id="_mobile_cart_bottom" class="nov-toggle-page" data-target="#mobile-blockcart"></div>
+        </div>
+        <div class="stickymenu-item col">
+          <a href="#" class="nov-toggle-page" data-target="#mobile-pageaccount"><i class="icon-settings"></i><span>Setting</span></a>
+        </div>
+        <div class="stickymenu-item col"><div id="_mobile_back_top"></div></div>
+      </div>
     </div>
-
+    -->
 
     <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up">
         <div class="content-boxpage col">
@@ -1188,6 +1152,8 @@
             methods: {
                 logar: function () {
 
+                    let contexto = this;
+
                     $.ajax({
                         type: "POST",
                         url: "http://localhost:8082/login",
@@ -1195,6 +1161,9 @@
                         contentType: "application/json",
                         success: function (datax) {
                             window.location.href = "index.html";
+                        },
+                        error: function (datax) {
+                            contexto.mensagem_erro = "error";
                         },
                         dataType: "text"
                     });

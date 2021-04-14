@@ -12,16 +12,20 @@ import org.springframework.stereotype.Service;
 public class AlterarSenhaService {
     @Autowired
     UsuarioGenericoRepository usuarioGenericoRepository;
+    RedefinicaoResponseModel redefinicaoSenhaModel = new RedefinicaoResponseModel();
 
-    public boolean execute(RedefinicaoSenhaModel dadosRedefinirSenha){
-        if (!verificaSenhaRedefinicao(dadosRedefinirSenha)){
-            RedefinicaoResponseModel redefinicaoSenhaModel = new RedefinicaoResponseModel();
-            redefinicaoSenhaModel.setMensagem("Senhas não conferem");
-            return false;
-        }
-        redefinirSenha(validarUsuario(dadosRedefinirSenha), dadosRedefinirSenha);
-        return true;
-    }
+//    public boolean execute(RedefinicaoSenhaModel dadosRedefinirSenha){
+//        if (!verificaSenhaRedefinicao(dadosRedefinirSenha)){
+//            redefinicaoSenhaModel.setMensagem("Senhas não conferem");
+//            return false;
+//        }
+//        if(validarUsuario(dadosRedefinirSenha) == null){
+//            redefinicaoSenhaModel.setMensagem("Usuário não encontrado");
+//            return false;
+//        }
+//        redefinirSenha(validarUsuario(dadosRedefinirSenha), dadosRedefinirSenha);
+//            return true;
+//    }
 
     public boolean verificaSenhaRedefinicao(RedefinicaoSenhaModel dadosRedefinirSenha){
         if (dadosRedefinirSenha.getSenha().equals(dadosRedefinirSenha.getConfirmarSenha())){
@@ -30,7 +34,7 @@ public class AlterarSenhaService {
         return false;
     }
 
-    private void redefinirSenha(UsuarioGenerico dadosUsuario, RedefinicaoSenhaModel dadadosRedefinirSenha){
+    public void redefinirSenha(UsuarioGenerico dadosUsuario, RedefinicaoSenhaModel dadadosRedefinirSenha){
         try {
             usuarioGenericoRepository.save(converterParaEntity(dadosUsuario, dadadosRedefinirSenha));
         }catch (BancoDadosException ex){
@@ -38,13 +42,8 @@ public class AlterarSenhaService {
         }
     }
 
-    private UsuarioGenerico validarUsuario(RedefinicaoSenhaModel dadosRedefinirSenha){
-        UsuarioGenerico dadosUsuario = usuarioGenericoRepository.selectPorLogin(dadosRedefinirSenha.getLogin());
-        if (dadosUsuario != null) {
-            return dadosUsuario;
-        }else{
-            throw new BancoDadosException("Usuário não encontrado", new Exception());
-        }
+    public UsuarioGenerico validarUsuario(RedefinicaoSenhaModel dadosRedefinirSenha){
+        return usuarioGenericoRepository.selectPorLogin(dadosRedefinirSenha.getLogin());
     }
 
     private UsuarioGenerico converterParaEntity(UsuarioGenerico dadosUsuario, RedefinicaoSenhaModel dadadosRedefinirSenha){

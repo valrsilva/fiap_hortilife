@@ -71,12 +71,31 @@ public class UsuarioController {
 	}
 
 	@PostMapping(path = "/redefinirSenha")
-	public String redefiniSenhaUsuario(@RequestBody RedefinicaoSenhaModel dadosRedefinirSenhaModel) {
-		if (alterarSenhaService.execute(dadosRedefinirSenhaModel)) {
-			return "ok";
-		}
-		return "nok";
-	}
+	public ResponseEntity<?> redefiniSenhaUsuario(@RequestBody RedefinicaoSenhaModel dadosRedefinirSenhaModel) {
+        RedefinicaoResponseModel redefinicaoSenhaModel = new RedefinicaoResponseModel();
+
+        UsuarioGenerico usuarioGenerico = alterarSenhaService.validarUsuario(dadosRedefinirSenhaModel);
+        if (usuarioGenerico == null) {
+            redefinicaoSenhaModel.setMensagem("Usuário não encontrado");
+            return new ResponseEntity<RedefinicaoResponseModel>(redefinicaoSenhaModel, HttpStatus.NOT_FOUND);
+        }
+        if (!alterarSenhaService.verificaSenhaRedefinicao(dadosRedefinirSenhaModel)) {
+            redefinicaoSenhaModel.setMensagem("Senhas não conferem");
+            return new ResponseEntity<RedefinicaoResponseModel>(redefinicaoSenhaModel, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        alterarSenhaService.redefinirSenha(usuarioGenerico, dadosRedefinirSenhaModel);
+        redefinicaoSenhaModel.setMensagem("Senha redefinida");
+        return new ResponseEntity<RedefinicaoResponseModel>(HttpStatus.OK);
+    }
+
+
+//        if (alterarSenhaService.execute(dadosRedefinirSenhaModel)) {
+//            redefinicaoSenhaModel.setMensagem("Senha redefinida");
+//            return new ResponseEntity<RedefinicaoResponseModel>(HttpStatus.OK);
+//		}
+//        redefinicaoSenhaModel.setMensagem("Senhas não conferem");
+//        return new ResponseEntity<RedefinicaoResponseModel>(redefinicaoSenhaModel, HttpStatus.OK);
+
 	@PostMapping(path = "/login")
 	public ResponseEntity<?> login(@RequestBody LoginModel dadosLogin){
 		if (loginService.execute(dadosLogin)) {

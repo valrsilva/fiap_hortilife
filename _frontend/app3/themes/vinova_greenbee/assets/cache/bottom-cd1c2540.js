@@ -21535,6 +21535,7 @@ function FullWidthRow() {
 }
 
 function Nov_Owlcarousel() {
+    console.log("aquiiiiii");
     $(".owl-carousel").each(function(index) {
         if ($('body').hasClass('lang-rtl'))
             rtl = !0;

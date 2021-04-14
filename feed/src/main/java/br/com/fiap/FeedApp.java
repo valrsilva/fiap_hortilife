@@ -13,6 +13,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.stereotype.Component;
 
 import br.com.fiap.model.Agrupamento;
+import br.com.fiap.model.AgrupamentoPost;
 import br.com.fiap.model.Post;
 import br.com.fiap.model.Story;
 import br.com.fiap.repository.AgrupamentoRepository;
@@ -47,12 +48,38 @@ public class FeedApp {
 			post.setIdUsuario(1);
 			post.setDescricao("Delicioso abacate direto do pé.");
 			post.setUrlImagem("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
+			post.setIdProduto(1);
 			post.setDataCriacao(Calendar.getInstance().getTime());
-			postRepository.save(post);
+			post = postRepository.save(post);
+			
+			Post post2 = new Post();
+			post2.setIdUsuario(2);
+			post2.setDescricao("Deliciosa banana direto do pé.");
+			post2.setUrlImagem("https://carrefourbr.vtexassets.com/arquivos/ids/197486/59870_2.jpg?v=637272440099630000");
+			post2.setIdProduto(1);
+			post2.setDataCriacao(Calendar.getInstance().getTime());
+			post2 = postRepository.save(post2);
+			
+			Post post3 = new Post();
+			post3.setIdUsuario(3);
+			post3.setDescricao("Delicioso brócolis direto do pé.");
+			post3.setUrlImagem("http://d3ugyf2ht6aenh.cloudfront.net/stores/174/441/products/ramoso1-efba3bd91e7d3ea78c15210387253162-640-0.jpg");
+			post3.setIdProduto(1);
+			post3.setDataCriacao(Calendar.getInstance().getTime());
+			post3 = postRepository.save(post3);
+			
+			Post post4 = new Post();
+			post4.setIdUsuario(1);
+			post4.setDescricao("Deliciosa couve direto do pé.");
+			post4.setUrlImagem("https://octoshop.sfo2.digitaloceanspaces.com/lojas/padellasaobenedito/uploads_produto/couve-manteiga-5e975d60d4256.png");
+			post4.setIdProduto(1);
+			post4.setDataCriacao(Calendar.getInstance().getTime());
+			post4 = postRepository.save(post4);
+			
 			
 			Story story = new Story();
 			story.setIdUsuario(1);
-			story.setDescricao("Deliciosa melancia, muito soborosa!");
+			story.setDescricao("Story de Deliciosa banana, muito soborosa!");
 			story.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire = Calendar.getInstance();
@@ -61,8 +88,8 @@ public class FeedApp {
 			storyRepository.save(story);
 			
 			Story story2 = new Story();
-			story2.setIdUsuario(1);
-			story2.setDescricao("Deliciosa melancia, muito soborosa!");
+			story2.setIdUsuario(2);
+			story2.setDescricao("Story de Deliciosa melancia, muito soborosa!");
 			story2.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story2.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire2 = Calendar.getInstance();
@@ -71,8 +98,8 @@ public class FeedApp {
 			storyRepository.save(story2);
 			
 			Story story3 = new Story();
-			story3.setIdUsuario(1);
-			story3.setDescricao("Deliciosa melancia, muito soborosa!");
+			story3.setIdUsuario(3);
+			story3.setDescricao("Story de Deliciosa maça, muito soborosa!");
 			story3.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story3.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire3 = Calendar.getInstance();
@@ -82,7 +109,7 @@ public class FeedApp {
 			
 			Story story4 = new Story();
 			story4.setIdUsuario(1);
-			story4.setDescricao("Deliciosa melancia, muito soborosa!");
+			story4.setDescricao("Story de Deliciosa pêra, muito soborosa!");
 			story4.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story4.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire4 = Calendar.getInstance();
@@ -91,8 +118,8 @@ public class FeedApp {
 			storyRepository.save(story4);
 			
 			Story story5 = new Story();
-			story5.setIdUsuario(1);
-			story5.setDescricao("Deliciosa melancia, muito soborosa!");
+			story5.setIdUsuario(2);
+			story5.setDescricao("Story de Deliciosa mexerica, muito soborosa!");
 			story5.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story5.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire5 = Calendar.getInstance();
@@ -101,8 +128,8 @@ public class FeedApp {
 			storyRepository.save(story5);
 			
 			Story story6 = new Story();
-			story6.setIdUsuario(1);
-			story6.setDescricao("Deliciosa melancia, muito soborosa!");
+			story6.setIdUsuario(3);
+			story6.setDescricao("Story de Deliciosa uva, muito soborosa!");
 			story6.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story6.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire6 = Calendar.getInstance();
@@ -110,23 +137,34 @@ public class FeedApp {
 			story6.setDataExpiracao(dtExpire6.getTime());
 			storyRepository.save(story6);
 			
+			
 			Agrupamento agrupamento = new Agrupamento();
 			agrupamento.setDescricao("Destaques");
 			agrupamento.setPosts(new ArrayList<>());
-			agrupamento.getPosts().add(post);
+			agrupamento.getPosts().add(new AgrupamentoPost(0, post, agrupamento));
+			agrupamento.getPosts().add(new AgrupamentoPost(0, post2, agrupamento));
+			agrupamento.getPosts().add(new AgrupamentoPost(0, post3, agrupamento));
+			agrupamento.getPosts().add(new AgrupamentoPost(0, post4, agrupamento));
 			agrupamentoRepository.save(agrupamento);
 			
 			Agrupamento agrupamento2 = new Agrupamento();
 			agrupamento2.setDescricao("Mais relevantes");
 			agrupamento2.setPosts(new ArrayList<>());
-			agrupamento2.getPosts().add(post);
+			agrupamento2.getPosts().add(new AgrupamentoPost(0, post, agrupamento2));
+			agrupamento2.getPosts().add(new AgrupamentoPost(0, post2, agrupamento2));
+			agrupamento2.getPosts().add(new AgrupamentoPost(0, post3, agrupamento2));
+			agrupamento2.getPosts().add(new AgrupamentoPost(0, post4, agrupamento2));
 			agrupamentoRepository.save(agrupamento2);
 			
 			Agrupamento agrupamento3 = new Agrupamento();
 			agrupamento3.setDescricao("Mais vendidos");
 			agrupamento3.setPosts(new ArrayList<>());
-			agrupamento3.getPosts().add(post);
+			agrupamento3.getPosts().add(new AgrupamentoPost(0, post, agrupamento3));
+			agrupamento3.getPosts().add(new AgrupamentoPost(0, post2, agrupamento3));
+			agrupamento3.getPosts().add(new AgrupamentoPost(0, post3, agrupamento3));
+			agrupamento3.getPosts().add(new AgrupamentoPost(0, post4, agrupamento3));
 			agrupamentoRepository.save(agrupamento3);
+			
 			
 			postRepository.findAll().forEach(System.out::println);
 			storyRepository.findAll().forEach(System.out::println);

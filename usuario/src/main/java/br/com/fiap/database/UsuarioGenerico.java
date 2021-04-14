@@ -49,4 +49,8 @@ public class UsuarioGenerico  {
     @NonNull
     @Column(name = "cpf")
     private String cpf;
+    
+    @Column(name = "foto", length = 32000)
+    private String foto;
+    
 }

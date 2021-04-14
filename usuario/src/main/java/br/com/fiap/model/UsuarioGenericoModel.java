@@ -20,4 +20,6 @@ public class UsuarioGenericoModel {
     private boolean ativo;
     private String genero;
     private String cpf;
+    private String foto;
+    
 }

@@ -2,12 +2,14 @@ package br.com.fiap.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,9 +20,8 @@ public class Agrupamento {
     private long id;
 	private String descricao;
 	
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name="agrupamento_id")
-	private List<Post> posts;
+    @OneToMany(mappedBy = "agrupamento", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<AgrupamentoPost> posts;
 	
 	public long getId() {
 		return id;
@@ -34,12 +35,10 @@ public class Agrupamento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public List<Post> getPosts() {
+	public List<AgrupamentoPost> getPosts() {
 		return posts;
 	}
-	public void setPosts(List<Post> posts) {
+	public void setPosts(List<AgrupamentoPost> posts) {
 		this.posts = posts;
 	}
-	
-	
 }

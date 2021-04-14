@@ -14,9 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.Gson;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
+import br.com.fiap.dto.Produto;
 import br.com.fiap.dto.Usuario;
 
 @Service
@@ -32,7 +34,7 @@ public class FeedService {
 		
 		Usuario usuario = null;
 		
-		List<ServiceInstance> list = discoveryClient.getInstances("perfil");
+		List<ServiceInstance> list = discoveryClient.getInstances("usuario");
 		ServiceInstance service2 = list.get(0); URI micro2URI = service2.getUri();
 		  
 		HttpHeaders headers = new HttpHeaders();
@@ -43,10 +45,11 @@ public class FeedService {
 		try {
 			
 			ResponseEntity<String> forEntity = restTemplate.getForEntity(micro2URI +
-					"/usuario/" + idUsuario, String.class);
+					"/buscaUsuario/" + idUsuario, String.class);
 			
 			if(forEntity.getStatusCode().is2xxSuccessful()) {
-				usuario = new Usuario();
+				Gson gson = new Gson();
+				usuario = gson.fromJson(forEntity.getBody(), Usuario.class);
 			}
 			
 		} catch (HttpClientErrorException ex)   {
@@ -64,6 +67,49 @@ public class FeedService {
 	@SuppressWarnings("unused")
 	private Usuario usuarioFallback(long idUsuario) throws Exception{
 		return new Usuario();
+	}
+	
+	
+	@HystrixCommand(fallbackMethod = "produtoFallback", commandProperties=
+		{@HystrixProperty(
+		name="execution.isolation.thread.timeoutInMilliseconds",value="12000")})
+	public Produto getProduto(long idProduto) throws Exception {
+		
+		Produto produto = null;
+		
+		List<ServiceInstance> list = discoveryClient.getInstances("produto");
+		ServiceInstance service2 = list.get(0); URI micro2URI = service2.getUri();
+		  
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		  
+		RestTemplate restTemplate = new RestTemplate();
+		
+		try {
+			
+			ResponseEntity<String> forEntity = restTemplate.getForEntity(micro2URI +
+					"/produtos/" + idProduto, String.class);
+			
+			if(forEntity.getStatusCode().is2xxSuccessful()) {
+				Gson gson = new Gson();
+				produto = gson.fromJson(forEntity.getBody(), Produto.class);
+			}
+			
+		} catch (HttpClientErrorException ex)   {
+			
+		    if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
+		    	//exists = false;
+		    }
+		    
+		}
+		
+		return produto;
+		
+	}
+	
+	@SuppressWarnings("unused")
+	private Produto produtoFallback(long idProduto) throws Exception{
+		return new Produto();
 	}
 	
 	

@@ -47,6 +47,8 @@ public class Produto {
     @OneToOne
     private Subcategoria subcategoria;
     
+    private String imagemPrincipal;
+    
     @OneToMany(mappedBy="produto")
     @JsonManagedReference
     private List<ImagemProduto> imagemProduto;
@@ -161,5 +163,14 @@ public class Produto {
 	public void setSubcategoria(Subcategoria subcategoria) {
 		this.subcategoria = subcategoria;
 	}
+
+	public String getImagemPrincipal() {
+		return imagemPrincipal;
+	}
+
+	public void setImagemPrincipal(String imagemPrincipal) {
+		this.imagemPrincipal = imagemPrincipal;
+	}
+	
 	
 }

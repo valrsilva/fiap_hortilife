@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Combo Perfil</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
     <link rel="icon" type="image/vnd.microsoft.icon" href="../img/favicon.ico?1324977642">
     <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico?1324977642">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../assets/cache/bundle.css" type="text/css" media="all">
 
     <script type="text/javascript">
-        var baseDir = "\/greenbee\/";
+        var baseDir = "";
         var isLogged = false;
         var isLoggedWishlist = false;
 
@@ -101,15 +101,15 @@
                         <div id="main">
                             <div class="page-header">
                                 <h1 class="page-title hidden-xs-up">
-                                    Login
+                                    Log in to your account
                                 </h1>
                             </div>
                             <section id="content" class="page-content">
                                 <div class="block-form-login">
                                     <section class="login-form">
-                                        <div class="page_title_account text-center">Fazer Login</div>
 
-                                        <p class="text-center mb-15">Insira seus dados de Login:</p>
+                                        <p class="text-center mb-15" style="padding-top: 40px;">Escolha seu Perfil
+                                            de Usuário:</p>
                                         <div class="row no-gutters">
                                             <div class="col-md-10 offset-md-2">
                                             </div>
@@ -119,74 +119,38 @@
                                             method="post">
                                             <section>
                                                 <input type="hidden" name="back" value="my-account">
-                                                <div class="form-group row no-gutters novform-email">
+                                                <div class="form-group row no-gutters">
                                                     <label class="col-md-2 form-control-label required">
-                                                        E-mail
+                                                        Email
                                                     </label>
                                                     <div class="col-md-8">
-                                                        <input v-model="dados_login.login" class="form-control"
-                                                            name="email" type="email" value="" placeholder="Email"
-                                                            required>
+                                                        <select class="form-control" name="email" value=""
+                                                            placeholder="Escolher Perfil"
+                                                            style="-webkit-appearance: auto; font-size: 12px" required>
+                                                            <option>Consumidor</option>
+                                                            <option>Produtor</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-md-2 form-control-comment right">
+                                                        <i class='zmdi zmdi-eye'></i>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row no-gutters novform-password">
-                                                    <label class="col-md-2 form-control-label required">
-                                                        Senha
-                                                    </label>
-                                                    <div class="col-md-8">
-                                                        <div class="input-group js-parent-focus">
-                                                            <input v-model="dados_login.senha"
-                                                                class="form-control js-child-focus js-visible-password"
-                                                                name="password" type="password" value=""
-                                                                placeholder="Senha" pattern=".{5,}" required>
-                                                            <span class="input-group-btn">
-                                                                <button class="btn" type="button"
-                                                                    data-action="show-password"
-                                                                    data-text-show="<i class='zmdi zmdi-eye-off'></i>"
-                                                                    data-text-hide="<i class='zmdi zmdi-eye'></i>">
-                                                                    <i class='zmdi zmdi-eye-off'></i>
-                                                                </button>
-                                                            </span>
+
+                                                <footer class="form-footer clearfix">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-10 offset-md-2">
+                                                            <input type="hidden" name="submitLogin" value="1">
+                                                            <button class="btn btn-primary" data-link-action="sign-in"
+                                                                type="button" class="form-control-submit"
+                                                                v-on:click="prosseguir()">
+                                                                Prosseguir
+                                                            </button>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2 form-control-comment right">
-                                                    </div>
-                                                </div>
-                                                <div v-if="mensagem_erro">
-                                                    <span style="color:red; text-align:center">
-                                                        Usuário ou senha inválido!
-                                                    </span>
-                                                </div>
-                                                <div class="forgot-password text-center mt-25 mb-25">
-                                                    <i class="zmdi zmdi-email"></i>&nbsp;
-                                                    Esqueceu sua senha?&nbsp;
-                                                    <a href="password.html" rel="nofollow">
-                                                        <span>Clique Aqui</span>&nbsp;
-                                                    </a>
-                                                </div>
-                                            </section>
-                                            <footer class="form-footer clearfix">
-                                                <div class="row no-gutters">
-                                                    <div class="col-md-10 offset-md-2">
-                                                        <input type="hidden" name="submitLogin" value="1">
-                                                        <button v-on:click="logar()" class="btn btn-primary"
-                                                            data-link-action="sign-in" type="button"
-                                                            class="form-control-submit">
-                                                            Login
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </footer>
+                                                </footer>
                                         </form>
                                     </section>
-                                    <div class="no-account">
-                                        <a class="font-weight-bold" href="create_account.html"
-                                            data-link-action="display-register-form">
-                                            Registrar-me
-                                        </a>
-                                    </div>
+
                                 </div>
                             </section>
                             <footer class="page-footer">
@@ -196,10 +160,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="canvas-overlay"></div>
-        <div id="_desktop_back_top">
         </div>
 
     </main>
@@ -218,29 +178,11 @@
                 }
             },
             methods: {
-                logar: function () {
-
-                    let contexto = this;
-
-                    $.ajax({
-                        type: "POST",
-                        url: "http://localhost:8082/login",
-                        data: JSON.stringify(this.dados_login),
-                        contentType: "application/json",
-                        success: function (datax) {
-                            window.location.href = "index.html";
-                        },
-                        error: function (datax) {
-                            contexto.mensagem_erro = "error";
-                        },
-                        dataType: "text"
-                    });
+                prosseguir: function () {
+                    window.location.href = "create_account.html";
                 }
             }
-
         });
-
-        localStorage.removeItem('carrinho');
 
     </script>
 

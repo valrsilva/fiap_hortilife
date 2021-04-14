@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Produto</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../img/favicon.ico?1324977642">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico?1324977642">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/cache/bundle.css" type="text/css" media="all">
+
+    <script type="text/javascript">
+        var baseDir = "";
+        var isLogged = false;
+        var isLoggedWishlist = false;
+
+        var prestashop = {
+            "cart": {},
+            "currency": {},
+            "customer": {},
+            "language": {},
+            "page": {},
+            "shop": {},
+            "urls": {},
+            "configuration": {},
+            "field_required": [],
+            "breadcrumb": {},
+            "link": {},
+            "time": 1615852957,
+            "static_token": "",
+            "token": "",
+            "debug": false
+        };
+
+        var psemailsubscription_subscription = "";
+        var psr_icon_color = "#F19D76";
+        var search_url = "";
+        var static_token = "";
+        var wishlistProductsIdsobject = [];
+    </script>
+
+    <style type="text/css">
+        @media (min-width: 1200px) {
+            .container {
+                width: 1200px;
+            }
+
+            #header .container {
+                width: 1200px;
+            }
+
+            .footer .container {
+                width: 1200px;
+            }
+
+            #index .container {
+                width: 1200px;
+            }
+        }
+
+        @font-face {
+            font-family: "IcoFont";
+            src: url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.eot");
+            /* IE9*/
+            src: url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.eot?#iefix") format("embedded-opentype"),
+                /* IE6-IE8 */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.woff2") format("woff2"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.woff") format("woff"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.ttf") format("truetype"),
+                /* chrome firefox opera Safari, Android, iOS 4.2+*/
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.svg#IcoFont") format("svg");
+            /* iOS 4.1- */
+        }
+    </style>
+
+</head>
+
+<body id="product" class="lang-en country-gb currency-gbp layout-full-column page-product tax-display-enabled product-id-26 product-diamond-halo-stud-earrings product-id-category-2 product-id-manufacturer-1 product-id-supplier-0 product-available-for-order
+      displayhomenovfour">
+
+    <main id="main-site">
+
+        <!--------------- HEADER -------------->
+
+        <header id="header" class="header-4 sticky-menu">
+
+            <div class="header-top hidden-sm-down header-color-1 pt-18 pb-18" style="background-color: #3AB54A">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+
+                        <!--------------- LOGO -------------->
+
+                        <div id="_desktop_logo" class="contentsticky_logo col-lg-2 col-md-3">
+                            <a href="#">
+                                <img class="logo img-fluid" src="../assets/_logo-navbrar.png" alt="Greenbee">
+                            </a>
+                        </div>
+
+                        <!--------------- BUSCA -------------->
+
+                        <div class="col-xs-8 col-md-2 col-lg-5 text-center position-static">
+                            <div id="_desktop_advancsearch">
+                                <div id="_desktop_search_content" data-id_lang="1" data-ajaxsearch="1" data-action="#">
+                                    <div class="toggle-search">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                    <form method="get" action="#" id="searchbox" class="form-novadvancedsearch">
+                                        <input type="hidden" name="fc" value="module">
+                                        <input type="hidden" name="module" value="novadvancedsearch">
+                                        <input type="hidden" name="controller" value="result">
+                                        <input type="hidden" name="orderby" value="position" />
+                                        <input type="hidden" name="orderway" value="desc" />
+                                        <input type="hidden" name="id_category" class="id_category" value="0" />
+                                        <div class="input-group input-group-left">
+                                            <input type="text" id="search_query_top"
+                                                class="search_query ui-autocomplete-input form-control"
+                                                name="search_query" value="" placeholder="Busca" />
+                                            <span class="input-group-btn button-search">
+                                                <button class="btn btn-secondary" type="submit" name="submit_search"><i
+                                                        class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--------------- MENU -------------->
+
+                        <div class="col-md-7 col-lg-5 d-flex align-items-center justify-content-end header-top-right">
+
+                            <div id="block_myaccount_infos"
+                                class="myaccount_infos groups-selector hidden-sm-down dropdown js-dropdown">
+                                <div class="myaccount-title dropdown-toggle text-center" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    id="_desktop_user_info">
+                                    <i></i>
+                                </div>
+                                <div class="account-list dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                    id="_desktop_account_list">
+                                    <div class="account-list-content">
+                                        <li>
+                                            <a class="login" href="login.html" rel="nofollow"
+                                                title="Log in to your customer account"><i
+                                                    class="fa fa-sign-in"></i><span>Sair</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="check-out" href="#" rel="nofollow" title="Checkout"><i
+                                                    class="fa fa-check-circle" aria-hidden="true"></i><span>Finalizar
+                                                    Compra</span></a>
+                                        </li>
+                                        <li class="link_wishlist">
+                                            <a href="#" title="My Wishlists">
+                                                <i class="fa fa-heart"></i><span>Meus favoritos</span>
+                                            </a>
+                                        </li>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--------------- CARRINHO -------------->
+
+                            <div class="contentsticky_cart">
+                                <div id="_desktop_cart">
+                                    <div class="blockcart cart-preview" data-refresh-url="#">
+                                        <div class="header-cart text-center">
+                                            <div class="header-cart-icon">
+                                                <span class="cart-products-count">2</span>
+                                                <i class="icon-header-cart"></i>
+                                            </div>
+                                            <div class="title-cart label-header"></div>
+                                        </div>
+                                        <div class="cart_block ">
+                                            <div class="cart-block-content">
+                                                <ul>
+                                                    <li v-for="item in carrinho">
+                                                        <div class="media">
+                                                            <img class="d-flex product-image"
+                                                                src="http://demo.bestprestashoptheme.com/greenbee/153-cart_default/mug-today-is-a-good-day.jpg"
+                                                                alt="" title="">
+                                                            <a class="remove-from-cart"
+                                                                data-link-action="delete-from-cart"
+                                                                data-link-place="cart-preview" rel="nofollow"
+                                                                href="http://demo.bestprestashoptheme.com/greenbee/en/cart?delete=1&amp;id_product=27&amp;id_product_attribute=0&amp;token=657437adc714b3716dff0db916728191"
+                                                                title="remove from cart">
+                                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <div class="product-name"><a
+                                                                        href="http://demo.bestprestashoptheme.com/greenbee/en/greenbee/27-mug-today-is-a-good-day.html">{{item.nome}}</a>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="product-price">R${{item.valor}}</span>
+                                                                    <span class="quantity"> x 1</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="cart-total">
+                                                    <span class="label">Total:</span>
+                                                    <span class="value">R${{carrinho.reduce((total, item) => total
+                                                        + item.valor, 0)}}</span>
+                                                </div>
+                                                <div class="cart-buttons">
+                                                    <a href="#" class="btn btn-primary mb-5 btn-checkout"><i
+                                                            class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                        Finalizar Compra</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--------------- SUBHEADER -------------->
+
+            <div class="header-center hidden-sm-down">
+                <div class="container">
+                    <div class="row align-items-center d-flex">
+                        <div class="col-lg-9 col-md-9">
+
+                            <div id="_desktop_top_menu" class="contentsticky_menu">
+                                <nav id="nov-megamenu" class="clearfix">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div id="megamenu" class="nov-megamenu clearfix">
+                                        <ul class="menu level1">
+                                            <li class="item "><a href="#" title="Home">PRODUTOS POR CATEGORIA</a></li>
+
+                                            <li lass="item home-page has-sub"><span class="opener"></span><a href="#"
+                                                    title="#"><i
+                                                        class="fa fa-angle-down"></i>{{produto.categoria.descricao}}</a>
+                                                <div class="dropdown-menu" style="width:130px">
+                                                    <ul class="">
+                                                        <li v-for="sub in produto.categoria.subcategoria" class="item ">
+                                                            <a href="#" title="#">{{sub.descricao}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3 col-md-3 justify-content-end d-flex">
+                            <div class="block_social">
+                                <div class="btn-social hidden-lg-up"><i class="zmdi zmdi-share"></i></div>
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item mb-0"><a href="#"><i class="zmdi zmdi-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item mb-0"><a href="#"><i class="zmdi zmdi-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item mb-0"><a href="#"><i
+                                                class="zmdi zmdi-google-old"></i></a></li>
+                                    <li class="list-inline-item mb-0"><a href="#"><i
+                                                class="zmdi zmdi-instagram"></i></a></li>
+                                    <li class="list-inline-item mb-0"><a href="#"><i class="zmdi zmdi-dribbble"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--------------- HEADER-MOBILE -------------->
+
+            <div class="header-mobile hidden-md-up" style="background-color: #3AB54A">
+                <div class="hidden-md-up text-xs-center mobile d-flex align-items-center justify-content-end">
+                    <div id="_mobile_logo" class="mobile_logo item-mobile-top"></div>
+                    <div id="_mobile_search">
+                        <div id="_mobile_search_content"></div>
+                    </div>
+                    <div id="_mobile_menutop"
+                        class="item-mobile-top nov-toggle-page d-flex align-items-center justify-content-center"
+                        data-target="#mobile-pagemenu"><i class="zmdi zmdi-view-headline"></i></div>
+                </div>
+            </div>
+
+        </header>
+
+        <!--------------- STICKER TOP MENU -------------->
+
+        <div id="header-sticky" class="sticky-header-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="contentstickynew_logo col-lg-3 col-md-2"></div>
+                    <div class="contentstickynew_menu col-lg-7 col-md-9"></div>
+                    <div class="group-sticky-right d-flex justify-content-end col-lg-2 col-md-1 align-items-center">
+                        <div class="contentstickynew_cart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------- CONTEUDO -------------->
+
+        <div id="wrapper-site">
+            <div id="content-wrapper" style="margin-top:20px">
+                <section id="main" itemscope itemtype="https://schema.org/Product">
+                    <meta itemprop="url" content="#">
+                    <div class="TopContent">
+                        <div class="block_info">
+                            <div class="container">
+                                <div class="row">
+                                    <div class=" col-52-5 col-md-6 col col-xs-12">
+                                        <div class="images-container thumb-bottom">
+
+                                            <!--------------- IMAGEM PRINCIPAL -------------->
+
+                                            <div class="product-cover">
+                                                <div class="block_content">
+                                                    <img class="js-qv-product-cover img-fluid"
+                                                        v-bind:src="produto.imagemPrincipal" alt="" title=""
+                                                        style="width:100%;" itemprop="image">
+                                                    <div class="layer hidden-sm-down" data-toggle="modal"
+                                                        data-target="#product-modal">
+                                                        <i class="zmdi zmdi-arrows"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--------------- THUMBNAILS -------------->
+
+                                            <div class="js-qv-mask">
+                                                <div class="product-images slick-images" data-autoplay="false"
+                                                    data-autoplayTimeout="6000" data-items="5" data-margin="30"
+                                                    data-nav="true" data-dots="false" data-items_large="4"
+                                                    data-items_mobile="3" data-items_tablet="2" data-vertical="false">
+                                                    <div class="item thumb-container" style="width:90px; height:90px">
+                                                        <img class="thumb js-thumb  selected "
+                                                            data-image-medium-src="http://demo.bestprestashoptheme.com/greenbee/145-medium_default/diamond-halo-stud-earrings-.jpg"
+                                                            data-image-large-src="http://demo.bestprestashoptheme.com/greenbee/145-large_default/diamond-halo-stud-earrings-.jpg"
+                                                            src="http://demo.bestprestashoptheme.com/greenbee/145-home_default/diamond-halo-stud-earrings-.jpg"
+                                                            alt="" title="" itemprop="image">
+                                                    </div>
+                                                    <div class="item thumb-container" style="width:90px; height:90px">
+                                                        <img class="thumb js-thumb "
+                                                            data-image-medium-src="http://demo.bestprestashoptheme.com/greenbee/146-medium_default/diamond-halo-stud-earrings-.jpg"
+                                                            data-image-large-src="http://demo.bestprestashoptheme.com/greenbee/146-large_default/diamond-halo-stud-earrings-.jpg"
+                                                            src="http://demo.bestprestashoptheme.com/greenbee/146-home_default/diamond-halo-stud-earrings-.jpg"
+                                                            alt="" title="" itemprop="image">
+                                                    </div>
+                                                    <div class="item thumb-container" style="width:90px; height:90px">
+                                                        <img class="thumb js-thumb "
+                                                            data-image-medium-src="http://demo.bestprestashoptheme.com/greenbee/147-medium_default/diamond-halo-stud-earrings-.jpg"
+                                                            data-image-large-src="http://demo.bestprestashoptheme.com/greenbee/147-large_default/diamond-halo-stud-earrings-.jpg"
+                                                            src="http://demo.bestprestashoptheme.com/greenbee/147-home_default/diamond-halo-stud-earrings-.jpg"
+                                                            alt="" title="" itemprop="image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--------------- INFO PRODUTO -------------->
+
+                                    <div class=" col-47-5 col-md-6 col col-xs-12 mt-xs-30 block_information">
+                                        <div class="block_content">
+                                            <h1 class="detail-product-name" itemprop="name">{{produto.nome}} -
+                                                {{produto.volume}}
+                                            </h1>
+                                            <div class="in_border-reviews mb-20">
+                                                <div id="product_comments_block_extra">
+                                                    <div class="comments_note">
+                                                        <div class="star_content clearfix control-label mb-0">
+                                                            <div class="star"></div>
+                                                            <div class="star"></div>
+                                                            <div class="star"></div>
+                                                            <div class="star"></div>
+                                                            <div class="star"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pro-cate d-flex mb-10">
+                                                <label class="control-label">Categoria:</label>
+                                                <div>
+                                                    <span>
+                                                        <a href="#" title="#">{{produto.categoria.descricao}}</a>
+                                                    </span>
+                                                    <span v-for="sub in produto.categoria.subcategoria">
+                                                        <a href="#" title="#">{{sub.descricao}}</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="pro-tag d-flex">
+                                                <label class="control-label">Produtor:</label>
+                                                <div>
+                                                    <span><a href="#">Ibiúna</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="pro-tag d-flex">
+                                                <label class="control-label">Atualizado em:</label>
+                                                <div>
+                                                    <span><a href="#">14/01/2021 15:25</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="product-information">
+                                                <div id="product-description-short-26" itemprop="description">
+                                                    <p>{{produto.detalhes}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="">
+                                                <div class="group-price">
+                                                    <div class="product-prices">
+                                                        <div class="product-discount hidden-xs-up">
+                                                            <span class="regular-price">R${{produto.valor}}</span>
+                                                        </div>
+                                                        <div class="product-price has-discount" itemprop="offers"
+                                                            itemscope itemtype="https://schema.org/Offer">
+                                                            <link itemprop="availability"
+                                                                href="https://schema.org/InStock" />
+                                                            <meta itemprop="priceCurrency" content="GBP">
+                                                            <div class="current-price">
+                                                                <span itemprop="price"
+                                                                    content="11.71">R${{produto.valor}}</span>
+                                                                <span class="regular-price">R${{produto.valor}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-actions">
+                                                    <form action="#" method="post" id="add-to-cart-or-refresh">
+                                                        <input type="hidden" name="token"
+                                                            value="657437adc714b3716dff0db916728191">
+                                                        <input type="hidden" name="id_product" value="26"
+                                                            id="product_page_product_id">
+                                                        <input type="hidden" name="qty" value="1">
+                                                        <input type="hidden" name="id_customization" value="0"
+                                                            id="product_customization_id">
+                                                        <div class="product-add-to-cart">
+                                                            <span class="control-label">Quantidade: </span>
+                                                            <div class="product-quantity">
+                                                                <div class="qty">
+                                                                    <input type="text" name="qty" id="quantity_wanted"
+                                                                        value="1" class="input-group" min="1" />
+                                                                </div>
+                                                                <a class="addToWishlist" href="#" data-rel="26">
+                                                                    <i class="zmdi zmdi-favorite-outline"></i>
+                                                                    <span>Favoritos</span>
+                                                                </a>
+                                                                <div class="add">
+                                                                    <button class="btn btn-primary add-to-cart"
+                                                                        v-on:click="addCart()"
+                                                                        data-button-action="add-to-cart" type="button">
+                                                                        <i class="shopping-cart"></i>
+                                                                        <span>Adicionar ao Carrinho</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                            <p class="product-minimal-quantity">
+                                                            </p>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--------------- PANELS INFOS -------------->
+
+                    <div class="container mt-90">
+                        <div class="tabs">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#description">Descrição</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#product-details">Detalhes do
+                                        Produto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#collapseReviews">Avaliações<span
+                                            class='count-comment'></span></a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="tab-content">
+                                <div class="tab-pane fade in active" id="description">
+                                    <div class="product-description">
+                                        <p>{{produto.detalhes}}</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade in" id="product-details">
+                                    <p>{{produto.detalhes}}</p>
+                                </div>
+                                <div class="tab-pane fade in" id="collapseReviews">
+                                    <p>Em breve...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!--------------- SUBIR -------------->
+
+        <div class="canvas-overlay"></div>
+        <div id="_desktop_back_top">
+            <div id="back-top">
+                <span>
+                    <i class="fa fa-long-arrow-up"></i>
+                </span>
+                <span class="text">Subir</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!--------------- MOBILE CARRINHO -------------->
+
+    <div id="mobile-blockcart" class="mobile-boxpage d-flex hidden-md-up">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="title-box">Cart</div>
+                <div class="close-box">Close</div>
+            </div>
+            <div id="_mobile_cart" class="box-content"></div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE MENU -------------->
+
+    <div id="mobile-pageaccount" class="mobile-boxpage d-flex hidden-md-up" data-titlebox-parent="Account">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="back-box">Back</div>
+                <div class="title-box">Account</div>
+                <div class="close-box">Close</div>
+            </div>
+            <div class="box-content d-flex justify-content-center align-items-center text-center">
+                <div>
+                    <ul id="_mobile_account_list" class="account-list-content"></ul>
+                    <div class="links-currency" data-target="#box-currency" data-titlebox="Currency">
+                    </div>
+                    <div class="links-language" data-target="#box-language" data-titlebox="Language">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE BOTTTOM BAR -------------->
+
+    <div id="stickymenu_bottom_mobile">
+        <div class="row align-items-center justify-content-center hidden-md-up text-center no-gutters">
+            <div class="stickymenu-item col">
+                <a href="index.html"><img src="../assets/_icos-navigation/Caminho 1775.png"><span>Início</span></a>
+            </div>
+            <div class="stickymenu-item col">
+                <a href="#"><img src="../assets/_icos-navigation/Caminho 1776.png"><span>Busca</span></a>
+            </div>
+            <div class="stickymenu-item col">
+                <div id="_mobile_cart_bottom" class="nov-toggle-page" data-target="#mobile-blockcart"></div>
+            </div>
+            <div class="stickymenu-item col">
+                <a href="#"><img src="../assets/_icos-navigation/Grupo 3585.png"><span>Pedidos</span></a>
+            </div>
+            <div class="stickymenu-item col">
+                <a href="#" class="nov-toggle-page" data-target="#mobile-pageaccount"><img
+                        src="../assets/_icos-navigation/Grupo 3586.png"><span>Perfil</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE PAGE MENU -------------->
+
+    <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="title-box">Menu</div>
+                <div class="close-box">Close</div>
+            </div>
+            <div id="_mobile_top_menu" class="js-top-menu box-content"></div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE VERTICAL MENU -------------->
+
+    <div id="mobile_top_menu_wrapper" class="hidden-md-up">
+        <div class="content">
+            <div id="_mobile_verticalmenu"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../assets/cache/bundle.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app = new Vue({
+            el: '#main-site',
+            data: {
+                mensagem_erro: '',
+                carrinho: [],
+                produto: {
+                    categoria: {
+                        subcategoria: []
+                    }
+                }
+            },
+            methods: {
+                init: function () {
+
+                    let contexto = this;
+
+                    let id = new URL(location.href).searchParams.get('id');
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost:8081/produtos/" + id,
+                        contentType: "application/json",
+                        success: function (datax) {
+                            contexto.produto = datax;
+                        },
+                        dataType: "json"
+                    });
+
+                },
+
+                addCart: function () {
+
+                    var dataCart = localStorage.getItem('carrinho');
+
+                    if (!dataCart) {
+                        dataCart = [];
+                    } else {
+                        dataCart = JSON.parse(dataCart);
+                    }
+
+                    dataCart.push(this.produto);
+
+                    this.carrinho = dataCart;
+
+                    localStorage.setItem('carrinho', JSON.stringify(dataCart));
+
+                },
+
+                loadCarrinho: function () {
+
+                    var dataCart = localStorage.getItem('carrinho');
+
+                    if (dataCart) {
+                        this.carrinho = JSON.parse(dataCart);
+                    }
+
+                }
+
+            }
+        });
+
+        app.init();
+        app.loadCarrinho();
+
+    </script>
+
+    <div id="fb-root"></div>
+
+</body>
+
+</html>

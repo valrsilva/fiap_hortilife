@@ -18,7 +18,7 @@ public class LoginService {
 
     public boolean verificarLogin(LoginModel dadosLogin) {
         UsuarioGenerico dadosLoginSelect = usuarioGenericoRepository.selectPorLogin(dadosLogin.getLogin());
-        if (dadosLoginSelect != null){
+        if (dadosLoginSelect != null && dadosLogin.getSenha().equals(dadosLoginSelect.getSenha())){
             return true;
         }else {
             return false;

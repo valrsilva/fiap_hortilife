@@ -34,6 +34,7 @@ public class UsuarioApp {
 			user1.setNome("Produtor Zé");
 			user1.setAtivo(true);
 			user1.setEmail("user1@hortilife.com.br");
+			user1.setLogin("user1@hortilife.com.br");
 			user1.setGenero("M");
 			user1.setDataNascimento("04/12/1986");
 			user1.setSobrenome("Silva");
@@ -46,6 +47,7 @@ public class UsuarioApp {
 			user2.setNome("Produtor Zinho");
 			user2.setAtivo(true);
 			user2.setEmail("user2@hortilife.com.br");
+			user2.setLogin("user2@hortilife.com.br");
 			user2.setGenero("M");
 			user2.setDataNascimento("04/12/1986");
 			user2.setSobrenome("Silva");
@@ -57,7 +59,8 @@ public class UsuarioApp {
 			UsuarioGenerico user3 = new UsuarioGenerico();
 			user3.setNome("Produtor Jão");
 			user3.setAtivo(true);
-			user3.setEmail("user1@hortilife.com.br");
+			user3.setEmail("user3@hortilife.com.br");
+			user3.setLogin("user3@hortilife.com.br");
 			user3.setGenero("M");
 			user3.setDataNascimento("04/12/1986");
 			user3.setSobrenome("Silva");

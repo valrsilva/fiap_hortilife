@@ -445,6 +445,7 @@
                   <label class="radio-inline">
             <span class="custom-radio">
               <input
+				v-model="dados_cadastro.genero"
                 name="id_gender"
                 type="radio"
                 value="1"
@@ -456,6 +457,7 @@
                   <label class="radio-inline">
             <span class="custom-radio">
               <input
+			  v-model="dados_cadastro.genero"
                 name="id_gender"
                 type="radio"
                 value="2"
@@ -482,6 +484,7 @@
     <div class="col-md-8">
       
         <input
+		v-model="dados_cadastro.nome"
           class="form-control"
           name="firstname"
           type="text"
@@ -509,6 +512,7 @@
     <div class="col-md-8">
       
         <input
+		v-model="dados_cadastro.sobrenome"
           class="form-control"
           name="lastname"
           type="text"
@@ -536,6 +540,7 @@
     <div class="col-md-8">
       
         <input
+		v-model="dados_cadastro.email"
           class="form-control"
           name="email"
           type="email"
@@ -561,6 +566,7 @@
       
         <div class="input-group js-parent-focus">
           <input
+		  v-model="dados_cadastro.senha"
             class="form-control js-child-focus js-visible-password"
             name="password"
             type="password"
@@ -597,6 +603,7 @@
     <div class="col-md-8">
       
         <input
+		v-model="dados_cadastro.dataNascimento"
           class="form-control"
           name="birthday"
           type="text"
@@ -669,7 +676,7 @@
           <div class="col-md-10 offset-md-2">
             <input type="hidden" name="submitCreate" value="1">
             
-              <button class="btn btn-primary form-control-submit mb-30" data-link-action="save-customer" type="submit">
+              <button v-on:click="cadastrar()" class="btn btn-primary form-control-submit mb-30" data-link-action="save-customer" type="button">
                                   CRIAR MINHA CONTA
                               </button>
             
@@ -1000,7 +1007,7 @@
                         <div class="col-md-10 offset-md-2">
                           <input type="hidden" name="submitCreate" value="1">
                           
-                            <button class="btn btn-primary form-control-submit mb-30" data-link-action="save-customer" type="submit">
+                            <button v-on:click="cadastrar()" class="btn btn-primary form-control-submit mb-30" data-link-action="save-customer" type="b">
                               Register 
                             </button>
                           
@@ -1022,7 +1029,44 @@
         <script type="text/javascript" src="http://demo.bestprestashoptheme.com/greenbee/themes/vinova_greenbee/assets/cache/bottom-54e5b440.js" ></script>
 
 
-    
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app = new Vue({
+            el: '#main-site',
+            data: {
+                mensagem_erro: '',
+                dados_cadastro: {
+					nome: '',
+					sobrenome: '',
+					email: '',
+                    login: '',
+                    senha: '',
+					confirmarSenha: '',
+					dataNascimento: '',
+					genero: '',
+					cpf: ''
+                }
+            },
+            methods: {
+                cadastrar: function () {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8082/cadastrarUsuarioGenerico",
+                        data: JSON.stringify(this.dados_cadastro),
+                        contentType: "application/json",
+                        success: function (datax) {
+                            window.location.href = "index.html";
+                        },
+                        dataType: "text"
+                    });
+                }
+            }
+        });
+
+    </script>
 
     
       

@@ -1,37 +1,41 @@
 package br.com.fiap.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Categoria {
+public class Subcategoria {
      
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String descricao;
     
-    @OneToMany(mappedBy="categoria")
-    private List<Subcategoria> subcategoria;
+    @JsonIgnore
+    @ManyToOne
+    private Categoria categoria;
     
-    public Categoria() {
+    public Subcategoria() {
     	
     }
 
-	public Categoria(long id, String descricao) {
+	public Subcategoria(long id, String descricao, Categoria categoria) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
+		this.categoria = categoria;
 	}
 
-	public Categoria(String descricao) {
+	public Subcategoria(String descricao, Categoria categoria) {
 		super();
 		this.descricao = descricao;
+		this.categoria = categoria;
 	}
 
 	public long getId() {
@@ -50,14 +54,13 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 
-	public List<Subcategoria> getSubcategoria() {
-		return subcategoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setSubcategoria(List<Subcategoria> subcategoria) {
-		this.subcategoria = subcategoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
+
 	
-	
-		
 }

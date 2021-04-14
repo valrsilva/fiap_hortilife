@@ -79,26 +79,6 @@
                 url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.svg#IcoFont") format("svg");
             /* iOS 4.1- */
         }
-
-        .conic-gradient:after {
-            display: block;
-            border-radius: 9999px;
-            content: '';
-            width: 108%;
-            height: 108%;
-            position: absolute;
-            z-index: -1;
-            left: -4%;
-            top: -4%;
-            background-image: conic-gradient(#00AEEF, #fff, #00AEEF, #fff, #00AEEF);
-            animation: spin 5s linear infinite;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
     </style>
 
 </head>
@@ -336,163 +316,24 @@
                         <div class="container">
                             <div class="row">
 
-                                <!--------------- STORIES -------------->
+                                <!--------------- STORY -------------->
 
-                                <div class="nov-row  col-xl-12 col-xs-12">
-                                    <div class="nov-row-wrap row">
-                                        <div class="category-title pt-0 col-md-12 col-sm-12 col-xs-12 ">
-                                            <div class="block-product clearfix">
-                                                <div class="block_content">
-                                                    <div class="block-padding">
-                                                        <ul class="d-flex flex-nowrap" role="tablist"
-                                                            style="margin-top:5px; margin-bottom: 10px">
-                                                            <li v-for="st in stories" class="d-flex flex-nowrap"
-                                                                style="min-width:auto; padding-bottom: 10px;">
-                                                                <div class="img_cate" style="background:url()">
-                                                                    <a href="story.html">
-                                                                        <img class="img-fluid"
-                                                                            v-bind:src="st.usuario.foto"
-                                                                            style="border-radius: 50%; 
-                                                                            box-shadow: 0px 6px 5px #ccc; 
-                                                                            width:70px; 
-                                                                            height:70px; 
-                                                                            padding: 2px;
-                                                                            background: var(--c,linear-gradient(to right, #057417, #2ef33f));"
-                                                                            v-bind:alt=" st.descricao">
-                                                                    </a>
-                                                                    <span
-                                                                        style="line-height: 10px; vertical-align: top; color: black">{{st.usuario.nome}}</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div style="width:100%; height:500px; 
+                                    background: url(../assets/stories-8afda8c6-48c4-43c5-8a58-531286e39708.jpg); 
+                                    background-repeat: no-repeat; background-size: cover;">
+
+                                    <div class="img_cate" style="margin-left:10px; margin-top:10px">
+                                        <a href="#">
+                                            <img class="img-fluid"
+                                                src="https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2F2013%2F01%2F10%2F14%2FLogo-LV-58354_4275_032956204_2127284809.jpg"
+                                                style="border-radius: 50%; box-shadow: 0px 6px 5px #ccc; width:50px; height:50px; padding: 2px;
+                                                                            background: var(--c,linear-gradient(to right, #03470f, #2ef33f));">
+                                        </a>
+                                        <span style="font-weight: bold; color: white">Produtor Zézinho</span>
                                     </div>
+
                                 </div>
 
-                                <!--------------- AGRUPAMENTOS -------------->
-
-                                <div class="nov_row-full-width clearfix w-100"></div>
-                                <div v-for="ag in agrupamentos" class="nov-row  col-xl-12 col-xs-12">
-                                    <div class="nov-row-wrap row">
-                                        <div class="products_block nov-productlist product-tabs pt-0 col-md-12 col-sm-12 col-xs-12 mb-110"
-                                            style="margin-top: 10px; margin-bottom: 0px !important">
-                                            <div v-bind:id="'producttab432700606' + ag.id"
-                                                class="block-product clearfix">
-                                                <div class="text-center" style="margin-bottom:0px !important">
-                                                    <h2 class="title_block">
-                                                        {{ag.descricao}}
-                                                    </h2>
-                                                </div>
-                                                <div class="block_content">
-                                                    <div class="block-margin">
-                                                        <div class="block-padding">
-                                                            <!-- Tab panes -->
-                                                            <div class="product_tab_content tab-2 tab-content item_one">
-                                                                <div class="tab-pane fade in active"
-                                                                    v-bind:id="'producttab432700606-a-' + ag.id"
-                                                                    role="tabpanel">
-                                                                    <div v-bind:id="'producttab432700606-b-' + ag.id"
-                                                                        class="product_list grid owl-carousel owl-theme"
-                                                                        data-autoplay="false"
-                                                                        data-autoplayTimeout="6000" data-loop="true"
-                                                                        data-margin="30" data-dots="false"
-                                                                        data-nav="false" data-items="4"
-                                                                        data-items_large="4" data-items_tablet="3"
-                                                                        data-items_mobile="2">
-                                                                        <div v-for="agPost in ag.posts" class="item ">
-                                                                            <div class="product-miniature js-product-miniature item-one first_item"
-                                                                                data-id-product="26"
-                                                                                data-id-product-attribute="0" itemscope
-                                                                                itemtype="http://schema.org/Product">
-                                                                                <div class="thumbnail-container">
-                                                                                    <a href="#"
-                                                                                        class="thumbnail product-thumbnail two-image">
-                                                                                        <img class="img-fluid image-cover"
-                                                                                            v-bind:src="agPost.post.urlImagem"
-                                                                                            alt=""
-                                                                                            data-full-size-image-url="#"
-                                                                                            width="360" height="360">
-                                                                                    </a>
-                                                                                    <div class="product-flags discount">
-                                                                                        -18%
-                                                                                    </div>
-                                                                                    <div class="group-buttons">
-                                                                                        <a href="#"
-                                                                                            class="quick-view hidden-sm-down"
-                                                                                            data-link-action="quickview">
-                                                                                            <i
-                                                                                                class="zmdi zmdi-search"></i><span>
-                                                                                                Quick view</span>
-                                                                                        </a>
-                                                                                        <a class="addToWishlist"
-                                                                                            href="#" data-rel="26"
-                                                                                            onclick="">
-                                                                                            <i
-                                                                                                class="zmdi zmdi-favorite-outline"></i>
-                                                                                            <span>Add to wishlist</span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="countdown">
-                                                                                        <div class="countdownfree"
-                                                                                            data-date="2021/09/26">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="product-groups pt-11">
-                                                                                    <div class="product-description">
-                                                                                        <div class="product-title"
-                                                                                            itemprop="name"><a
-                                                                                                href="#">{{agPost.post.produto.nome}}</a>
-                                                                                        </div>
-                                                                                        <div class="product-comments">
-                                                                                            <div class="star_content">
-                                                                                                <div class="star"></div>
-                                                                                                <div class="star"></div>
-                                                                                                <div class="star"></div>
-                                                                                                <div class="star"></div>
-                                                                                                <div class="star"></div>
-                                                                                            </div>
-                                                                                            <span>(0)</span>
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="product-group-price mb-29">
-                                                                                            <div
-                                                                                                class="product-price-and-shipping">
-                                                                                                <span itemprop="price"
-                                                                                                    class="price">R${{agPost.post.produto.valor}}</span>
-                                                                                                <span
-                                                                                                    class="regular-price">R${{agPost.post.produto.valor}}</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="product-buttons"
-                                                                                        itemprop="offers" itemscope
-                                                                                        itemtype="http://schema.org/Offer">
-                                                                                        <a class="add-to-cart show_popup has-text align-self-center"
-                                                                                            style="min-width:125px !important"
-                                                                                            v-bind:href="'product.html?id=' + agPost.post.produto.id"><span
-                                                                                                class="loading"><i
-                                                                                                    class="fa fa-spinner fa-spin"
-                                                                                                    aria-hidden="true"></i></span><i
-                                                                                                class="icon-cart-product"></i><span>comprar</span></a>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nov_row-full-width clearfix w-100" style="margin-bottom: 50px"></div>
                             </div>
                         </div>
                     </section>
@@ -540,7 +381,7 @@
     <div id="stickymenu_bottom_mobile">
         <div class="row align-items-center justify-content-center hidden-md-up text-center no-gutters">
             <div class="stickymenu-item col">
-                <a href="#"><img src="../assets/_icos-navigation/Caminho 1775.png"><span>Início</span></a>
+                <a href="index.html"><img src="../assets/_icos-navigation/Caminho 1775.png"><span>Início</span></a>
             </div>
             <div class="stickymenu-item col">
                 <a href="#"><img src="../assets/_icos-navigation/Caminho 1776.png"><span>Busca</span></a>

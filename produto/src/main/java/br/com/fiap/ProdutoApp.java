@@ -75,6 +75,7 @@ public class ProdutoApp {
 			prod1.setAtivo(true);
 			prod1.setEstoque(20);
 			prod1.setDataInclusao(Calendar.getInstance().getTime());
+			prod1.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod1);
 			
 			Produto prod2 = new Produto();
@@ -87,6 +88,7 @@ public class ProdutoApp {
 			prod2.setAtivo(true);
 			prod2.setEstoque(20);
 			prod2.setDataInclusao(Calendar.getInstance().getTime());
+			prod2.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod2);
 			
 			Produto prod3 = new Produto();
@@ -99,6 +101,7 @@ public class ProdutoApp {
 			prod3.setAtivo(true);
 			prod3.setEstoque(20);
 			prod3.setDataInclusao(Calendar.getInstance().getTime());
+			prod3.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod3);
 			
 			Produto prod4 = new Produto();
@@ -111,6 +114,7 @@ public class ProdutoApp {
 			prod4.setAtivo(true);
 			prod4.setEstoque(20);
 			prod4.setDataInclusao(Calendar.getInstance().getTime());
+			prod4.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod4);
 			
 			Produto prod5 = new Produto();
@@ -123,6 +127,7 @@ public class ProdutoApp {
 			prod5.setAtivo(true);
 			prod5.setEstoque(20);
 			prod5.setDataInclusao(Calendar.getInstance().getTime());
+			prod5.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod5);
 			
 			Produto prod6 = new Produto();
@@ -135,6 +140,7 @@ public class ProdutoApp {
 			prod6.setAtivo(true);
 			prod6.setEstoque(20);
 			prod6.setDataInclusao(Calendar.getInstance().getTime());
+			prod6.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod6);
 			
 			Produto prod7 = new Produto();
@@ -147,6 +153,7 @@ public class ProdutoApp {
 			prod7.setAtivo(true);
 			prod7.setEstoque(20);
 			prod7.setDataInclusao(Calendar.getInstance().getTime());
+			prod7.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod7);
 			
 			Produto prod8 = new Produto();
@@ -159,6 +166,7 @@ public class ProdutoApp {
 			prod8.setAtivo(true);
 			prod8.setEstoque(20);
 			prod8.setDataInclusao(Calendar.getInstance().getTime());
+			prod8.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod8);
 			
 			Produto prod9 = new Produto();
@@ -171,6 +179,7 @@ public class ProdutoApp {
 			prod9.setAtivo(true);
 			prod9.setEstoque(20);
 			prod9.setDataInclusao(Calendar.getInstance().getTime());
+			prod9.setImagemPrincipal("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
 			produtoRepository.save(prod9);
 			
 			produtoRepository.findAll().forEach(System.out::println);

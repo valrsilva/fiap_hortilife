@@ -17,7 +17,7 @@ public class UsuarioGenericoModel {
     private String senha;
     private String confirmarSenha;
     private String dataNascimento;
-    private boolean ativo;
+    private boolean ativo = true;
     private String genero;
     private String cpf;
     private String foto;

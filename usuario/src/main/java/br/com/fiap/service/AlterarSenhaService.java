@@ -2,6 +2,7 @@ package br.com.fiap.service;
 
 import br.com.fiap.database.UsuarioGenerico;
 import br.com.fiap.handler.BancoDadosException;
+import br.com.fiap.model.RedefinicaoResponseModel;
 import br.com.fiap.model.RedefinicaoSenhaModel;
 import br.com.fiap.repository.UsuarioGenericoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,20 @@ public class AlterarSenhaService {
     UsuarioGenericoRepository usuarioGenericoRepository;
 
     public boolean execute(RedefinicaoSenhaModel dadosRedefinirSenha){
+        if (!verificaSenhaRedefinicao(dadosRedefinirSenha)){
+            RedefinicaoResponseModel redefinicaoSenhaModel = new RedefinicaoResponseModel();
+            redefinicaoSenhaModel.setMensagem("Senhas não conferem");
+            return false;
+        }
         redefinirSenha(validarUsuario(dadosRedefinirSenha), dadosRedefinirSenha);
         return true;
+    }
+
+    public boolean verificaSenhaRedefinicao(RedefinicaoSenhaModel dadosRedefinirSenha){
+        if (dadosRedefinirSenha.getSenha().equals(dadosRedefinirSenha.getConfirmarSenha())){
+            return true;
+        }
+        return false;
     }
 
     private void redefinirSenha(UsuarioGenerico dadosUsuario, RedefinicaoSenhaModel dadadosRedefinirSenha){

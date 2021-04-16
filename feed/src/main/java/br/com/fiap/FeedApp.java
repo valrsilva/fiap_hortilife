@@ -48,7 +48,7 @@ public class FeedApp {
 			post.setIdUsuario(1);
 			post.setDescricao("Delicioso abacate direto do pé.");
 			post.setUrlImagem("https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg");
-			post.setIdProduto(1);
+			post.setIdProduto(2);
 			post.setDataCriacao(Calendar.getInstance().getTime());
 			post = postRepository.save(post);
 			
@@ -64,7 +64,7 @@ public class FeedApp {
 			post3.setIdUsuario(3);
 			post3.setDescricao("Delicioso brócolis direto do pé.");
 			post3.setUrlImagem("http://d3ugyf2ht6aenh.cloudfront.net/stores/174/441/products/ramoso1-efba3bd91e7d3ea78c15210387253162-640-0.jpg");
-			post3.setIdProduto(1);
+			post3.setIdProduto(3);
 			post3.setDataCriacao(Calendar.getInstance().getTime());
 			post3 = postRepository.save(post3);
 			
@@ -72,7 +72,7 @@ public class FeedApp {
 			post4.setIdUsuario(1);
 			post4.setDescricao("Deliciosa couve direto do pé.");
 			post4.setUrlImagem("https://octoshop.sfo2.digitaloceanspaces.com/lojas/padellasaobenedito/uploads_produto/couve-manteiga-5e975d60d4256.png");
-			post4.setIdProduto(1);
+			post4.setIdProduto(4);
 			post4.setDataCriacao(Calendar.getInstance().getTime());
 			post4 = postRepository.save(post4);
 			
@@ -80,7 +80,7 @@ public class FeedApp {
 			Story story = new Story();
 			story.setIdUsuario(1);
 			story.setDescricao("Story de Deliciosa banana, muito soborosa!");
-			story.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
+			story.setUrlImagem("https://i.pinimg.com/736x/d8/69/16/d86916839652d45172f46906ac79c619.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire = Calendar.getInstance();
 			dtExpire.add(Calendar.HOUR_OF_DAY, 24);
@@ -90,7 +90,7 @@ public class FeedApp {
 			Story story2 = new Story();
 			story2.setIdUsuario(2);
 			story2.setDescricao("Story de Deliciosa melancia, muito soborosa!");
-			story2.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
+			story2.setUrlImagem("https://lh3.googleusercontent.com/proxy/oH3qG44AH5nyRisBiZh9q5pAmWg-kHrPW_N1CfJrIxXznJbILq2M--77CF4dsl5q5re4CsujyM7nqIbrc-hDQHU66LqYfDocoGTbHAEcXF0o4Lq8tDjs"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story2.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire2 = Calendar.getInstance();
 			dtExpire2.add(Calendar.HOUR_OF_DAY, 24);
@@ -100,42 +100,12 @@ public class FeedApp {
 			Story story3 = new Story();
 			story3.setIdUsuario(3);
 			story3.setDescricao("Story de Deliciosa maça, muito soborosa!");
-			story3.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
+			story3.setUrlImagem("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTan9UHSpuM8VoVp9Zp4GrRc69AS3NkUwJkBQ&usqp=CAU"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
 			story3.setDataCriacao(Calendar.getInstance().getTime());
 			Calendar dtExpire3 = Calendar.getInstance();
 			dtExpire3.add(Calendar.HOUR_OF_DAY, 24);
 			story3.setDataExpiracao(dtExpire3.getTime());
 			storyRepository.save(story3);
-			
-			Story story4 = new Story();
-			story4.setIdUsuario(1);
-			story4.setDescricao("Story de Deliciosa pêra, muito soborosa!");
-			story4.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
-			story4.setDataCriacao(Calendar.getInstance().getTime());
-			Calendar dtExpire4 = Calendar.getInstance();
-			dtExpire4.add(Calendar.HOUR_OF_DAY, 24);
-			story4.setDataExpiracao(dtExpire4.getTime());
-			storyRepository.save(story4);
-			
-			Story story5 = new Story();
-			story5.setIdUsuario(2);
-			story5.setDescricao("Story de Deliciosa mexerica, muito soborosa!");
-			story5.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
-			story5.setDataCriacao(Calendar.getInstance().getTime());
-			Calendar dtExpire5 = Calendar.getInstance();
-			dtExpire5.add(Calendar.HOUR_OF_DAY, 24);
-			story5.setDataExpiracao(dtExpire5.getTime());
-			storyRepository.save(story5);
-			
-			Story story6 = new Story();
-			story6.setIdUsuario(3);
-			story6.setDescricao("Story de Deliciosa uva, muito soborosa!");
-			story6.setUrlImagem("https://d3o3bdzeq5san1.cloudfront.net/91/90922.jpg"); //https://i.giphy.com/media/WNP97pSLrjM4g/giphy.webp
-			story6.setDataCriacao(Calendar.getInstance().getTime());
-			Calendar dtExpire6 = Calendar.getInstance();
-			dtExpire6.add(Calendar.HOUR_OF_DAY, 24);
-			story6.setDataExpiracao(dtExpire6.getTime());
-			storyRepository.save(story6);
 			
 			
 			Agrupamento agrupamento = new Agrupamento();

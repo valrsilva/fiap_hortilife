@@ -10,10 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import br.com.fiap.model.dto.Usuario;
 
 @Entity
 public class Produto {
@@ -40,6 +43,10 @@ public class Produto {
     private long estoque;
     private Date dataInclusao;
     private Date dataAtualizacao;
+    private long idUsuario;
+    
+    @Transient
+    private Usuario usuario;
     
     @OneToOne
     private Categoria categoria;
@@ -171,6 +178,21 @@ public class Produto {
 	public void setImagemPrincipal(String imagemPrincipal) {
 		this.imagemPrincipal = imagemPrincipal;
 	}
-	
+
+	public long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 }

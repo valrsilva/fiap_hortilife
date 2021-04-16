@@ -24,4 +24,6 @@ public class Produtor {
     @NonNull
     @Column(name = "endereco")
     private String endereco;
+    
+    
 }

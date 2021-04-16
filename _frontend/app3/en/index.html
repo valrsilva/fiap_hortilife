@@ -193,7 +193,7 @@
                                     <div class="blockcart cart-preview" data-refresh-url="#">
                                         <div class="header-cart text-center">
                                             <div class="header-cart-icon">
-                                                <span class="cart-products-count">2</span>
+                                                <span class="cart-products-count">{{carrinho.length || 0}}</span>
                                                 <i class="icon-header-cart"></i>
                                             </div>
                                             <div class="title-cart label-header"></div>
@@ -349,7 +349,7 @@
                                                             <li v-for="st in stories" class="d-flex flex-nowrap"
                                                                 style="min-width:auto; padding-bottom: 10px;">
                                                                 <div class="img_cate" style="background:url()">
-                                                                    <a href="story.html">
+                                                                    <a v-bind:href="'story.html?id=' + st.id">
                                                                         <img class="img-fluid"
                                                                             v-bind:src="st.usuario.foto"
                                                                             style="border-radius: 50%; 
@@ -520,8 +520,8 @@
         <div class="content-boxpage col">
             <div class="box-header d-flex justify-content-between align-items-center">
                 <div class="back-box">Back</div>
-                <div class="title-box">Account</div>
-                <div class="close-box">Close</div>
+                <div class="title-box">MENU</div>
+                <div class="close-box">Fechar</div>
             </div>
             <div class="box-content d-flex justify-content-center align-items-center text-center">
                 <div>
@@ -564,7 +564,7 @@
         <div class="content-boxpage col">
             <div class="box-header d-flex justify-content-between align-items-center">
                 <div class="title-box">Menu</div>
-                <div class="close-box">Close</div>
+                <div class="close-box">Fechar</div>
             </div>
             <div id="_mobile_top_menu" class="js-top-menu box-content"></div>
         </div>
@@ -589,9 +589,11 @@
 
                     let contexto = this;
 
+                    var idUserLogged = localStorage.getItem('hortilife_id_user_logged');
+
                     $.ajax({
                         type: "GET",
-                        url: "http://localhost:8083/story?idUsuario=1",
+                        url: "http://localhost:8083/story?idUsuario=" + idUserLogged,
                         contentType: "application/json",
                         success: function (datax) {
                             contexto.stories = datax;
@@ -601,7 +603,7 @@
 
                     $.ajax({
                         type: "GET",
-                        url: "http://localhost:8083/agrupamento?idUsuario=1",
+                        url: "http://localhost:8083/agrupamento?idUsuario=" + idUserLogged,
                         contentType: "application/json",
                         success: function (datax) {
                             contexto.agrupamentos = datax;

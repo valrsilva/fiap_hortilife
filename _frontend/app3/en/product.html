@@ -173,7 +173,7 @@
                                     <div class="blockcart cart-preview" data-refresh-url="#">
                                         <div class="header-cart text-center">
                                             <div class="header-cart-icon">
-                                                <span class="cart-products-count">2</span>
+                                                <span class="cart-products-count">{{carrinho.length || 0}}</span>
                                                 <i class="icon-header-cart"></i>
                                             </div>
                                             <div class="title-cart label-header"></div>
@@ -258,23 +258,7 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-3 col-md-3 justify-content-end d-flex">
-                            <div class="block_social">
-                                <div class="btn-social hidden-lg-up"><i class="zmdi zmdi-share"></i></div>
-                                <ul class="list-inline mb-0">
-                                    <li class="list-inline-item mb-0"><a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item mb-0"><a href="#"><i class="zmdi zmdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item mb-0"><a href="#"><i
-                                                class="zmdi zmdi-google-old"></i></a></li>
-                                    <li class="list-inline-item mb-0"><a href="#"><i
-                                                class="zmdi zmdi-instagram"></i></a></li>
-                                    <li class="list-inline-item mb-0"><a href="#"><i class="zmdi zmdi-dribbble"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -320,7 +304,21 @@
                             <div class="container">
                                 <div class="row">
                                     <div class=" col-52-5 col-md-6 col col-xs-12">
+
                                         <div class="images-container thumb-bottom">
+
+                                            <!--------------- LOGOTIPO PRODUTOR -------------->
+
+                                            <div class="pro-tag d-flex" style="margin-bottom:20px">
+                                                <div>
+                                                    <a v-on:click="gotoProdutor()">
+                                                        <img id="fotoProdutor" class="img-fluid" src=""
+                                                            style="border-radius: 50%; box-shadow: 0px 6px 5px #ccc; width:50px; height:50px; padding: 2px;
+                                                                                                     background: var(--c,linear-gradient(to right, #03470f, #2ef33f));">
+                                                    </a>
+                                                    <span id="nomeProdutor"></span>
+                                                </div>
+                                            </div>
 
                                             <!--------------- IMAGEM PRINCIPAL -------------->
 
@@ -343,24 +341,21 @@
                                                     data-autoplayTimeout="6000" data-items="5" data-margin="30"
                                                     data-nav="true" data-dots="false" data-items_large="4"
                                                     data-items_mobile="3" data-items_tablet="2" data-vertical="false">
-                                                    <div class="item thumb-container" style="width:90px; height:90px">
+                                                    <div style="display:none" class="item thumb-container"
+                                                        style="width:90px; height:90px">
                                                         <img class="thumb js-thumb  selected "
-                                                            data-image-medium-src="http://demo.bestprestashoptheme.com/greenbee/145-medium_default/diamond-halo-stud-earrings-.jpg"
-                                                            data-image-large-src="http://demo.bestprestashoptheme.com/greenbee/145-large_default/diamond-halo-stud-earrings-.jpg"
                                                             src="http://demo.bestprestashoptheme.com/greenbee/145-home_default/diamond-halo-stud-earrings-.jpg"
                                                             alt="" title="" itemprop="image">
                                                     </div>
-                                                    <div class="item thumb-container" style="width:90px; height:90px">
+                                                    <div style="display:none" class="item thumb-container"
+                                                        style="width:90px; height:90px">
                                                         <img class="thumb js-thumb "
-                                                            data-image-medium-src="http://demo.bestprestashoptheme.com/greenbee/146-medium_default/diamond-halo-stud-earrings-.jpg"
-                                                            data-image-large-src="http://demo.bestprestashoptheme.com/greenbee/146-large_default/diamond-halo-stud-earrings-.jpg"
                                                             src="http://demo.bestprestashoptheme.com/greenbee/146-home_default/diamond-halo-stud-earrings-.jpg"
                                                             alt="" title="" itemprop="image">
                                                     </div>
-                                                    <div class="item thumb-container" style="width:90px; height:90px">
+                                                    <div style="display:none" class="item thumb-container"
+                                                        style="width:90px; height:90px">
                                                         <img class="thumb js-thumb "
-                                                            data-image-medium-src="http://demo.bestprestashoptheme.com/greenbee/147-medium_default/diamond-halo-stud-earrings-.jpg"
-                                                            data-image-large-src="http://demo.bestprestashoptheme.com/greenbee/147-large_default/diamond-halo-stud-earrings-.jpg"
                                                             src="http://demo.bestprestashoptheme.com/greenbee/147-home_default/diamond-halo-stud-earrings-.jpg"
                                                             alt="" title="" itemprop="image">
                                                     </div>
@@ -373,9 +368,11 @@
 
                                     <div class=" col-47-5 col-md-6 col col-xs-12 mt-xs-30 block_information">
                                         <div class="block_content">
+
                                             <h1 class="detail-product-name" itemprop="name">{{produto.nome}} -
                                                 {{produto.volume}}
                                             </h1>
+
                                             <div class="in_border-reviews mb-20">
                                                 <div id="product_comments_block_extra">
                                                     <div class="comments_note">
@@ -389,6 +386,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="pro-cate d-flex mb-10">
                                                 <label class="control-label">Categoria:</label>
                                                 <div>
@@ -400,18 +398,14 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div class="pro-tag d-flex">
-                                                <label class="control-label">Produtor:</label>
-                                                <div>
-                                                    <span><a href="#">Ibiúna</a></span>
-                                                </div>
-                                            </div>
+
                                             <div class="pro-tag d-flex">
                                                 <label class="control-label">Atualizado em:</label>
                                                 <div>
                                                     <span><a href="#">14/01/2021 15:25</a></span>
                                                 </div>
                                             </div>
+
                                             <div class="product-information">
                                                 <div id="product-description-short-26" itemprop="description">
                                                     <p>{{produto.detalhes}}</p>
@@ -516,18 +510,6 @@
             </div>
         </div>
 
-        <!--------------- SUBIR -------------->
-
-        <div class="canvas-overlay"></div>
-        <div id="_desktop_back_top">
-            <div id="back-top">
-                <span>
-                    <i class="fa fa-long-arrow-up"></i>
-                </span>
-                <span class="text">Subir</span>
-            </div>
-        </div>
-
     </main>
 
     <!--------------- MOBILE CARRINHO -------------->
@@ -548,8 +530,8 @@
         <div class="content-boxpage col">
             <div class="box-header d-flex justify-content-between align-items-center">
                 <div class="back-box">Back</div>
-                <div class="title-box">Account</div>
-                <div class="close-box">Close</div>
+                <div class="title-box">MENU</div>
+                <div class="close-box">Fechar</div>
             </div>
             <div class="box-content d-flex justify-content-center align-items-center text-center">
                 <div>
@@ -636,6 +618,8 @@
                         contentType: "application/json",
                         success: function (datax) {
                             contexto.produto = datax;
+                            $("#fotoProdutor").attr("src", datax.usuario.foto);
+                            $("#nomeProdutor").html(datax.usuario.nome);
                         },
                         dataType: "json"
                     });
@@ -658,6 +642,8 @@
 
                     localStorage.setItem('carrinho', JSON.stringify(dataCart));
 
+                    alert("Produto Adicionado!");
+
                 },
 
                 loadCarrinho: function () {
@@ -667,6 +653,35 @@
                     if (dataCart) {
                         this.carrinho = JSON.parse(dataCart);
                     }
+
+                },
+
+                gotoProdutor() {
+
+                    let contexto = this;
+
+                    var idUserLogged = localStorage.getItem('hortilife_id_user_logged');
+                    var idUserSeguido = this.produto.idUsuario;
+
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8082/seguirUsuario",
+                        data: JSON.stringify({
+                            "idUsuario": idUserLogged,
+                            "idUsuarioSeguir": idUserSeguido
+                        }),
+                        contentType: "application/json",
+                        success: function (datax) {
+                            window.location.href = "produtor/index.html?id=" + contexto.produto.idUsuario;
+                            console.log("produto seguido com sucesso.");
+                        },
+                        error: function (datax) {
+                            window.location.href = "produtor/index.html?id=" + contexto.produto.idUsuario;
+                            console.log("produto seguido com erro.");
+                        },
+                        dataType: "json"
+                    });
+
 
                 }
 

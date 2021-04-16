@@ -318,18 +318,16 @@
 
                                 <!--------------- STORY -------------->
 
-                                <div style="width:100%; height:500px; 
-                                    background: url(../assets/stories-8afda8c6-48c4-43c5-8a58-531286e39708.jpg); 
+                                <div id="storyBg" style="width:100%; height:500px; 
                                     background-repeat: no-repeat; background-size: cover;">
 
                                     <div class="img_cate" style="margin-left:10px; margin-top:10px">
-                                        <a href="#">
-                                            <img class="img-fluid"
-                                                src="https://s3-sa-east-1.amazonaws.com/projetos-artes/fullsize%2F2013%2F01%2F10%2F14%2FLogo-LV-58354_4275_032956204_2127284809.jpg"
+                                        <a href="produtor/index.html">
+                                            <img class="img-fluid" v-bind:src="story.usuario.foto"
                                                 style="border-radius: 50%; box-shadow: 0px 6px 5px #ccc; width:50px; height:50px; padding: 2px;
                                                                             background: var(--c,linear-gradient(to right, #03470f, #2ef33f));">
                                         </a>
-                                        <span style="font-weight: bold; color: white">Produtor Zézinho</span>
+                                        <span style="font-weight: bold; color: white">{{story.usuario.nome}}</span>
                                     </div>
 
                                 </div>
@@ -420,81 +418,38 @@
             el: '#main-site',
             data: {
                 mensagem_erro: '',
-                stories: [],
-                agrupamentos: [],
+                carrinho: [],
                 categorias: [],
-                carrinho: []
+                story: {
+                    usuario: {}
+                }
             },
             methods: {
                 init: function () {
 
                     let contexto = this;
 
+                    let id = new URL(location.href).searchParams.get('id');
+
                     $.ajax({
                         type: "GET",
-                        url: "http://localhost:8083/story?idUsuario=1",
+                        url: "http://localhost:8083/story/" + id,
                         contentType: "application/json",
                         success: function (datax) {
-                            contexto.stories = datax;
+                            contexto.story = datax;
+
+                            if (datax.urlImagem) {
+                                $("#storyBg").css("background", "url(" + datax.urlImagem + ")");
+                            } else {
+                                $("#storyBg").css("background", "url(../assets/stories-8afda8c6-48c4-43c5-8a58-531286e39708.jpg)");
+                            }
+
+                            $("#storyBg").css("background-repeat", "no-repeat");
+                            $("#storyBg").css("background-size", "320px 460px");
                         },
                         dataType: "json"
                     });
 
-                    $.ajax({
-                        type: "GET",
-                        url: "http://localhost:8083/agrupamento?idUsuario=1",
-                        contentType: "application/json",
-                        success: function (datax) {
-                            contexto.agrupamentos = datax;
-
-                            setTimeout(Nov_Owlcarousel, 1000);
-                        },
-                        dataType: "json"
-                    });
-
-                    $.ajax({
-                        type: "GET",
-                        url: "http://localhost:8081/categorias",
-                        contentType: "application/json",
-                        success: function (datax) {
-                            contexto.categorias = datax;
-                            setTimeout(function () {
-
-                                megamenu_rep();
-                                FlipBackMenu();
-
-                                $("#nov-verticalmenu li").first().children('.dropdown-menu').slideDown(300);
-                                $("#nov-verticalmenu li").first().children('.block_content').slideDown(300);
-                                $("#nov-verticalmenu li").first().addClass('menu-active');
-
-                                $(".show-sub").click(function () {
-                                    var $this = $(this);
-                                    if ($this.parent().hasClass('menu-active')) {
-                                        $this.parent().removeClass('menu-active');
-                                        $this.parent().find('.dropdown-menu').slideUp(300)
-                                    } else {
-                                        $this.parent().parent().find('li').removeClass('menu-active');
-                                        $this.parent().toggleClass('menu-active');
-                                        $this.parent().find('.dropdown-menu').slideToggle(300)
-                                    }
-                                    return !1
-                                });
-
-                                $('.opener').click(function () {
-                                    if ($(this).parent('li').hasClass('menu-active')) {
-                                        $(this).parent('li').children('.dropdown-menu').slideUp(300);
-                                        $(this).parent('li').removeClass('menu-active')
-                                    } else {
-                                        $(this).parent('li').children('.dropdown-menu').slideDown(300);
-                                        $(this).parent('li').addClass('menu-active')
-                                    }
-                                });
-
-                            }, 1000);
-
-                        },
-                        dataType: "json"
-                    });
                 },
 
                 loadCarrinho: function () {

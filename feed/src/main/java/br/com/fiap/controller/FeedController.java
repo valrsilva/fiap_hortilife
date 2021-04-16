@@ -38,7 +38,7 @@ public class FeedController {
 	public Feed getFeedByUsuario(@PathVariable("idUsuario") long idUsuario) {
 		
 		Feed feed = new Feed();
-		List<Story> stories = storyRepository.findAllStoriesByIdUsuario(idUsuario);
+		List<Story> stories = storyRepository.findAllStoriesByIdUsuarioIn(null);
 		List<Agrupamento> agrupamentos = agrupamentoRepository.findAll();
 		
 		feed.setAgrupamentos(agrupamentos);

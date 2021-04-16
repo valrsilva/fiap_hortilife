@@ -114,9 +114,7 @@
                                             <div class="col-md-10 offset-md-2">
                                             </div>
                                         </div>
-                                        <form id="login-form"
-                                            action="http://demo.bestprestashoptheme.com/greenbee/en/login?back=my-account"
-                                            method="post">
+                                        <form id="login-form" action="" method="post">
                                             <section>
                                                 <input type="hidden" name="back" value="my-account">
                                                 <div class="form-group row no-gutters novform-email">
@@ -140,7 +138,7 @@
                                                             <input v-model="dados_login.senha"
                                                                 class="form-control js-child-focus js-visible-password"
                                                                 name="password" type="password" value=""
-                                                                placeholder="Senha" pattern=".{5,}" required>
+                                                                placeholder="Senha" required>
                                                             <span class="input-group-btn">
                                                                 <button class="btn" type="button"
                                                                     data-action="show-password"
@@ -176,13 +174,15 @@
                                                             class="form-control-submit">
                                                             Login
                                                         </button>
+                                                        <button id="validateButton" style="display:none"
+                                                            type="submit">.</button>
                                                     </div>
                                                 </div>
                                             </footer>
                                         </form>
                                     </section>
                                     <div class="no-account">
-                                        <a class="font-weight-bold" href="create_account.html"
+                                        <a class="font-weight-bold" href="combo.html"
                                             data-link-action="display-register-form">
                                             Registrar-me
                                         </a>
@@ -222,25 +222,36 @@
 
                     let contexto = this;
 
-                    $.ajax({
-                        type: "POST",
-                        url: "http://localhost:8082/login",
-                        data: JSON.stringify(this.dados_login),
-                        contentType: "application/json",
-                        success: function (datax) {
-                            window.location.href = "index.html";
-                        },
-                        error: function (datax) {
-                            contexto.mensagem_erro = "error";
-                        },
-                        dataType: "text"
-                    });
+                    if ($("form")[0].checkValidity()) {
+
+                        $.ajax({
+                            type: "POST",
+                            url: "http://localhost:8082/login",
+                            data: JSON.stringify(this.dados_login),
+                            contentType: "application/json",
+                            success: function (datax) {
+                                localStorage.setItem('hortilife_id_user_logged', datax.idUsuario);
+                                window.location.href = "index.html";
+                            },
+                            error: function (datax) {
+                                contexto.mensagem_erro = "error";
+                            },
+                            dataType: "json"
+                        });
+
+                    } else {
+
+                        $("#validateButton").click();
+
+                    }
+
                 }
             }
 
         });
 
         localStorage.removeItem('carrinho');
+        localStorage.removeItem('hortilife_id_user_logged');
 
     </script>
 

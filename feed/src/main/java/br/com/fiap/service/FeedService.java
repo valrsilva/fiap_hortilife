@@ -1,6 +1,8 @@
 package br.com.fiap.service;
 
+import java.lang.reflect.Type;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
@@ -110,6 +113,50 @@ public class FeedService {
 	@SuppressWarnings("unused")
 	private Produto produtoFallback(long idProduto) throws Exception{
 		return new Produto();
+	}
+	
+	
+	@HystrixCommand(fallbackMethod = "getUsuariosSeguidosFallback", commandProperties=
+		{@HystrixProperty(
+		name="execution.isolation.thread.timeoutInMilliseconds",value="12000")})
+	public List<Usuario> getUsuariosSeguidos(long idUsuario) throws Exception {
+		
+		List<Usuario> usuario = null;
+		
+		List<ServiceInstance> list = discoveryClient.getInstances("usuario");
+		ServiceInstance service2 = list.get(0); URI micro2URI = service2.getUri();
+		  
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		  
+		RestTemplate restTemplate = new RestTemplate();
+		
+		try {
+			
+			ResponseEntity<String> forEntity = restTemplate.getForEntity(micro2URI +
+					"/usuariosSeguidos/" + idUsuario, String.class);
+			
+			if(forEntity.getStatusCode().is2xxSuccessful()) {
+				Gson gson = new Gson();
+				Type listType = new TypeToken<ArrayList<Usuario>>(){}.getType();
+				usuario = gson.fromJson(forEntity.getBody(), listType);
+			}
+			
+		} catch (HttpClientErrorException ex)   {
+			
+		    if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
+		    	//exists = false;
+		    }
+		    
+		}
+		
+		return usuario;
+		
+	}
+	
+	@SuppressWarnings("unused")
+	private List<Usuario> getUsuariosSeguidosFallback(long idUsuario) throws Exception{
+		return new ArrayList<>();
 	}
 	
 	

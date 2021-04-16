@@ -10,5 +10,5 @@ import br.com.fiap.model.Story;
 @Repository
 public interface StoryRepository extends JpaRepository<Story, Long>{
 	
-	public List<Story> findAllStoriesByIdUsuario(long idUsuario);
+	public List<Story> findAllStoriesByIdUsuarioIn(List<Long> idUsuario);
 }

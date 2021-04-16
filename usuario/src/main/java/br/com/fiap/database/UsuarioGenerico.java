@@ -1,11 +1,26 @@
 package br.com.fiap.database;
 
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import java.util.List;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
 
 @Table(name = "usuario_generico")
 @Getter
@@ -52,5 +67,10 @@ public class UsuarioGenerico  {
     
     @Column(name = "foto", length = 32000)
     private String foto;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UsuarioSeguido> usuariosSeguidos;
+    
     
 }

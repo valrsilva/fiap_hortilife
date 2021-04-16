@@ -19,8 +19,8 @@ public class Story {
 	
 	private String urlImagem;
 	private String descricao;
-	private int idUsuario;
-	private int idProduto;
+	private long idUsuario;
+	private long idProduto;
 	private Date dataCriacao;
 	private Date dataExpiracao;
 	
@@ -39,7 +39,7 @@ public class Story {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public int getIdUsuario() {
+	public long getIdUsuario() {
 		return idUsuario;
 	}
 	public void setIdUsuario(int idUsuario) {
@@ -57,7 +57,7 @@ public class Story {
 	public void setDataExpiracao(Date dataExpiracao) {
 		this.dataExpiracao = dataExpiracao;
 	}
-	public int getIdProduto() {
+	public long getIdProduto() {
 		return idProduto;
 	}
 	public void setIdProduto(int idProduto) {

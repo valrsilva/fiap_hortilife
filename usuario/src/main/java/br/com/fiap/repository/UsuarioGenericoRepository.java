@@ -1,7 +1,5 @@
 package br.com.fiap.repository;
 
-import br.com.fiap.model.RedefinicaoSenhaModel;
-import br.com.fiap.model.UsuarioGenericoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,5 +12,7 @@ public interface UsuarioGenericoRepository extends JpaRepository<UsuarioGenerico
 
     @Query(value = "select * from usuario_generico where login = :login", nativeQuery = true)
     UsuarioGenerico selectPorLogin(@Param("login") String login);
+    
+    UsuarioGenerico findUsuarioByLoginAndSenha(@Param("login") String login, @Param("senha") String senha);
 
 }

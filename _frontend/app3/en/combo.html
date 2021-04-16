@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Combo Perfil</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../img/favicon.ico?1324977642">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico?1324977642">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/cache/bundle.css" type="text/css" media="all">
+
+    <script type="text/javascript">
+        var baseDir = "";
+        var isLogged = false;
+        var isLoggedWishlist = false;
+
+        var prestashop = {
+            "cart": {},
+            "currency": {},
+            "customer": {},
+            "language": {},
+            "page": {},
+            "shop": {},
+            "urls": {},
+            "configuration": {},
+            "field_required": [],
+            "breadcrumb": {},
+            "link": {},
+            "time": 1615852957,
+            "static_token": "",
+            "token": "",
+            "debug": false
+        };
+
+        var psemailsubscription_subscription = "";
+        var psr_icon_color = "#F19D76";
+        var search_url = "";
+        var static_token = "";
+        var wishlistProductsIdsobject = [];
+    </script>
+
+    <style type="text/css">
+        @media (min-width: 1200px) {
+            .container {
+                width: 1200px;
+            }
+
+            #header .container {
+                width: 1200px;
+            }
+
+            .footer .container {
+                width: 1200px;
+            }
+
+            #index .container {
+                width: 1200px;
+            }
+        }
+
+        @font-face {
+            font-family: "IcoFont";
+            src: url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.eot");
+            /* IE9*/
+            src: url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.eot?#iefix") format("embedded-opentype"),
+                /* IE6-IE8 */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.woff2") format("woff2"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.woff") format("woff"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.ttf") format("truetype"),
+                /* chrome firefox opera Safari, Android, iOS 4.2+*/
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.svg#IcoFont") format("svg");
+            /* iOS 4.1- */
+        }
+    </style>
+
+</head>
+
+<body id="authentication" class="lang-en country-gb currency-gbp layout-one-column page-authentication tax-display-enabled page-customer-account
+      displayhomenovfour">
+    <main id="main-site">
+
+        <div id="wrapper-site">
+            <nav data-depth="2">
+                <div class="breadcrumb" style="background-color: #3AB54A; margin-bottom:20px">
+                    <div>
+                        <img style="display: block; margin-left: auto; margin-right: auto; "
+                            src="../assets/login_brand.png" height="89" width="50">
+                    </div>
+                    <div class="container">
+                    </div>
+                </div>
+            </nav>
+            <div class="container no-index">
+                <div class="row">
+                    <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div id="main">
+                            <div class="page-header">
+                                <h1 class="page-title hidden-xs-up">
+                                    Log in to your account
+                                </h1>
+                            </div>
+                            <section id="content" class="page-content">
+                                <div class="block-form-login">
+                                    <section class="login-form">
+
+                                        <p class="text-center mb-15" style="padding-top: 40px;">Escolha seu Perfil
+                                            de Usuário:</p>
+                                        <div class="row no-gutters">
+                                            <div class="col-md-10 offset-md-2">
+                                            </div>
+                                        </div>
+                                        <form id="login-form"
+                                            action="http://demo.bestprestashoptheme.com/greenbee/en/login?back=my-account"
+                                            method="post">
+                                            <section>
+                                                <input type="hidden" name="back" value="my-account">
+                                                <div class="form-group row no-gutters">
+                                                    <label class="col-md-2 form-control-label required">
+                                                        Email
+                                                    </label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control" name="email" value=""
+                                                            placeholder="Escolher Perfil"
+                                                            style="-webkit-appearance: auto; font-size: 12px" required>
+                                                            <option>Consumidor</option>
+                                                            <option>Produtor</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2 form-control-comment right">
+                                                        <i class='zmdi zmdi-eye'></i>
+                                                    </div>
+                                                </div>
+
+                                                <footer class="form-footer clearfix">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-10 offset-md-2">
+                                                            <input type="hidden" name="submitLogin" value="1">
+                                                            <button class="btn btn-primary" data-link-action="sign-in"
+                                                                type="button" class="form-control-submit"
+                                                                v-on:click="prosseguir()">
+                                                                Prosseguir
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </footer>
+                                        </form>
+                                    </section>
+
+                                </div>
+                            </section>
+                            <footer class="page-footer">
+                                <!-- Footer content -->
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="../assets/cache/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#main-site',
+            data: {
+                mensagem_erro: '',
+                dados_login: {
+                    login: '',
+                    senha: ''
+                }
+            },
+            methods: {
+                prosseguir: function () {
+                    window.location.href = "create_account.html";
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

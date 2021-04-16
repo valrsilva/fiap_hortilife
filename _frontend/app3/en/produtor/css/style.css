@@ -132,7 +132,7 @@ button:hover {
 
 ::placeholder {
 	 position: relative;
-  color: white !important;
+  color: #707070 !important;
    top: 2px;
    left: 13px;
   font-size: 12px;
@@ -1794,13 +1794,13 @@ h1 span.novo {
 
 
 #faleconosco {
-  padding: 80px 0px 80px 0px;
-  background: #2a3a4a;
+  padding: 0px 0px 10px 0px;
+  background: #fff;
   overflow: hidden;
 }
 #faleconosco h2 {
 	font-size:40px;
-	color:#fff;
+	color:#303030;
  font-family: "Montserrat", sans-serif;
   font-weight: 200;
   text-align: left;
@@ -1824,16 +1824,16 @@ text-align: center!important;
   box-shadow: none;
   font-size: 15px;
   background: transparent;
-  border-color: #fff;
-  color: #fff;
+  border-color: #303030;
+  color: #707070;
 }
 
 #faleconosco .form button[type="submit"] {
-  background: #fff;
+  background: #482828;
   border: 0;
   margin: 0;
   padding: 15px 40px;
-  color: #000;
+  color: #fff;
   transition: 0.4s;
   cursor: pointer;
   font-size: 14px;
@@ -2414,20 +2414,20 @@ margin: -17px 0px 25px 0px;
     margin-top: 10px;
   }
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 320x) {
   #portfolio{ 
    padding: 8px 20px 20px 20px ;
    overflow: hidden;
   } 
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 320px) {
   #contato{ 
    padding: 20px 20px 10px 20px ;
    overflow: hidden;
   } 
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 320px) {
   #solucoes .bt-centro{ 
   position: relative; 
   bottom: 30%;
@@ -2454,13 +2454,13 @@ margin: -17px 0px 25px 0px;
 }
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 320px) {
 #solucoes .mockup { 
   height: 143px;
   width: 150px;
   } 
   
-@media (max-width: 740px) {
+@media (max-width: 320px) {
 #solucoes div.centro {
 	text-align: center;
 	 
@@ -2522,7 +2522,7 @@ margin: -17px 0px 25px 0px;
 	 
   }
 }
-  @media (max-width: 740px) {
+  @media (max-width: 320px) {
   #portfolio {
   padding: 95px 15px 105px 15px;
   overflow: hidden;
@@ -2534,7 +2534,7 @@ margin: -17px 0px 25px 0px;
   max-height: 100px;
 }
   
-#portfolio h1.titulo {
+#portfolio h1.titulo {}
 	font-size:40px; 
   }
   
@@ -2555,7 +2555,7 @@ margin: -17px 0px 25px 0px;
   
   @media (max-width: 740px) {
   #clientes {
-  padding: 25px 0px 60px 0px;
+  padding: 0px 0px 35px 0px;
   background: #fff;
   overflow: hidden;
   }
@@ -2594,8 +2594,8 @@ margin: -17px 0px 25px 0px;
   color: #303030;
   font-weight: 400;
   text-align: center;
-  margin-left: 15px;
-  width: 315px;
+  margin-left: 5px;
+  width: 300px;
   }
   
 #clientes h2 {
@@ -2850,7 +2850,7 @@ display: none;
 }
 }
 
-@media (max-width: 370px){
+@media (max-width: 320px){
 #pessoas .ico {
     max-width: 94px!important;
     max-height: 100px;
@@ -2861,7 +2861,6 @@ display: none;
 #product {
   background: #3AB54A;
   overflow: hidden;
-  position: absolute;
   left: 0;
   top: 0;
   height: 65px;
@@ -2881,7 +2880,35 @@ display: none;
     padding-top: 16px;
     }
 
-    
+    /*ranking */
+
+    .rating-css {
+      height: 20px;
+      width: 120px;
+      float: right;
+      margin-top: 55px;
+      margin-left: 45px;
+    }
+    .rating-css div {
+      color:#E9A550;
+      font-size: 5px;
+      font-family: sans-serif;
+      font-weight: 800;
+      text-align: leftrig;
+
+    }
+    .rating-css input {
+      display: none;
+    }
+    .rating-css input + label {
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .rating-css label:active {
+      transform: scale(0.8);
+      transition: 0.3s ease;
+    }
+
 
 #pessoas img.cel {
     max-width: 323px;

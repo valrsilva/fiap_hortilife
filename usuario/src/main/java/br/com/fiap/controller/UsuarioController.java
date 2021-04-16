@@ -133,7 +133,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping(path = "/seguirUsuario")
-	public ResponseEntity<String> seguirUsuario(@RequestBody SeguirModel seguirModel){
+	public ResponseEntity<UsuarioSeguido> seguirUsuario(@RequestBody SeguirModel seguirModel){
 		
 		Optional<UsuarioGenerico> usuarioGenerico = usuarioGenericoRepository.findById(seguirModel.getIdUsuario());
 		Optional<UsuarioGenerico> usuarioGenericoSeguir = usuarioGenericoRepository.findById(seguirModel.getIdUsuarioSeguir());
@@ -147,12 +147,13 @@ public class UsuarioController {
 			if(usuarioSeguido == null ) {
 				usuarioGenericoEntity.getUsuariosSeguidos().add(new UsuarioSeguido(0, usuarioGenericoEntity, usuarioGenericoSeguir.get()));
 				usuarioGenericoRepository.save(usuarioGenericoEntity);
-				return new ResponseEntity<String>(HttpStatus.OK);
 			}
+			
+			return new ResponseEntity<UsuarioSeguido>(usuarioSeguido, HttpStatus.OK);
 			
 		}
 		
-		return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<UsuarioSeguido>(HttpStatus.NOT_FOUND);
 		
 	}
 	

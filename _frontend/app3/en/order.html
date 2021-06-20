@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hortilife</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../img/favicon.ico?1324977642">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico?1324977642">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/cache/bundle.css" type="text/css" media="all">
+
+    <script type="text/javascript">
+        var baseDir = "";
+        var isLogged = false;
+        var isLoggedWishlist = false;
+
+        var prestashop = {
+            "cart": {},
+            "currency": {},
+            "customer": {},
+            "language": {},
+            "page": {},
+            "shop": {},
+            "urls": {},
+            "configuration": {},
+            "field_required": [],
+            "breadcrumb": {},
+            "link": {},
+            "time": 1615852957,
+            "static_token": "",
+            "token": "",
+            "debug": false
+        };
+
+        var psemailsubscription_subscription = "";
+        var psr_icon_color = "#F19D76";
+        var search_url = "";
+        var static_token = "";
+        var wishlistProductsIdsobject = [];
+
+    </script>
+
+    <style type="text/css">
+        @media (min-width: 1200px) {
+            .container {
+                width: 1200px;
+            }
+
+            #header .container {
+                width: 1200px;
+            }
+
+            .footer .container {
+                width: 1200px;
+            }
+
+            #index .container {
+                width: 1200px;
+            }
+        }
+
+        @font-face {
+            font-family: "IcoFont";
+            src: url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.eot");
+            /* IE9*/
+            src: url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.eot?#iefix") format("embedded-opentype"),
+                /* IE6-IE8 */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.woff2") format("woff2"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.woff") format("woff"),
+                /* chrome firefox */
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.ttf") format("truetype"),
+                /* chrome firefox opera Safari, Android, iOS 4.2+*/
+                url("http://db.onlinewebfonts.com/t/08abfb8ac2e3dd415deee40206de1335.svg#IcoFont") format("svg");
+            /* iOS 4.1- */
+        }
+
+        .conic-gradient:after {
+            display: block;
+            border-radius: 9999px;
+            content: '';
+            width: 108%;
+            height: 108%;
+            position: absolute;
+            z-index: -1;
+            left: -4%;
+            top: -4%;
+            background-image: conic-gradient(#00AEEF, #fff, #00AEEF, #fff, #00AEEF);
+            animation: spin 5s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<body id="checkout" class="lang-en country-gb currency-gbp layout-one-column page-order tax-display-enabled
+   displayhomenovfour">
+
+    <main id="main-site">
+
+        <!--------------- HEADER -------------->
+
+        <header id="header" class="header-4 sticky-menu">
+
+            <div class="header-top hidden-sm-down header-color-1 pt-18 pb-18">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+
+                        <!--------------- LOGO -------------->
+
+                        <div id="_desktop_logo" class="contentsticky_logo col-lg-2 col-md-3">
+                            <a href="#">
+                                <img class="logo img-fluid" src="../assets/_logo-navbrar.png" alt="Greenbee">
+                            </a>
+                        </div>
+
+                        <!--------------- BUSCA -------------->
+
+                        <div class="col-xs-8 col-md-2 col-lg-5 text-center position-static">
+                            <div id="_desktop_advancsearch">
+                                <div id="_desktop_search_content" data-id_lang="1" data-ajaxsearch="1" data-action="#">
+                                    <div class="toggle-search">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                    <form method="get" action="#" id="searchbox" class="form-novadvancedsearch">
+                                        <input type="hidden" name="fc" value="module">
+                                        <input type="hidden" name="module" value="novadvancedsearch">
+                                        <input type="hidden" name="controller" value="result">
+                                        <input type="hidden" name="orderby" value="position" />
+                                        <input type="hidden" name="orderway" value="desc" />
+                                        <input type="hidden" name="id_category" class="id_category" value="0" />
+                                        <div class="input-group input-group-left">
+                                            <input type="text" id="search_query_top"
+                                                class="search_query ui-autocomplete-input form-control"
+                                                name="search_query" value="" placeholder="Busca" />
+                                            <span class="input-group-btn button-search">
+                                                <button class="btn btn-secondary" type="submit" name="submit_search"><i
+                                                        class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--------------- MENU -------------->
+
+                        <div class="col-md-7 col-lg-5 d-flex align-items-center justify-content-end header-top-right">
+
+                            <div id="block_myaccount_infos"
+                                class="myaccount_infos groups-selector hidden-sm-down dropdown js-dropdown">
+                                <div class="myaccount-title dropdown-toggle text-center" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    id="_desktop_user_info">
+                                    <i></i>
+                                </div>
+                                <div class="account-list dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                    id="_desktop_account_list">
+                                    <div class="account-list-content">
+                                        <li>
+                                            <a class="login" href="login.html" rel="nofollow"
+                                                title="Log in to your customer account"><i
+                                                    class="fa fa-sign-in"></i><span>Sair</span></a>
+                                        </li>
+                                        <li>
+                                            <a class="check-out" href="#" rel="nofollow" title="Checkout"><i
+                                                    class="fa fa-check-circle" aria-hidden="true"></i><span>Finalizar
+                                                    Compra</span></a>
+                                        </li>
+                                        <li class="link_wishlist">
+                                            <a href="#" title="My Wishlists">
+                                                <i class="fa fa-heart"></i><span>Meus favoritos</span>
+                                            </a>
+                                        </li>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--------------- CARRINHO -------------->
+
+                            <div class="contentsticky_cart">
+                                <div id="_desktop_cart">
+                                    <div class="blockcart cart-preview" data-refresh-url="#">
+                                        <div class="header-cart text-center">
+                                            <div class="header-cart-icon">
+                                                <span class="cart-products-count">{{carrinho.length || 0}}</span>
+                                                <i class="icon-header-cart"></i>
+                                            </div>
+                                            <div class="title-cart label-header"></div>
+                                        </div>
+                                        <div class="cart_block ">
+                                            <div class="cart-block-content">
+                                                <ul>
+                                                    <li v-for="item in carrinho">
+                                                        <div class="media">
+                                                            <img class="d-flex product-image"
+                                                                src="http://demo.bestprestashoptheme.com/greenbee/153-cart_default/mug-today-is-a-good-day.jpg"
+                                                                alt="" title="">
+                                                            <a class="remove-from-cart"
+                                                                data-link-action="delete-from-cart"
+                                                                data-link-place="cart-preview" rel="nofollow"
+                                                                href="http://demo.bestprestashoptheme.com/greenbee/en/cart?delete=1&amp;id_product=27&amp;id_product_attribute=0&amp;token=657437adc714b3716dff0db916728191"
+                                                                title="remove from cart">
+                                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <div class="product-name"><a
+                                                                        href="http://demo.bestprestashoptheme.com/greenbee/en/greenbee/27-mug-today-is-a-good-day.html">{{item.nome}}</a>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="product-price">R${{item.valor}}</span>
+                                                                    <span class="quantity"> x 1</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div class="cart-total">
+                                                    <span class="label">Total:</span>
+                                                    <span class="value">R${{carrinho.reduce((total, item) => total
+                                                        + item.valor, 0)}}</span>
+                                                </div>
+                                                <div class="cart-buttons">
+                                                    <a href="#" class="btn btn-primary mb-5 btn-checkout"><i
+                                                            class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                        Finalizar Compra</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--------------- SUBHEADER -------------->
+
+            <div class="header-center hidden-sm-down">
+                <div class="container">
+                    <div class="row align-items-center d-flex">
+                        <div class="col-lg-9 col-md-9">
+
+                            <div id="_desktop_top_menu" class="contentsticky_menu">
+                                <nav id="nov-megamenu" class="clearfix">
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <div id="megamenu" class="nov-megamenu clearfix">
+                                        <ul class="menu level1">
+                                            <li class="item "><a href="#" title="Home">PRODUTOS POR CATEGORIA</a></li>
+
+                                            <li lass="item home-page has-sub"><span class="opener"></span><a href="#"
+                                                    title="#"><i
+                                                        class="fa fa-angle-down"></i>{{produto.categoria.descricao}}</a>
+                                                <div class="dropdown-menu" style="width:130px">
+                                                    <ul class="">
+                                                        <li v-for="sub in produto.categoria.subcategoria" class="item ">
+                                                            <a href="#" title="#">{{sub.descricao}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--------------- HEADER-MOBILE -------------->
+
+            <div class="header-mobile hidden-md-up" style="background-color: #3AB54A">
+                <div class="hidden-md-up text-xs-center mobile d-flex align-items-center justify-content-end">
+                    <div id="_mobile_logo" class="mobile_logo item-mobile-top"></div>
+                    <div id="_mobile_search">
+                        <div id="_mobile_search_content"></div>
+                    </div>
+                    <div id="_mobile_menutop"
+                        class="item-mobile-top nov-toggle-page d-flex align-items-center justify-content-center"
+                        data-target="#mobile-pagemenu"><i class="zmdi zmdi-view-headline"></i></div>
+                </div>
+            </div>
+
+        </header>
+
+        <!--------------- STICKER TOP MENU -------------->
+
+        <div id="header-sticky" class="sticky-header-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="contentstickynew_logo col-lg-3 col-md-2"></div>
+                    <div class="contentstickynew_menu col-lg-7 col-md-9"></div>
+                    <div class="group-sticky-right d-flex justify-content-end col-lg-2 col-md-1 align-items-center">
+                        <div class="contentstickynew_cart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------- CONTEUDO -------------->
+
+        <div id="wrapper-site" style="padding-top: 10px">
+
+            <div id="content-wrapper" class="col-sm-12">
+
+                <section id="content">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-4 mt-xs-30">
+
+                                <div id="js-checkout-summary" class="cart-summary js-cart"
+                                    data-refresh-url="http://demo.bestprestashoptheme.com/greenbee/en/cart?ajax=1&action=refresh">
+
+                                    <div class="cart-summary-products">
+                                        <div class="summary-label d-flex align-items-center">
+                                            <span>Resumo do Pedido</span>
+                                            <span class="show-details ml-auto">
+                                                <a href="#" data-toggle="collapse"
+                                                    data-target="#cart-summary-product-list">
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                        <div class="collapse in" id="cart-summary-product-list">
+                                            <ul class="media-list">
+                                                <li class="media">
+                                                    <div class="media-left d-flex">
+                                                        <a href="" title="Diamond Halo Stud Nulla">
+                                                            <img class="media-object"
+                                                                src="https://carrefourbr.vtexassets.com/arquivos/ids/197486/59870_2.jpg?v=637272440099630000"
+                                                                alt="Diamond Halo Stud Nulla">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body d-lg-flex justify-content-lg-between">
+                                                        <div class="product-name"><a href="">Banana Nanica</a></div>
+                                                        <div>
+                                                            <div class="product-price pull-xs-right">R$ 5,80</div>
+                                                            <div class="product-quantity">x1</div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                                <li class="media">
+                                                    <div class="media-left d-flex">
+                                                        <a href="" title="Diamond Halo Stud Massa">
+                                                            <img class="media-object"
+                                                                src="https://cd.shoppub.com.br/cenourao/media/cache/30/e1/30e12fb9f905711a1cb4c18eec708334.jpg"
+                                                                alt="Diamond Halo Stud Massa">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body d-lg-flex justify-content-lg-between">
+                                                        <div class="product-name"><a href="">Abacate Manteiga</a></div>
+                                                        <div>
+                                                            <div class="product-price pull-xs-right">R$5,80</div>
+                                                            <div class="product-quantity">x1</div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="group-price">
+                                        <div class="cart-summary-line" id="cart-subtotal-products">
+                                            <span class="label js-subtotal">
+                                                Total:
+                                            </span>
+                                            <span class="value">R$11,60</span>
+                                        </div>
+                                        <div class="cart-summary-line" id="cart-subtotal-shipping">
+                                            <span class="label">
+                                                Entrega:
+                                            </span>
+                                            <span class="value">Grátis</span>
+                                            <div><small class="value"></small></div>
+                                        </div>
+
+
+                                    </div>
+
+
+
+
+
+
+                                    <div class="cart-summary-totals">
+
+
+                                        <div class="cart-summary-line cart-total has_border">
+                                            <div class="d-flex">
+                                                <span>
+                                                    <span class="label">Total</span>&nbsp;<span
+                                                        class="font-small"></span>
+                                                </span>
+                                                <span class="value label ml-auto">R$25,00</span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-8" style="margin-top: 20px">
+
+
+                                <section id="checkout-personal-information-step"
+                                    class="checkout-step -reachable -complete -clickable">
+                                    <h1 class="step-title h3">
+                                        <span class="step-number">1</span>
+                                        <span class="title">Dados Pessoais</span>
+                                        <span class="step-edit"><i class="material-icons edit">mode_edit</i> edit</span>
+                                    </h1>
+
+                                    <div class="content">
+
+                                        <ul class="nav nav-inline m-y-2">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#checkout-guest-form"
+                                                    role="tab">
+                                                    Sem cadastro
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link " data-link-action="show-login-form"
+                                                    data-toggle="tab" href="#checkout-login-form" role="tab">
+                                                    Logar
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="checkout-guest-form" role="tabpanel">
+
+                                                <form action="http://localhost:8080/en/order.html" id="customer-form"
+                                                    class="js-customer-form" method="get">
+                                                    <section>
+
+                                                        <div class="form-group row no-gutters novform-id_gender">
+                                                            <label class="col-md-2 form-control-label">
+                                                                Título
+                                                            </label>
+                                                            <div class="col-md-8 form-control-valign">
+
+                                                                <label class="radio-inline">
+                                                                    <span class="custom-radio">
+                                                                        <input name="id_gender" type="radio" value="1">
+                                                                        <span></span>
+                                                                    </span>
+                                                                    Sr.
+                                                                </label>
+                                                                <label class="radio-inline">
+                                                                    <span class="custom-radio">
+                                                                        <input name="id_gender" type="radio" value="2">
+                                                                        <span></span>
+                                                                    </span>
+                                                                    Sra.
+                                                                </label>
+
+
+                                                            </div>
+
+                                                            <div class="col-md-2 form-control-comment right">
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
+                                                        <div class="form-group row no-gutters novform-firstname">
+                                                            <label class="col-md-2 form-control-label required">
+                                                                Primeiro Nome
+                                                            </label>
+                                                            <div class="col-md-8">
+
+                                                                <input class="form-control" name="firstname" type="text"
+                                                                    value="" placeholder="Primeiro Nome" required>
+                                                                <span class="form-control-comment mt-15 d-inline-block">
+                                                                    Somente letras e ponto (.), seguido de espaço é
+                                                                    permitido.
+                                                                </span>
+
+
+                                                            </div>
+
+                                                            <div class="col-md-2 form-control-comment right">
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
+                                                        <div class="form-group row no-gutters novform-lastname">
+                                                            <label class="col-md-2 form-control-label required">
+                                                                Sobrenome
+                                                            </label>
+                                                            <div class="col-md-8">
+
+                                                                <input class="form-control" name="lastname" type="text"
+                                                                    value="" placeholder="Sobrenome" required>
+                                                                <span class="form-control-comment mt-15 d-inline-block">
+                                                                    Somente letras e ponto (.), seguido de espaço é
+                                                                    permitido.
+                                                                </span>
+
+
+                                                            </div>
+
+                                                            <div class="col-md-2 form-control-comment right">
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
+                                                        <div class="form-group row no-gutters novform-email">
+                                                            <label class="col-md-2 form-control-label required">
+                                                                E-mail
+                                                            </label>
+                                                            <div class="col-md-8">
+
+                                                                <input class="form-control" name="email" type="email"
+                                                                    value="" placeholder="E-mail" required>
+
+
+                                                            </div>
+
+                                                            <div class="col-md-2 form-control-comment right">
+                                                            </div>
+                                                        </div>
+
+
+                                                    </section>
+
+
+                                                    <footer class="form-footer clearfix" style="margin-top:20px">
+                                                        <div class="row no-gutters">
+                                                            <div class="col-md-10 offset-md-2">
+                                                                <input type="hidden" name="submitCreate" value="1">
+
+                                                                <button class="continue btn btn-primary pull-xs-right"
+                                                                    name="continue"
+                                                                    data-link-action="register-new-customer"
+                                                                    type="submit" value="1">
+                                                                    Continuar
+                                                                </button>
+
+                                                            </div>
+                                                        </div>
+                                                    </footer>
+
+                                                </form>
+
+
+                                            </div>
+                                            <div class="tab-pane " id="checkout-login-form" role="tabpanel">
+                                                <div class="block-form-login">
+                                                    <div class="block-sociallogin text-center">
+                                                        <div class="title_sociallogin">Login using social network:</div>
+                                                        <div class="content_sociallogin row spacing-10">
+                                                            <div class="col">
+                                                                <a onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=facebook&page=authentication')"
+                                                                    class="btn btn-sociallogin-facebook col">
+                                                                    <i class="zmdi zmdi-facebook"></i>
+                                                                    Facebook
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="col">
+                                                                <a onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=twitter&page=authentication')"
+                                                                    class="btn btn-sociallogin-twitter col">
+                                                                    <i class="zmdi zmdi-twitter"></i>
+                                                                    Twitter
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="col">
+                                                                <a onclick="SocialPopup('//demo.bestprestashoptheme.com/greenbee/en/module/novloginsocial/authenticate?provider=google&page=authentication')"
+                                                                    class="btn btn-sociallogin-google col">
+                                                                    <i class="zmdi zmdi-google-old"></i>
+                                                                    Google
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <p class="text-center mb-15">Or Insert your account information:</p>
+
+
+
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-10 offset-md-2">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <form id="login-form"
+                                                        action="http://demo.bestprestashoptheme.com/greenbee/en/order"
+                                                        method="post">
+
+                                                        <section>
+
+
+
+                                                            <input type="hidden" name="back" value="">
+
+
+
+
+                                                            <div class="form-group row no-gutters novform-email">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    Email
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="email"
+                                                                        type="email" value="" placeholder="Email"
+                                                                        required>
+
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group row no-gutters novform-password">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    Password
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <div class="input-group js-parent-focus">
+                                                                        <input
+                                                                            class="form-control js-child-focus js-visible-password"
+                                                                            name="password" type="password" value=""
+                                                                            placeholder="Password" pattern=".{5,}"
+                                                                            required>
+                                                                        <span class="input-group-btn">
+                                                                            <button class="btn" type="button"
+                                                                                data-action="show-password"
+                                                                                data-text-show="<i class='zmdi zmdi-eye-off'></i>"
+                                                                                data-text-hide="<i class='zmdi zmdi-eye'></i>">
+                                                                                <i class='zmdi zmdi-eye-off'></i>
+                                                                            </button>
+                                                                        </span>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="forgot-password text-center mt-25 mb-25">
+                                                                <i class="zmdi zmdi-email"></i>&nbsp; Forgot your&nbsp;
+                                                                <a href="http://demo.bestprestashoptheme.com/greenbee/en/password-recovery"
+                                                                    rel="nofollow">
+                                                                    <span>Password</span>&nbsp;?
+                                                                </a>
+                                                            </div>
+                                                        </section>
+
+
+                                                        <footer class="form-footer clearfix">
+                                                            <div class="row no-gutters">
+                                                                <div class="col-md-10 offset-md-2">
+                                                                    <input type="hidden" name="submitLogin" value="1">
+
+                                                                    <button
+                                                                        class="continue btn btn-primary pull-xs-right"
+                                                                        name="continue" data-link-action="sign-in"
+                                                                        type="submit" value="1">
+                                                                        Continue
+                                                                    </button>
+
+                                                                </div>
+                                                            </div>
+                                                        </footer>
+
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </section>
+
+                                <section class="checkout-step -reachable -complete -clickable"
+                                    id="checkout-addresses-step">
+                                    <h1 class="step-title h3">
+                                        <span class="step-number">2</span>
+                                        <span class="title">ENDEREÇO</span>
+                                        <span class="step-edit"><i class="material-icons edit">mode_edit</i> edit</span>
+                                    </h1>
+
+                                    <div class="content">
+
+                                        <div class="js-address-form">
+                                            <form method="GET" action="http://localhost:8080/en/order.html?id_address=0"
+                                                data-refresh-url="http://localhost:8080/en/order.html?ajax=1&amp;action=addressForm">
+
+
+                                                <div id="delivery-address">
+
+                                                    <div class="js-address-form">
+
+                                                        <section class="form-fields">
+
+                                                            <input type="hidden" name="back" value="">
+
+                                                            <input type="hidden" name="token"
+                                                                value="3c687c6caaef859030642db177e87e60">
+
+                                                            <div class="form-group row no-gutters novform-firstname">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    Primeiro Nome
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="firstname"
+                                                                        type="text" value="" placeholder="Primeiro Nome"
+                                                                        maxlength="255" required="">
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-lastname">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    Sobrenome
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="lastname"
+                                                                        type="text" value="" placeholder="Sobrenome"
+                                                                        maxlength="255" required="">
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-company">
+                                                                <label class="col-md-2 form-control-label">
+                                                                    Empresa
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="company"
+                                                                        type="text" value="" placeholder="Empresa"
+                                                                        maxlength="255">
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                    Opcional
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-address1">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    Endereço
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="address1"
+                                                                        type="text" value="" placeholder="Endereço"
+                                                                        maxlength="128" required="">
+
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-address2">
+                                                                <label class="col-md-2 form-control-label">
+                                                                    Complemento
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="address2"
+                                                                        type="text" value="" placeholder="Complemento"
+                                                                        maxlength="128">
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                    Opcional
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-city">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    Cidade
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="city" type="text"
+                                                                        value="" placeholder="Cidade" maxlength="64"
+                                                                        required="">
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-postcode">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    CEP
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="postcode"
+                                                                        type="text" value="" placeholder="CEP"
+                                                                        maxlength="12" required="">
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-id_country">
+                                                                <label class="col-md-2 form-control-label required">
+                                                                    País
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <select
+                                                                        class="form-control form-control-select js-country"
+                                                                        name="id_country" required="">
+                                                                        <option value="" disabled="" selected="">--
+                                                                            selecione uma Opção --</option>
+                                                                        <option value="8" selected>Brasil</option>
+                                                                    </select>
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row no-gutters novform-phone">
+                                                                <label class="col-md-2 form-control-label">
+                                                                    Telefone
+                                                                </label>
+                                                                <div class="col-md-8">
+
+                                                                    <input class="form-control" name="phone" type="tel"
+                                                                        value="" placeholder="Telefone" maxlength="32">
+
+                                                                </div>
+
+                                                                <div class="col-md-2 form-control-comment right">
+                                                                    Opcional
+                                                                </div>
+                                                            </div>
+
+                                                        </section>
+
+                                                        <footer class="form-footer row no-gutters">
+                                                            <div class="col-md-10 offset-md-2">
+                                                                <input type="hidden" name="submitAddress" value="1">
+
+
+                                                                <button type="submit"
+                                                                    class="continue btn btn-primary pull-xs-right"
+                                                                    name="confirm-addresses" value="1">
+                                                                    Continuar
+                                                                </button>
+
+
+                                                            </div>
+                                                        </footer>
+
+
+
+                                                    </div>
+
+
+                                                </div>
+                                            </form>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </section>
+
+
+
+                                <section class="checkout-step -current -reachable js-current-step"
+                                    id="checkout-delivery-step">
+                                    <h1 class="step-title h3">
+                                        <span class="step-number">3</span> Entrega
+                                    </h1>
+
+                                    <div class="content">
+
+                                        <div id="hook-display-before-carrier">
+
+                                        </div>
+
+                                        <div class="delivery-options-list">
+                                            <form class="clearfix" id="js-delivery"
+                                                data-url-update="//demo.bestprestashoptheme.com/greenbee/en/order?ajax=1&amp;action=selectDeliveryOption"
+                                                method="post">
+                                                <div class="form-fields">
+
+                                                    <div class="delivery-options">
+                                                        <div class="row delivery-option align-items-center">
+                                                            <div class="col col-auto">
+                                                                <span class="custom-radio pull-xs-left">
+                                                                    <input type="radio" name="delivery_option[19]"
+                                                                        id="delivery_option_1" value="1," checked="">
+                                                                    <span></span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="col col-sm-11">
+                                                                <div for="delivery_option_1" class="delivery-option-2">
+                                                                    <div class="row align-items-center spacing-10">
+                                                                        <div class="col-sm-7">
+                                                                            <div
+                                                                                class="row align-items-center spacing-10">
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="carrier-name">Retirada
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="carrier-delay">Retirar
+                                                                                        localmente com o produtor</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-3 text-sm-right">
+                                                                            <span class="carrier-price">Grátis</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row carrier-extra-content">
+                                                        </div>
+
+                                                        <div class="row delivery-option align-items-center last">
+                                                            <div class="col col-auto">
+                                                                <span class="custom-radio pull-xs-left">
+                                                                    <input type="radio" name="delivery_option[19]"
+                                                                        id="delivery_option_2" value="2,">
+                                                                    <span></span>
+                                                                </span>
+                                                            </div>
+                                                            <div class="col  col-sm-11">
+                                                                <div for="delivery_option_2" class="delivery-option-2">
+                                                                    <div class="row align-items-center spacing-10">
+                                                                        <div class="col-sm-2">
+                                                                            <img class="img-fluid"
+                                                                                src="../assets/img/2.jpg"
+                                                                                alt="My carrier">
+                                                                        </div>
+                                                                        <div class="col-sm-7">
+                                                                            <div
+                                                                                class="row align-items-center spacing-10">
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="carrier-name">Combinar
+                                                                                        Frete
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <div class="carrier-delay">Agendar
+                                                                                        com o
+                                                                                        vendedor</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-3 text-sm-right">
+                                                                            <span class="carrier-price">R$ 5,00</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row carrier-extra-content" style="display:none;">
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="order-options">
+                                                    </div>
+                                                </div>
+                                                <!--<button type="submit" class="continue btn btn-primary ml-0 mt-10"
+                                                    name="confirmDeliveryOption" value="1">
+                                                    Continuar
+                                                </button>-->
+                                            </form>
+                                        </div>
+
+                                        <div id="hook-display-after-carrier">
+
+                                        </div>
+
+                                        <div id="extra_carrier"></div>
+
+                                    </div>
+
+                                </section>
+
+
+
+                                <section class="checkout-step -current -reachable js-current-step"
+                                    id="checkout-payment-step">
+                                    <h1 class="step-title h3">
+                                        <span class="step-number">4</span> PAGAMENTO
+                                    </h1>
+
+                                    <div class="content">
+
+                                        <div class="payment-options" style="background-color: white; padding: 20px;">
+                                            <div>
+                                                <div id="payment-option-1-container" class="payment-option clearfix">
+                                                    <span class="custom-radio pull-xs-left">
+                                                        <input class="ps-shown-by-js " id="payment-option-1"
+                                                            data-module-name="ps_checkpayment" name="payment-option"
+                                                            type="radio" required="" checked>
+                                                        <span></span>
+                                                    </span>
+                                                    <form method="GET" class="ps-hidden-by-js" style="display: none;">
+                                                        <button class="ps-hidden-by-js" type="submit"
+                                                            name="select_payment_option" value="payment-option-1"
+                                                            style="display: none;">
+                                                            Escolha
+                                                        </button>
+                                                    </form>
+
+                                                    <label for="payment-option-1">
+                                                        <span>PIX</span>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                            <div id="payment-option-1-additional-information"
+                                                class="js-additional-information definition-list additional-information ps-hidden "
+                                                style="display: none;">
+                                                <section>
+                                                    <p>Please send us your check including the following
+                                                        details:
+                                                    </p>
+                                                    <dl>
+                                                        <dt>Amount</dt>
+                                                        <dd>£23.42 (tax incl.)</dd>
+                                                        <dt>Payee</dt>
+                                                        <dd>___________</dd>
+                                                        <dt>Send your check to this address</dt>
+                                                        <dd>___________</dd>
+                                                    </dl>
+                                                    <p></p>
+                                                </section>
+
+                                            </div>
+
+                                            <div id="pay-with-payment-option-1-form"
+                                                class="js-payment-option-form  ps-hidden " style="display: none;">
+                                                <form id="payment-form" method="POST"
+                                                    action="http://demo.bestprestashoptheme.com/greenbee/en/module/ps_checkpayment/validation">
+                                                    <button style="display:none" id="pay-with-payment-option-1"
+                                                        type="submit"></button>
+                                                </form>
+                                            </div>
+                                            <div>
+                                                <div id="payment-option-2-container" class="payment-option clearfix">
+                                                    <span class="custom-radio pull-xs-left">
+                                                        <input class="ps-shown-by-js " id="payment-option-2"
+                                                            data-module-name="ps_wirepayment" name="payment-option"
+                                                            type="radio" required="">
+                                                        <span></span>
+                                                    </span>
+                                                    <form method="GET" class="ps-hidden-by-js" style="display: none;">
+                                                        <button class="ps-hidden-by-js" type="submit"
+                                                            name="select_payment_option" value="payment-option-2"
+                                                            style="display: none;">
+                                                            Choose
+                                                        </button>
+                                                    </form>
+
+                                                    <label for="payment-option-2">
+                                                        <span>Cartão de Crédito</span>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                            <div id="payment-option-2-additional-information"
+                                                class="js-additional-information definition-list additional-information ps-hidden "
+                                                style="">
+                                                <section>
+                                                    <p>
+                                                        Please transfer the invoice amount to our bank account.
+                                                        You
+                                                        will
+                                                        receive our order confirmation by email containing bank
+                                                        details
+                                                        and order number.
+                                                        Goods will be reserved 7 days for you and we'll process
+                                                        the
+                                                        order immediately after receiving the payment.
+                                                    </p>
+
+                                                    <div class="modal fade" id="bankwire-modal" tabindex="-1"
+                                                        role="dialog" aria-labelledby="Bankwire information"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                    <h2>Bankwire</h2>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Payment is made by transfer of the
+                                                                        invoice
+                                                                        amount
+                                                                        to the following account:</p>
+
+                                                                    <dl>
+                                                                        <dt>Amount</dt>
+                                                                        <dd>£23.42 (tax incl.)</dd>
+                                                                        <dt>Name of account owner</dt>
+                                                                        <dd>___________</dd>
+                                                                        <dt>Please include these details</dt>
+                                                                        <dd>___________</dd>
+                                                                        <dt>Bank name</dt>
+                                                                        <dd>___________</dd>
+                                                                    </dl>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+
+                                            </div>
+
+                                            <div id="pay-with-payment-option-2-form"
+                                                class="js-payment-option-form  ps-hidden " style="">
+                                                <form id="payment-form" method="POST"
+                                                    action="http://demo.bestprestashoptheme.com/greenbee/en/module/ps_wirepayment/validation">
+                                                    <button style="display:none" id="pay-with-payment-option-2"
+                                                        type="submit"></button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="pr-30 mb-20">
+                                            <p class="ps-hidden-by-js" style="display: none;">
+                                                By confirming the order, you certify that you have read and agree with
+                                                all of the conditions below:
+                                            </p>
+
+                                            <form id="conditions-to-approve" method="GET" style="margin-top: 20px">
+                                                <div>
+                                                    <div class="pull-xs-left">
+                                                        <span class="custom-checkbox d-inline-flex">
+                                                            <input id="conditions_to_approve[terms-and-conditions]"
+                                                                name="conditions_to_approve[terms-and-conditions]"
+                                                                required="" type="checkbox" value="1"
+                                                                class="ps-shown-by-js" checked>
+                                                            <span><i
+                                                                    class="material-icons checkbox-checked"></i></span>
+                                                            <label class="js-terms"
+                                                                for="conditions_to_approve[terms-and-conditions]"
+                                                                style="font-size:10px">
+                                                                Concordo com os <a
+                                                                    href="http://demo.bestprestashoptheme.com/greenbee/en/content/3-terms-and-conditions-of-use"
+                                                                    id="cta-terms-and-conditions-0">termos de
+                                                                    serviço</a>
+                                                            </label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+
+
+                                        <div id="payment-confirmation">
+                                            <div class="ps-shown-by-js" style="text-align: center;">
+                                                <a href="finish.html" class="btn btn-primary mb-5 btn-checkout"><i
+                                                        class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                    Finalizar Compra</a>
+                                            </div>
+                                            <div class="ps-hidden-by-js" style="display: none;">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="modal fade" id="modal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="js-modal-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal fade" id="modal">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="js-modal-content"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </section>
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="canvas-overlay"></div>
+
+    </main>
+
+
+    <!--------------- MOBILE CARRINHO -------------->
+
+    <div id="mobile-blockcart" class="mobile-boxpage d-flex hidden-md-up">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="title-box">Carrinho</div>
+                <div class="close-box">Fechar</div>
+            </div>
+            <div id="_mobile_cart" class="box-content"></div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE MENU -------------->
+
+    <div id="mobile-pageaccount" class="mobile-boxpage d-flex hidden-md-up" data-titlebox-parent="Account">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="back-box">Back</div>
+                <div class="title-box">MENU</div>
+                <div class="close-box">Fechar</div>
+            </div>
+            <div class="box-content d-flex justify-content-center align-items-center text-center">
+                <div>
+                    <ul id="_mobile_account_list" class="account-list-content"></ul>
+                    <div class="links-currency" data-target="#box-currency" data-titlebox="Currency">
+                    </div>
+                    <div class="links-language" data-target="#box-language" data-titlebox="Language">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE BOTTTOM BAR -------------->
+
+    <div id="stickymenu_bottom_mobile">
+        <div class="row align-items-center justify-content-center hidden-md-up text-center no-gutters">
+            <div class="stickymenu-item col">
+                <a href="index.html"><img src="../assets/_icos-navigation/Caminho 1775.png"><span>Início</span></a>
+            </div>
+            <div class="stickymenu-item col">
+                <a href="#"><img src="../assets/_icos-navigation/Caminho 1776.png"><span>Busca</span></a>
+            </div>
+            <div class="stickymenu-item col">
+                <div id="_mobile_cart_bottom" class="nov-toggle-page" data-target="#"></div>
+            </div>
+            <div class="stickymenu-item col">
+                <a href="#"><img src="../assets/_icos-navigation/Grupo 3585.png"><span>Pedidos</span></a>
+            </div>
+            <div class="stickymenu-item col">
+                <a href="#" class="nov-toggle-page" data-target="#mobile-pageaccount"><img
+                        src="../assets/_icos-navigation/Grupo 3586.png"><span>Perfil</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE PAGE MENU -------------->
+
+    <div id="mobile-pagemenu" class="mobile-boxpage d-flex hidden-md-up">
+        <div class="content-boxpage col">
+            <div class="box-header d-flex justify-content-between align-items-center">
+                <div class="title-box">Menu</div>
+                <div class="close-box">Close</div>
+            </div>
+            <div id="_mobile_top_menu" class="js-top-menu box-content"></div>
+        </div>
+    </div>
+
+    <!--------------- MOBILE VERTICAL MENU -------------->
+
+    <div id="mobile_top_menu_wrapper" class="hidden-md-up">
+        <div class="content">
+            <div id="_mobile_verticalmenu"></div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="../assets/cache/bundle_v2.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app = new Vue({
+            el: '#main-site',
+            data: {
+                mensagem_erro: '',
+                carrinho: [],
+                produto: {
+                    categoria: {
+                        subcategoria: []
+                    }
+                }
+            },
+            methods: {
+                init: function () {
+
+                    let contexto = this;
+
+                    let id = new URL(location.href).searchParams.get('id');
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost:8081/produtos/" + id,
+                        contentType: "application/json",
+                        success: function (datax) {
+                            contexto.produto = datax;
+                            $("#fotoProdutor").attr("src", datax.usuario.foto);
+                            $("#nomeProdutor").html(datax.usuario.nome);
+                        },
+                        dataType: "json"
+                    });
+
+                },
+
+                addCart: function () {
+
+                    var dataCart = localStorage.getItem('carrinho');
+
+                    if (!dataCart) {
+                        dataCart = [];
+                    } else {
+                        dataCart = JSON.parse(dataCart);
+                    }
+
+                    dataCart.push(this.produto);
+
+                    this.carrinho = dataCart;
+
+                    localStorage.setItem('carrinho', JSON.stringify(dataCart));
+
+                    alert("Produto Adicionado!");
+
+                },
+
+                loadCarrinho: function () {
+
+                    var dataCart = localStorage.getItem('carrinho');
+
+                    if (dataCart) {
+                        this.carrinho = JSON.parse(dataCart);
+                    }
+
+                },
+
+                gotoProdutor() {
+                    window.location.href = "produtor/index.html?id=" + this.produto.idUsuario;
+                }
+
+            }
+        });
+
+        app.init();
+        app.loadCarrinho();
+
+    </script>
+
+    <div id="fb-root"></div>
+
+</body>
+
+</html>

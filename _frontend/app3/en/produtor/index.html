@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Produtor Hortilife</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <!--  jQuery -->
@@ -153,8 +154,7 @@
                             <h2
                                 style="font-size: 16px; font-weight: 600; margin-left: 43px; align-items: center; padding-right: 45px; margin-top: 10px;">
                                 "Excelente"<br>
-                                <span style="color: #A0A0A0; font-weight: 600; font-size: 14px;">Por: Gabriel
-                                    Montreiro</span>
+                                <span style="color: #A0A0A0; font-weight: 600; font-size: 14px;">Por: João da Silva</span>
                             </h2>
                         </div>
                         <div class="col-lg-6 col-12">
@@ -188,8 +188,7 @@
                             <h2
                                 style="font-size: 16px; font-weight: 600; margin-left: 43px; align-items: center; padding-right: 45px; margin-top: 10px;">
                                 "Gostei Muito"<br>
-                                <span style="color: #A0A0A0; font-weight: 600; font-size: 14px;">Por: Olavo de
-                                    Carvalho</span>
+                                <span style="color: #A0A0A0; font-weight: 600; font-size: 14px;">Por: Maria Aparecida</span>
                             </h2>
                         </div>
                         <div class="col-lg-6 col-12">
@@ -223,7 +222,7 @@
                         <h2
                             style="font-size: 16px; font-weight: 600; margin-left: 43px; align-items: center; padding-right: 45px; margin-top: 10px;">
                             "Recomendo!"<br>
-                            <span style="color: #A0A0A0; font-weight: 600; font-size: 14px;">Por: Carla Zambelli</span>
+                            <span style="color: #A0A0A0; font-weight: 600; font-size: 14px;">Por: Marcelo Rezende</span>
                         </h2>
                     </div>
                     <div class="col-lg-6 col-12">
@@ -300,6 +299,8 @@
     <script src="lib/superfish/superfish.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/venobox/venobox.min.js"></script>
+    <script src="../../js/notify.js"></script>
+
     <!-- contato Form JavaScript File -->
     <!-- Template Main Javascript File -->
     <script src="js/main.js"></script>
@@ -348,7 +349,20 @@
                         }),
                         contentType: "application/json",
                         success: function (datax) {
-                            alert('Produtor seguido com Sucesso!');
+                            $.notify("Seguido com sucesso!", {
+                                // whether to hide the notification on click
+                                clickToHide: true,
+                                // whether to auto-hide the notification
+                                autoHide: false,
+                                // if autoHide, hide after milliseconds
+                                autoHideDelay: 5000,
+                                // default style
+                                style: 'bootstrap',
+                                // default class (string or [string])
+                                className: 'success',
+                                // padding between element and notification
+                                gap: 2
+                            });
                         },
                         error: function (datax) {
                             console.log("produtor seguido com erro.");

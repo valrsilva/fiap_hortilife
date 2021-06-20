@@ -320,9 +320,10 @@
                             data: JSON.stringify(this.dados_cadastro),
                             contentType: "application/json",
                             success: function (datax) {
+                                localStorage.setItem('hortilife_id_user_logged', datax.id);
                                 window.location.href = "index.html";
                             },
-                            dataType: "text"
+                            dataType: "json"
                         });
                     } else {
                         $("#validateButton").click();

@@ -109,12 +109,13 @@
                                     <section class="login-form">
                                         <div class="page_title_account text-center">Fazer Login</div>
 
+
                                         <p class="text-center mb-15">Insira seus dados de Login:</p>
                                         <div class="row no-gutters">
                                             <div class="col-md-10 offset-md-2">
                                             </div>
                                         </div>
-                                        <form id="login-form" action="" method="post">
+                                        <form id="login-form" action="" method="post" onSubmit="return false">
                                             <section>
                                                 <input type="hidden" name="back" value="my-account">
                                                 <div class="form-group row no-gutters novform-email">
@@ -123,8 +124,8 @@
                                                     </label>
                                                     <div class="col-md-8">
                                                         <input v-model="dados_login.login" class="form-control"
-                                                            name="email" type="email" value="" placeholder="Email"
-                                                            required>
+                                                            name="email" type="email" value="" autocomplete="off"
+                                                            placeholder="Email" required>
                                                     </div>
                                                     <div class="col-md-2 form-control-comment right">
                                                     </div>
@@ -174,7 +175,7 @@
                                                             class="form-control-submit">
                                                             Login
                                                         </button>
-                                                        <button id="validateButton" style="display:none"
+                                                        <button id="validateButton" name="1" style="display:none"
                                                             type="submit">.</button>
                                                     </div>
                                                 </div>

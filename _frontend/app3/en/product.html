@@ -44,6 +44,14 @@
     </script>
 
     <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+
+        img[src=''] {
+            display: none;
+        }
+
         @media (min-width: 1200px) {
             .container {
                 width: 1200px;
@@ -84,7 +92,7 @@
 <body id="product" class="lang-en country-gb currency-gbp layout-full-column page-product tax-display-enabled product-id-26 product-diamond-halo-stud-earrings product-id-category-2 product-id-manufacturer-1 product-id-supplier-0 product-available-for-order
       displayhomenovfour">
 
-    <main id="main-site">
+    <main id="main-site" v-cloak>
 
         <!--------------- HEADER -------------->
 
@@ -184,18 +192,16 @@
                                                     <li v-for="item in carrinho">
                                                         <div class="media">
                                                             <img class="d-flex product-image"
-                                                                src="http://demo.bestprestashoptheme.com/greenbee/153-cart_default/mug-today-is-a-good-day.jpg"
+                                                                v-bind:src="item.imagemPrincipal" alt="" title="" alt=""
                                                                 alt="" title="">
                                                             <a class="remove-from-cart"
                                                                 data-link-action="delete-from-cart"
-                                                                data-link-place="cart-preview" rel="nofollow"
-                                                                href="http://demo.bestprestashoptheme.com/greenbee/en/cart?delete=1&amp;id_product=27&amp;id_product_attribute=0&amp;token=657437adc714b3716dff0db916728191"
+                                                                data-link-place="cart-preview" rel="nofollow" href=""
                                                                 title="remove from cart">
                                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                             </a>
                                                             <div class="media-body">
-                                                                <div class="product-name"><a
-                                                                        href="http://demo.bestprestashoptheme.com/greenbee/en/greenbee/27-mug-today-is-a-good-day.html">{{item.nome}}</a>
+                                                                <div class="product-name"><a href="#">{{item.nome}}</a>
                                                                 </div>
                                                                 <div>
                                                                     <span class="product-price">R${{item.valor}}</span>
@@ -211,7 +217,7 @@
                                                         + item.valor, 0)}}</span>
                                                 </div>
                                                 <div class="cart-buttons">
-                                                    <a href="#" class="btn btn-primary mb-5 btn-checkout"><i
+                                                    <a href="order.html" class="btn btn-primary mb-5 btn-checkout"><i
                                                             class="fa fa-check-square-o" aria-hidden="true"></i>
                                                         Finalizar Compra</a>
                                                 </div>
@@ -312,7 +318,7 @@
                                             <div class="pro-tag d-flex" style="margin-bottom:20px">
                                                 <div>
                                                     <a v-on:click="gotoProdutor()">
-                                                        <img id="fotoProdutor" class="img-fluid" src=""
+                                                        <img id="fotoProdutor" class="img-fluid" src="" alt="" title=""
                                                             style="border-radius: 50%; box-shadow: 0px 6px 5px #ccc; width:50px; height:50px; padding: 2px;
                                                                                                      background: var(--c,linear-gradient(to right, #03470f, #2ef33f));">
                                                     </a>
@@ -589,6 +595,7 @@
     </div>
 
     <script type="text/javascript" src="../assets/cache/bundle.js"></script>
+    <script type="text/javascript" src="../js/notify.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
@@ -642,7 +649,7 @@
 
                     localStorage.setItem('carrinho', JSON.stringify(dataCart));
 
-                    alert("Produto Adicionado!");
+                    $.notify("Produto Adicionado!", "success");
 
                 },
 

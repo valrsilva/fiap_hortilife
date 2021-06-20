@@ -46,6 +46,10 @@
     </script>
 
     <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+
         @media (min-width: 1200px) {
             .container {
                 width: 1200px;
@@ -106,7 +110,7 @@
 <body id="index" class="lang-en country-gb currency-gbp layout-full-width page-index tax-display-enabled
       displayhomenovfour">
 
-    <main id="main-site">
+    <main id="main-site" v-cloak>
 
         <!--------------- HEADER -------------->
 
@@ -141,12 +145,12 @@
                                         <input type="hidden" name="orderway" value="desc" />
                                         <input type="hidden" name="id_category" class="id_category" value="0" />
                                         <div class="input-group input-group-left">
-                                            <input type="text" id="search_query_top"
+                                            <input type="text" id="search_query_top" v-model="busca"
                                                 class="search_query ui-autocomplete-input form-control"
                                                 name="search_query" value="" placeholder="Busca" />
                                             <span class="input-group-btn button-search">
-                                                <button class="btn btn-secondary" type="submit" name="submit_search"><i
-                                                        class="fa fa-search"></i></button>
+                                                <button class="btn btn-secondary" type="button" name="submit_search"
+                                                    v-on:click="gotoSearch()"><i class="fa fa-search"></i></button>
                                             </span>
                                         </div>
                                     </form>
@@ -173,7 +177,7 @@
                                                     class="fa fa-sign-in"></i><span>Sair</span></a>
                                         </li>
                                         <li>
-                                            <a class="check-out" href="#" rel="nofollow" title="Checkout"><i
+                                            <a class="check-out" href="order.html" rel="nofollow" title="Checkout"><i
                                                     class="fa fa-check-circle" aria-hidden="true"></i><span>Finalizar
                                                     Compra</span></a>
                                         </li>
@@ -204,18 +208,16 @@
                                                     <li v-for="item in carrinho">
                                                         <div class="media">
                                                             <img class="d-flex product-image"
-                                                                src="http://demo.bestprestashoptheme.com/greenbee/153-cart_default/mug-today-is-a-good-day.jpg"
-                                                                alt="" title="">
+                                                                v-bind:src="item.imagemPrincipal" alt="" title="" alt=""
+                                                                title="">
                                                             <a class="remove-from-cart"
                                                                 data-link-action="delete-from-cart"
-                                                                data-link-place="cart-preview" rel="nofollow"
-                                                                href="http://demo.bestprestashoptheme.com/greenbee/en/cart?delete=1&amp;id_product=27&amp;id_product_attribute=0&amp;token=657437adc714b3716dff0db916728191"
+                                                                data-link-place="cart-preview" rel="nofollow" href=""
                                                                 title="remove from cart">
                                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                             </a>
                                                             <div class="media-body">
-                                                                <div class="product-name"><a
-                                                                        href="http://demo.bestprestashoptheme.com/greenbee/en/greenbee/27-mug-today-is-a-good-day.html">{{item.nome}}</a>
+                                                                <div class="product-name"><a href="#">{{item.nome}}</a>
                                                                 </div>
                                                                 <div>
                                                                     <span class="product-price">R${{item.valor}}</span>
@@ -231,7 +233,7 @@
                                                         + item.valor, 0)}}</span>
                                                 </div>
                                                 <div class="cart-buttons">
-                                                    <a href="#" class="btn btn-primary mb-5 btn-checkout"><i
+                                                    <a href="order.html" class="btn btn-primary mb-5 btn-checkout"><i
                                                             class="fa fa-check-square-o" aria-hidden="true"></i>
                                                         Finalizar Compra</a>
                                                 </div>
@@ -543,7 +545,7 @@
                 <a href="#"><img src="../assets/_icos-navigation/Caminho 1775.png"><span>Início</span></a>
             </div>
             <div class="stickymenu-item col">
-                <a href="#"><img src="../assets/_icos-navigation/Caminho 1776.png"><span>Busca</span></a>
+                <a href="search.html"><img src="../assets/_icos-navigation/Caminho 1776.png"><span>Busca</span></a>
             </div>
             <div class="stickymenu-item col">
                 <div id="_mobile_cart_bottom" class="nov-toggle-page" data-target="#mobile-blockcart"></div>
@@ -582,7 +584,8 @@
                 stories: [],
                 agrupamentos: [],
                 categorias: [],
-                carrinho: []
+                carrinho: [],
+                busca: ''
             },
             methods: {
                 init: function () {
@@ -666,7 +669,12 @@
                         this.carrinho = JSON.parse(dataCart);
                     }
 
+                },
+
+                gotoSearch() {
+                    window.location.href = "search.html?v=" + this.busca;
                 }
+
             }
         });
 
